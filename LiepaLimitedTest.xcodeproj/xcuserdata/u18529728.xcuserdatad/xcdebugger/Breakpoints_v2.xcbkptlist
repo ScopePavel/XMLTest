@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "B85391CB-8B2D-4D94-BCD6-BD782025C05A"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D7C3CC05-127D-4F23-81C5-6832B90E765D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LiepaLimitedTest/FeedViewController/FeedViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "settingsAction(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D7C3CC05-127D-4F23-81C5-6832B90E765D - 9c87f000e2f525b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LiepaLimitedTest.FeedViewController.(settingsAction in _6AEFC32CD7A1BC285BD38AD102A307C0)(Any) -&gt; ()"
+                  moduleName = "LiepaLimitedTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/u18529728/Desktop/LiepaLimitedTest/LiepaLimitedTest/FeedViewController/FeedViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  uuid = "D7C3CC05-127D-4F23-81C5-6832B90E765D - ecd46aa25ac1994c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in LiepaLimitedTest.FeedViewController.(settingsAction in _6AEFC32CD7A1BC285BD38AD102A307C0)(Any) -&gt; ()"
+                  moduleName = "LiepaLimitedTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/u18529728/Desktop/LiepaLimitedTest/LiepaLimitedTest/FeedViewController/FeedViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "123">
+               </Location>
+               <Location
+                  uuid = "D7C3CC05-127D-4F23-81C5-6832B90E765D - f9928ac8d2f7d6fa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 () -&gt; () in LiepaLimitedTest.FeedViewController.(settingsAction in _6AEFC32CD7A1BC285BD38AD102A307C0)(Any) -&gt; ()"
+                  moduleName = "LiepaLimitedTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/u18529728/Desktop/LiepaLimitedTest/LiepaLimitedTest/FeedViewController/FeedViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "46">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
