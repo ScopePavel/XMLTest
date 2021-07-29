@@ -7,7 +7,7 @@
 
 import Foundation
 
-var timeInterval: Double = 2
+
 
 final class FeedViewModel: NSObject {
 
@@ -19,7 +19,7 @@ final class FeedViewModel: NSObject {
     }
 
     func getData(complition: (() -> ())?) {
-        _ = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true) {  [weak self] _ in
+        _ = Timer.scheduledTimer(withTimeInterval: UserDefaultsHelper().timeIntervalForTimer, repeats: true) {  [weak self] _ in
             guard let self = self else { return }
             self.feeds = []
             self.parsers.forEach { [weak self] parser in
@@ -35,6 +35,7 @@ final class FeedViewModel: NSObject {
                 self?.feeds = self?.feeds.sorted(by: { $0.date > $1.date }) ?? []
                 complition?()
                 print(self?.feeds.count)
+                print(Date())
             }
         }
     }

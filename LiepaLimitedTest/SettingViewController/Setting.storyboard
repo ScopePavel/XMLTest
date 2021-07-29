@@ -17,18 +17,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bVc-Zh-PNo">
-                                <rect key="frame" x="334" y="64" width="60" height="30"/>
+                                <rect key="frame" x="334" y="64" width="60" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="TgL-c9-vaA"/>
+                                </constraints>
                                 <state key="normal" title="Закрыть"/>
                                 <connections>
                                     <action selector="doneAction:" destination="UoF-t3-uqu" eventType="touchUpInside" id="l5e-Tu-tIw"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="time interval" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sZI-ja-XWo">
+                                <rect key="frame" x="16" y="104" width="382" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="c7k-3A-RvS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="timeIntervalChangedAction:" destination="UoF-t3-uqu" eventType="editingChanged" id="fcH-Wf-fu5"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mzX-L5-Rm2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="sZI-ja-XWo" firstAttribute="leading" secondItem="mzX-L5-Rm2" secondAttribute="leading" constant="16" id="AgT-WN-OvH"/>
                             <constraint firstItem="bVc-Zh-PNo" firstAttribute="top" secondItem="mzX-L5-Rm2" secondAttribute="top" constant="20" id="d7b-mF-sdc"/>
+                            <constraint firstItem="sZI-ja-XWo" firstAttribute="top" secondItem="bVc-Zh-PNo" secondAttribute="bottom" constant="20" id="e7R-p0-chd"/>
                             <constraint firstItem="mzX-L5-Rm2" firstAttribute="trailing" secondItem="bVc-Zh-PNo" secondAttribute="trailing" constant="20" id="hC1-Zj-Lk3"/>
+                            <constraint firstItem="mzX-L5-Rm2" firstAttribute="trailing" secondItem="sZI-ja-XWo" secondAttribute="trailing" constant="16" id="k8d-Ok-H6v"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="osk-fw-TCo">

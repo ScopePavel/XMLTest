@@ -16,7 +16,10 @@ final class SettingViewController: UIViewController {
     }
 
     @IBAction private func doneAction(_ sender: Any) {
-        viewModel?.onClose?()
+        viewModel?.done()
     }
 
+    @IBAction func timeIntervalChangedAction(_ sender: UITextField) {
+        viewModel?.timeInterval = Double(sender.text ?? "")
+    }
 }

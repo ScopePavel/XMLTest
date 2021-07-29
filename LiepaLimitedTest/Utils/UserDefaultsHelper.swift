@@ -8,7 +8,7 @@
 import Foundation
 
 final class UserDefaultsHelper {
-    var isLocalReminderNotificationEnabled: Double {
+    var timeIntervalForTimer: Double {
         get {
             if let state = UserDefaults.standard.value(forKey: Constants.timeIntervalForTimer) as? Double {
                 return state
@@ -21,7 +21,7 @@ final class UserDefaultsHelper {
         }
     }
 
-    private struct Constants {
+    struct Constants {
         static let timeIntervalForTimer = "timeIntervalForTimer"
     }
 }

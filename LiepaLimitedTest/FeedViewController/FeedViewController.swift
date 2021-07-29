@@ -13,19 +13,32 @@ final class FeedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configView()
+        configTableView()
+        configViewModel()
     }
 
-    private func configView() {
+
+    @IBOutlet private weak var tableView: UITableView!
+
+    @IBAction private func settingsAction(_ sender: Any) {
+        viewModel?.showSettings()
+    }
+
+    private func configTableView() {
+        NotificationCenter.default.addObserver(self, selector: #selector(settings), name: LLNotifications.settings, object: nil)
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(FeedCell.self)
+    }
+
+    private func configViewModel() {
+
         if let navigationController = navigationController {
             viewModel = FeedViewModel(parsers: [ParserManagerTwo(urlString: "http://lenta.ru/rss"),
                                                 ParserManagerTwo(urlString: "http://www.gazeta.ru/export/rss/lenta.xml")],
                                       router: Router(navigationController: navigationController))
         }
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(FeedCell.self)
         viewModel?.getData(complition: { [weak self] in
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
@@ -33,10 +46,8 @@ final class FeedViewController: UIViewController {
         })
     }
 
-    @IBOutlet private weak var tableView: UITableView!
-
-    @IBAction private func settingsAction(_ sender: Any) {
-        viewModel?.showSettings()
+    @objc private func settings(_ notification: Notification) {
+        configViewModel()
     }
 }
 
