@@ -47,6 +47,14 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         cell.config(model: model)
         return cell
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard
+            let cell = tableView.cellForRow(at: indexPath) as? FeedCell else { return }
+        tableView.beginUpdates()
+        cell.descriptionNumberOfLines = (cell.descriptionNumberOfLines == 0) ? 3 : 0
+        tableView.endUpdates()
+    }
 }
 
 
