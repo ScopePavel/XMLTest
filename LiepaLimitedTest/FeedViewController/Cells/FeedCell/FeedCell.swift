@@ -19,6 +19,8 @@ final class FeedCell: UITableViewCell, ReusableView {
         descriptionLabel.text = model.description
     }
 
-
+    
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var sourceLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
 }

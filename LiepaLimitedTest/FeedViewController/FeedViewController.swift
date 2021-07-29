@@ -16,6 +16,7 @@ final class FeedViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.register(FeedCell.self)
         viewModel?.getData(complition: { [weak self] in
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
@@ -44,7 +45,6 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         else { return UITableViewCell() }
 
         cell.config(model: model)
-
         return cell
     }
 }

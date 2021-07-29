@@ -20,6 +20,7 @@ final class FeedViewModel: NSObject {
             parser.getData { [weak self] feedsFromParser in
                 self?.feeds.append(contentsOf: feedsFromParser)
                 complition?()
+                print("feedsCount = ", self?.feeds.count)
             }
         }
     }
