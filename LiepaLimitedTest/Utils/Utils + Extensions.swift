@@ -32,3 +32,27 @@ extension UITableView {
         register(nib, forHeaderFooterViewReuseIdentifier: T.reuseIdentifier)
     }
 }
+
+extension Date {
+    func toString(_ format: StringDateFormat) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format.rawValue
+        return dateFormatter.string(from: self)
+    }
+}
+
+enum StringDateFormat: String {
+    case rss = "E, d MMM yyyy HH:mm:ss Z"
+    case yyyyMMddDashTime = "yyyy-MM-dd HH:mm:ss"
+    case ddMMyyyyPoint = "dd.MM.yyyy"
+    case ddMMyyPoint = "dd.MM.yy"
+}
+
+extension String {
+    func toDate(format: StringDateFormat) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.calendar = Calendar(identifier: .gregorian)
+        dateFormatter.dateFormat = format.rawValue
+        return dateFormatter.date(from: self)
+    }
+}

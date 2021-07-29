@@ -9,20 +9,27 @@ import UIKit
 import SDWebImage
 
 struct FeedCellViewModel {
-    let title: String
-    let datePub: String
-    let description: String
-    let url: String
-    let source: String
+    let title: String?
+    let datePub: String?
+    let description: String?
+    let url: String?
+    let source: String?
+    let guId: String?
+
+    var date: Date {
+        datePub?.toDate(format: .rss) ?? Date()
+    }
 }
 
 final class FeedCell: UITableViewCell, ReusableView {
 
     func config(model: FeedCellViewModel) {
-        descriptionLabel.text = model.description
-        titleLabel.text = model.title
-        sourceLabel.text = model.source
-        picterImageView.sd_setImage(with: URL(string: model.url), completed: nil)
+        descriptionLabel.text = model.description ?? ""
+        titleLabel.text = model.title ?? ""
+        sourceLabel.text = model.source ?? ""
+        if let url = model.url {
+            picterImageView.sd_setImage(with: URL(string: url), completed: nil)
+        }
     }
 
 

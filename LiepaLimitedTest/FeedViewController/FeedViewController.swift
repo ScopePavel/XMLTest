@@ -9,10 +9,19 @@ import UIKit
 
 final class FeedViewController: UIViewController {
 
-    var viewModel: FeedViewModel? = FeedViewModel(parsers: [ParserManager(), ParserManagerTwo()])
+    var viewModel: FeedViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configView()
+    }
+
+    private func configView() {
+        if let navigationController = navigationController {
+            viewModel = FeedViewModel(parsers: [ParserManagerTwo(urlString: "http://lenta.ru/rss"),
+                                                ParserManagerTwo(urlString: "http://www.gazeta.ru/export/rss/lenta.xml")],
+                                      router: Router(navigationController: navigationController))
+        }
         tableView.rowHeight = UITableView.automaticDimension
         tableView.delegate = self
         tableView.dataSource = self
@@ -27,11 +36,7 @@ final class FeedViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
 
     @IBAction private func settingsAction(_ sender: Any) {
-        viewModel?.getData(complition: { [weak self] in
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
-            }
-        })
+        viewModel?.showSettings()
     }
 }
 
