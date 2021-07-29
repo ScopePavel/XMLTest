@@ -7,4 +7,6 @@ target 'LiepaLimitedTest' do
 
   # Pods for LiepaLimitedTest
 
+  pod 'SDWebImage'
+
 end
