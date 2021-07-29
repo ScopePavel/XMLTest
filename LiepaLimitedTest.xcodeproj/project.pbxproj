@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,7 @@
 		0920021926B2CB6900EE54A6 /* Utils + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0920021826B2CB6900EE54A6 /* Utils + Extensions.swift */; };
 		0920021F26B2DCC300EE54A6 /* ParserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0920021E26B2DCC300EE54A6 /* ParserManager.swift */; };
 		0920022A26B2E49600EE54A6 /* FeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0920022926B2E49600EE54A6 /* FeedCell.xib */; };
+		0920023F26B2F3B300EE54A6 /* ParserManagerTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0920023E26B2F3B300EE54A6 /* ParserManagerTwo.swift */; };
 		8083F10A6719F72ED6FB9627 /* Pods_LiepaLimitedTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 061336E223E12AC5A112E4C0 /* Pods_LiepaLimitedTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		0920021826B2CB6900EE54A6 /* Utils + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Utils + Extensions.swift"; sourceTree = "<group>"; };
 		0920021E26B2DCC300EE54A6 /* ParserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserManager.swift; sourceTree = "<group>"; };
 		0920022926B2E49600EE54A6 /* FeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCell.xib; sourceTree = "<group>"; };
+		0920023E26B2F3B300EE54A6 /* ParserManagerTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserManagerTwo.swift; sourceTree = "<group>"; };
 		5B54B47372C181BF7095882B /* Pods-LiepaLimitedTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiepaLimitedTest.release.xcconfig"; path = "Target Support Files/Pods-LiepaLimitedTest/Pods-LiepaLimitedTest.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				0920021E26B2DCC300EE54A6 /* ParserManager.swift */,
+				0920023E26B2F3B300EE54A6 /* ParserManagerTwo.swift */,
 			);
 			path = Parsers;
 			sourceTree = "<group>";
@@ -143,7 +146,6 @@
 				07D1A1E01383486EB6AEA18A /* Pods-LiepaLimitedTest.debug.xcconfig */,
 				5B54B47372C181BF7095882B /* Pods-LiepaLimitedTest.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -265,6 +267,7 @@
 				092001F126B19E2E00EE54A6 /* FeedViewController.swift in Sources */,
 				0920021526B2C86D00EE54A6 /* FeedCell.swift in Sources */,
 				092001ED26B19E2E00EE54A6 /* AppDelegate.swift in Sources */,
+				0920023F26B2F3B300EE54A6 /* ParserManagerTwo.swift in Sources */,
 				0920020426B19E7600EE54A6 /* FeedViewModel.swift in Sources */,
 				0920021F26B2DCC300EE54A6 /* ParserManager.swift in Sources */,
 				092001EF26B19E2E00EE54A6 /* SceneDelegate.swift in Sources */,

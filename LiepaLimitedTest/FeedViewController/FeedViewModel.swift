@@ -16,14 +16,22 @@ final class FeedViewModel: NSObject {
     }
 
     func getData(complition: (() -> ())?) {
+        self.feeds = []
         parsers.forEach { [weak self] parser in
+            group.enter()
             parser.getData { [weak self] feedsFromParser in
                 self?.feeds.append(contentsOf: feedsFromParser)
-                complition?()
-                print("feedsCount = ", self?.feeds.count)
+                self?.group.leave()
             }
+        }
+
+
+        group.notify(queue: .main) { [weak self] in
+            complition?()
+            print(self?.feeds.count)
         }
     }
 
+    private let group = DispatchGroup()
     private var parsers: [ParserProtocol]
 }

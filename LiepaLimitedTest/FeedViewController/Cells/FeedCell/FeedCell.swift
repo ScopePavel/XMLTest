@@ -10,7 +10,7 @@ import SDWebImage
 
 struct FeedCellViewModel {
     let title: String
-    let autor: String
+    let datePub: String
     let description: String
     let url: String
     let source: String

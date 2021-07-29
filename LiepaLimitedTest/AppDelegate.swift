@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  LiepaLimitedTest
 //
-//  Created by 18529728 on 28.07.2021.
+//  Created by Паронькин Павел on 28.07.2021.
 //
 
 import UIKit

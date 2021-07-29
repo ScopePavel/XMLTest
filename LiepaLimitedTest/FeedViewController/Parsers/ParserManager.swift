@@ -2,7 +2,7 @@
 //  ParserManager.swift
 //  LiepaLimitedTest
 //
-//  Created by 18529728 on 29.07.2021.
+//  Created by Паронькин Павел on 29.07.2021.
 //
 
 import Foundation
@@ -14,6 +14,7 @@ protocol ParserProtocol {
 final class ParserManager: NSObject, ParserProtocol, XMLParserDelegate {
 
     func getData(complition: (([FeedCellViewModel]) -> ())?) {
+        feeds = []
         self.complition = complition
         guard let url = URL(string: "http://lenta.ru/rss") else { return }
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
@@ -72,7 +73,7 @@ extension ParserManager {
 
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         if elementName == "item" {
-            feeds.append(FeedCellViewModel(title: parserModel.title, autor: parserModel.link, description: parserModel.descriptionFromServer,
+            feeds.append(FeedCellViewModel(title: parserModel.title, datePub: parserModel.link, description: parserModel.descriptionFromServer,
                                            url: parserModel.url, source: parserModel.link))
 
         }

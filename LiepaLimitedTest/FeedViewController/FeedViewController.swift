@@ -9,7 +9,7 @@ import UIKit
 
 final class FeedViewController: UIViewController {
 
-    var viewModel: FeedViewModel? = FeedViewModel(parsers: [ParserManager()])
+    var viewModel: FeedViewModel? = FeedViewModel(parsers: [ParserManager(), ParserManagerTwo()])
 
     override func viewDidLoad() {
         super.viewDidLoad()

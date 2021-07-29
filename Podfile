@@ -9,5 +9,6 @@ target 'LiepaLimitedTest' do
 
   pod 'SDWebImage'
   pod 'XMLCoder'
+  pod 'SwiftyXMLParser'
 
 end
