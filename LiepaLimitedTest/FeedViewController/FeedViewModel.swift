@@ -19,7 +19,8 @@ final class FeedViewModel: NSObject {
     }
 
     func getData(complition: (() -> ())?) {
-        _ = Timer.scheduledTimer(withTimeInterval: UserDefaultsHelper().timeIntervalForTimer, repeats: true) {  [weak self] _ in
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: UserDefaultsHelper().timeIntervalForTimer, repeats: true) {  [weak self] _ in
             guard let self = self else { return }
             self.feeds = []
             self.parsers.forEach { [weak self] parser in
@@ -44,6 +45,11 @@ final class FeedViewModel: NSObject {
         router.showSettings()
     }
 
+    func updateParsers() {
+        
+    }
+
+    private var timer: Timer?
     private let router: Router
     private let group = DispatchGroup()
     private var parsers: [ParserProtocol]

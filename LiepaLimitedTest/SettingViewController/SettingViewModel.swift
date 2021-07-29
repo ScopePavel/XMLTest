@@ -18,10 +18,9 @@ final class SettingViewModel {
             userDefaultsHelper.timeIntervalForTimer = timeInterval
         }
 
-        let dict = [UserDefaultsHelper.Constants.timeIntervalForTimer: userDefaultsHelper.timeIntervalForTimer]
         NotificationCenter.default.post(name: LLNotifications.settings,
                                         object: nil,
-                                        userInfo: dict)
+                                        userInfo: nil)
         onClose?()
     }
 }

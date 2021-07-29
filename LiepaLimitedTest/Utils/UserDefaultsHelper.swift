@@ -21,7 +21,35 @@ final class UserDefaultsHelper {
         }
     }
 
+    var isLenta: Bool {
+        get {
+            if let state = UserDefaults.standard.value(forKey: Constants.lenta) as? Bool {
+                return state
+            }
+            return true
+        }
+
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: Constants.lenta)
+        }
+    }
+
+    var isGazeta: Bool {
+        get {
+            if let state = UserDefaults.standard.value(forKey: Constants.gazeta) as? Bool {
+                return state
+            }
+            return true
+        }
+
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: Constants.gazeta)
+        }
+    }
+
     struct Constants {
         static let timeIntervalForTimer = "timeIntervalForTimer"
+        static let lenta = "lenta"
+        static let gazeta = "gazeta"
     }
 }

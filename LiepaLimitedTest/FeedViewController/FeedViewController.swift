@@ -47,7 +47,11 @@ final class FeedViewController: UIViewController {
     }
 
     @objc private func settings(_ notification: Notification) {
-        configViewModel()
+        viewModel?.getData(complition: { [weak self] in
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        })
     }
 }
 
