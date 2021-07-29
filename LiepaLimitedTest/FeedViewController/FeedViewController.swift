@@ -15,6 +15,15 @@ final class FeedViewController: UIViewController {
         super.viewDidLoad()
         configTableView()
         configViewModel()
+        getData()
+    }
+
+    private func getData() {
+        viewModel?.getData(complition: { [weak self] in
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        })
     }
 
 
@@ -35,19 +44,19 @@ final class FeedViewController: UIViewController {
     private func configViewModel() {
 
         if let navigationController = navigationController {
-            viewModel = FeedViewModel(parsers: [ParserManagerTwo(urlString: "http://lenta.ru/rss"),
-                                                ParserManagerTwo(urlString: "http://www.gazeta.ru/export/rss/lenta.xml")],
-                                      router: Router(navigationController: navigationController))
+            viewModel = FeedViewModel(router: Router(navigationController: navigationController))
         }
-        viewModel?.getData(complition: { [weak self] in
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
-            }
-        })
+        getDataWithTimer()
     }
 
     @objc private func settings(_ notification: Notification) {
-        viewModel?.getData(complition: { [weak self] in
+        viewModel?.updateParsers()
+        getData()
+        getDataWithTimer()
+    }
+
+    private func getDataWithTimer() {
+        viewModel?.getDataWithTimer(complition: { [weak self] in
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
             }

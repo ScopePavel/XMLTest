@@ -13,13 +13,30 @@ final class SettingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        gazetaSwitch.isOn = viewModel?.isGazeta ?? true
+        lentaSwitch.isOn = viewModel?.isLenta ?? true
+        if let timeInterval = viewModel?.timeInterval {
+            timeIntervalTextField.text = "\(timeInterval)"
+        }
     }
+
+    @IBOutlet private weak var timeIntervalTextField: UITextField!
+    @IBOutlet private weak var gazetaSwitch: UISwitch!
+    @IBOutlet private weak var lentaSwitch: UISwitch!
 
     @IBAction private func doneAction(_ sender: Any) {
         viewModel?.done()
     }
 
-    @IBAction func timeIntervalChangedAction(_ sender: UITextField) {
+    @IBAction private func timeIntervalChangedAction(_ sender: UITextField) {
         viewModel?.timeInterval = Double(sender.text ?? "")
+    }
+
+    @IBAction private func gazetaAction(_ sender: UISwitch) {
+        viewModel?.isGazeta = sender.isOn
+    }
+
+    @IBAction private func lentaAction(_ sender: UISwitch) {
+        viewModel?.isLenta = sender.isOn
     }
 }

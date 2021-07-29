@@ -37,14 +37,48 @@
                                     <action selector="timeIntervalChangedAction:" destination="UoF-t3-uqu" eventType="editingChanged" id="fcH-Wf-fu5"/>
                                 </connections>
                             </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ukG-oA-fz2">
+                                <rect key="frame" x="349" y="139" width="51" height="31"/>
+                                <connections>
+                                    <action selector="gazetaAction:" destination="UoF-t3-uqu" eventType="valueChanged" id="oKm-BT-bqh"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dkw-of-Obt">
+                                <rect key="frame" x="349" y="180" width="51" height="31"/>
+                                <connections>
+                                    <action selector="lentaAction:" destination="UoF-t3-uqu" eventType="valueChanged" id="QCP-I9-kgR"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gazeta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZo-wZ-gm0">
+                                <rect key="frame" x="16" y="144" width="313" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lenta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTv-gn-hRn">
+                                <rect key="frame" x="16" y="185" width="313" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mzX-L5-Rm2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="ukG-oA-fz2" firstAttribute="centerY" secondItem="jZo-wZ-gm0" secondAttribute="centerY" id="5kk-1V-P5w"/>
                             <constraint firstItem="sZI-ja-XWo" firstAttribute="leading" secondItem="mzX-L5-Rm2" secondAttribute="leading" constant="16" id="AgT-WN-OvH"/>
+                            <constraint firstItem="jZo-wZ-gm0" firstAttribute="top" secondItem="sZI-ja-XWo" secondAttribute="bottom" constant="20" id="Bia-SV-uMA"/>
+                            <constraint firstItem="ukG-oA-fz2" firstAttribute="leading" secondItem="jZo-wZ-gm0" secondAttribute="trailing" constant="20" id="LiX-3n-B16"/>
+                            <constraint firstItem="mzX-L5-Rm2" firstAttribute="trailing" secondItem="dkw-of-Obt" secondAttribute="trailing" constant="16" id="Sxd-Xf-sUi"/>
+                            <constraint firstItem="xTv-gn-hRn" firstAttribute="top" secondItem="jZo-wZ-gm0" secondAttribute="bottom" constant="20" id="Y48-bM-Oow"/>
+                            <constraint firstItem="jZo-wZ-gm0" firstAttribute="leading" secondItem="mzX-L5-Rm2" secondAttribute="leading" constant="16" id="YfP-Y7-1Gv"/>
+                            <constraint firstItem="xTv-gn-hRn" firstAttribute="leading" secondItem="mzX-L5-Rm2" secondAttribute="leading" constant="16" id="bMk-os-BNT"/>
                             <constraint firstItem="bVc-Zh-PNo" firstAttribute="top" secondItem="mzX-L5-Rm2" secondAttribute="top" constant="20" id="d7b-mF-sdc"/>
+                            <constraint firstItem="dkw-of-Obt" firstAttribute="centerY" secondItem="xTv-gn-hRn" secondAttribute="centerY" id="dok-Ro-0vI"/>
                             <constraint firstItem="sZI-ja-XWo" firstAttribute="top" secondItem="bVc-Zh-PNo" secondAttribute="bottom" constant="20" id="e7R-p0-chd"/>
+                            <constraint firstItem="dkw-of-Obt" firstAttribute="leading" secondItem="xTv-gn-hRn" secondAttribute="trailing" constant="20" id="gXM-2W-7uJ"/>
                             <constraint firstItem="mzX-L5-Rm2" firstAttribute="trailing" secondItem="bVc-Zh-PNo" secondAttribute="trailing" constant="20" id="hC1-Zj-Lk3"/>
+                            <constraint firstItem="mzX-L5-Rm2" firstAttribute="trailing" secondItem="ukG-oA-fz2" secondAttribute="trailing" constant="16" id="hE6-tw-sab"/>
                             <constraint firstItem="mzX-L5-Rm2" firstAttribute="trailing" secondItem="sZI-ja-XWo" secondAttribute="trailing" constant="16" id="k8d-Ok-H6v"/>
                         </constraints>
                     </view>
@@ -55,6 +89,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="gazetaSwitch" destination="ukG-oA-fz2" id="vTg-It-Xey"/>
+                        <outlet property="lentaSwitch" destination="dkw-of-Obt" id="Cox-8T-jbm"/>
+                        <outlet property="timeIntervalTextField" destination="sZI-ja-XWo" id="D2p-Tm-X1T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="86u-vJ-RGj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
