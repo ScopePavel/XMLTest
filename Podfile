@@ -8,5 +8,6 @@ target 'LiepaLimitedTest' do
   # Pods for LiepaLimitedTest
 
   pod 'SDWebImage'
+  pod 'XMLCoder'
 
 end

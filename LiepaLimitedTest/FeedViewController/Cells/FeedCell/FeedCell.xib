@@ -33,22 +33,36 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NcI-k0-YIs">
+                        <rect key="frame" x="36" y="162.5" width="423" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="wma-Fz-XEw"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="cII-5V-gWk" secondAttribute="trailing" constant="16" id="Bib-RH-1GA"/>
                     <constraint firstAttribute="trailingMargin" secondItem="oJ2-4j-cgC" secondAttribute="trailing" constant="16" id="JrV-VT-FsC"/>
                     <constraint firstItem="oJ2-4j-cgC" firstAttribute="top" secondItem="cII-5V-gWk" secondAttribute="bottom" constant="16" id="Mms-NO-6yu"/>
                     <constraint firstItem="cII-5V-gWk" firstAttribute="leading" secondItem="Dta-6y-cDV" secondAttribute="leading" constant="16" id="N4g-Xn-dQ4"/>
+                    <constraint firstItem="NcI-k0-YIs" firstAttribute="top" secondItem="oJ2-4j-cgC" secondAttribute="bottom" constant="10" id="O3U-pg-l87"/>
                     <constraint firstAttribute="bottomMargin" secondItem="hgG-vN-uK7" secondAttribute="bottom" constant="20" id="QnB-No-Zjv"/>
-                    <constraint firstItem="hgG-vN-uK7" firstAttribute="top" relation="greaterThanOrEqual" secondItem="oJ2-4j-cgC" secondAttribute="bottom" constant="16" id="WRH-6X-S0Z"/>
                     <constraint firstAttribute="trailing" secondItem="hgG-vN-uK7" secondAttribute="trailing" constant="16" id="fKQ-VF-Jv8"/>
+                    <constraint firstItem="NcI-k0-YIs" firstAttribute="leading" secondItem="Dta-6y-cDV" secondAttribute="leadingMargin" constant="16" id="gaS-1m-Cqj"/>
                     <constraint firstItem="cII-5V-gWk" firstAttribute="top" secondItem="Dta-6y-cDV" secondAttribute="top" constant="16" id="mFC-aB-PfV"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="NcI-k0-YIs" secondAttribute="trailing" constant="16" id="nUb-0b-Qeo"/>
                     <constraint firstItem="oJ2-4j-cgC" firstAttribute="leading" secondItem="Dta-6y-cDV" secondAttribute="leadingMargin" constant="16" id="ovE-pI-6ZA"/>
+                    <constraint firstItem="hgG-vN-uK7" firstAttribute="top" relation="greaterThanOrEqual" secondItem="NcI-k0-YIs" secondAttribute="bottom" constant="10" id="pxO-2h-4EV"/>
                     <constraint firstItem="hgG-vN-uK7" firstAttribute="leading" secondItem="Dta-6y-cDV" secondAttribute="leading" constant="16" id="ucd-jj-s4P"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="descriptionLabel" destination="hgG-vN-uK7" id="S27-do-GIL"/>
+                <outlet property="picterImageView" destination="oJ2-4j-cgC" id="hcp-k0-8Ac"/>
+                <outlet property="sourceLabel" destination="NcI-k0-YIs" id="lDi-t4-OCq"/>
                 <outlet property="titleLabel" destination="cII-5V-gWk" id="hQW-Sr-VkR"/>
             </connections>
             <point key="canvasLocation" x="274.63768115942031" y="246.42857142857142"/>

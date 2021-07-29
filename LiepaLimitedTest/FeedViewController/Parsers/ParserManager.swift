@@ -42,16 +42,16 @@ final class ParserManager: NSObject, ParserProtocol, XMLParserDelegate {
 
     private struct ParserModel {
         var currentElement: String
-        var autor: String
         var title: String
         var descriptionFromServer: String
-        var enclose: String
+        var url: String
+        var link: String
 
         static let defaultParserModel = ParserModel(currentElement: "",
-                                                    autor: "",
                                                     title: "",
                                                     descriptionFromServer: "",
-                                                    enclose: "")
+                                                    url: "",
+                                                    link: "")
     }
 }
 
@@ -62,11 +62,19 @@ extension ParserManager {
         if elementName == "item" {
             parserModel = ParserModel.defaultParserModel
         }
+
+        if elementName == "enclosure" {
+            if let urlString = attributeDict["url"] {
+                parserModel.url = urlString
+            }
+        }
     }
 
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         if elementName == "item" {
-            feeds.append(FeedCellViewModel(title: parserModel.title, autor: parserModel.autor, description: parserModel.descriptionFromServer))
+            feeds.append(FeedCellViewModel(title: parserModel.title, autor: parserModel.link, description: parserModel.descriptionFromServer,
+                                           url: parserModel.url, source: parserModel.link))
+
         }
     }
 
@@ -74,7 +82,7 @@ extension ParserManager {
     func parser(_ parser: XMLParser, foundCharacters string: String) {
         switch parserModel.currentElement {
         case "title": parserModel.title += string
-        case "autor": parserModel.autor += string
+        case "link": parserModel.link += string
         case "description": parserModel.descriptionFromServer += string
         default: break
         }
