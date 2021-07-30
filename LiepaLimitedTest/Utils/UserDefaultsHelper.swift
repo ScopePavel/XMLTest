@@ -47,7 +47,7 @@ final class UserDefaultsHelper {
         }
     }
 
-    struct Constants {
+    private struct Constants {
         static let timeIntervalForTimer = "timeIntervalForTimer"
         static let lenta = "lenta"
         static let gazeta = "gazeta"

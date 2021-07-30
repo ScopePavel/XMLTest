@@ -83,6 +83,7 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.beginUpdates()
         cell.descriptionNumberOfLines = (cell.descriptionNumberOfLines == 0) ? 3 : 0
         viewModel?.setFeed(index: indexPath.row)
+        cell.backgroundColor = .green
         tableView.endUpdates()
     }
 }

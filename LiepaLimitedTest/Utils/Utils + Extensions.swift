@@ -43,9 +43,6 @@ extension Date {
 
 enum StringDateFormat: String {
     case rss = "E, d MMM yyyy HH:mm:ss Z"
-    case yyyyMMddDashTime = "yyyy-MM-dd HH:mm:ss"
-    case ddMMyyyyPoint = "dd.MM.yyyy"
-    case ddMMyyPoint = "dd.MM.yy"
 }
 
 extension String {
