@@ -16,6 +16,7 @@ final class FeedViewModel {
     init(router: Router) {
         self.router = router
         self.updateParsers()
+        self.updateViewdFeeds()
     }
 
     func getDataWithTimer(complition: (() -> ())?) {
@@ -37,9 +38,18 @@ final class FeedViewModel {
 
 
         self.group.notify(queue: .main) { [weak self] in
-            self?.feeds = self?.feeds.sorted(by: { $0.date > $1.date }) ?? []
+            guard let self = self else { return }
+            let indexs = self.feeds.enumerated().compactMap { (index, feed) -> Int? in
+                if self.viewedFeeds.contains(feed.guId ?? "") {
+                    return index
+                }
+                return nil
+            }
+
+            indexs.forEach({ self.feeds[$0].isView = true })
+            self.feeds = self.feeds.sorted(by: { $0.date > $1.date })
             complition?()
-            print(self?.feeds.count)
+            print(self.feeds.count)
             print(Date())
         }
     }
@@ -58,6 +68,22 @@ final class FeedViewModel {
         }
     }
 
+    func setFeed(index: Int) {
+        guard let model = feeds[safe: index] else { return }
+        dataBaseManager.setFeed(model: model)
+        feeds[index].isView = true
+        if let guId = feeds[safe: index]?.guId {
+            viewedFeeds.append(guId)
+        }
+    }
+
+    private func updateViewdFeeds() {
+        viewedFeeds = dataBaseManager.getGuids()
+    }
+
+
+    private var viewedFeeds: [String] = []
+    private let dataBaseManager = DataBaseManager()
     private var timer: Timer?
     private let router: Router
     private let group = DispatchGroup()

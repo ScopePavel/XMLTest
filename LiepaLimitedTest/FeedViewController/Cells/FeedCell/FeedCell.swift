@@ -16,6 +16,8 @@ struct FeedCellViewModel {
     let source: String?
     let guId: String?
 
+    var isView: Bool = false
+
     var date: Date {
         datePub?.toDate(format: .rss) ?? Date()
     }
@@ -30,6 +32,8 @@ final class FeedCell: UITableViewCell, ReusableView {
         if let url = model.url {
             picterImageView.sd_setImage(with: URL(string: url), completed: nil)
         }
+
+        backgroundColor = model.isView ? .green : .white
     }
 
 
@@ -42,6 +46,7 @@ final class FeedCell: UITableViewCell, ReusableView {
     override func prepareForReuse() {
         super.prepareForReuse()
         descriptionNumberOfLines = 3
+        backgroundColor = .white
     }
 
 

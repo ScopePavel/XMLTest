@@ -25,6 +25,7 @@
 		0920025D26B3596800EE54A6 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0920025C26B3596800EE54A6 /* Router.swift */; };
 		0920026326B35D6300EE54A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0920026226B35D6300EE54A6 /* Main.storyboard */; };
 		0920026826B3606700EE54A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0920026726B3606700EE54A6 /* SceneDelegate.swift */; };
+		092002A326B44B2900EE54A6 /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092002A226B44B2900EE54A6 /* DataBaseManager.swift */; };
 		8083F10A6719F72ED6FB9627 /* Pods_LiepaLimitedTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 061336E223E12AC5A112E4C0 /* Pods_LiepaLimitedTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		0920025C26B3596800EE54A6 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		0920026226B35D6300EE54A6 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0920026726B3606700EE54A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		092002A226B44B2900EE54A6 /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
 		5B54B47372C181BF7095882B /* Pods-LiepaLimitedTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiepaLimitedTest.release.xcconfig"; path = "Target Support Files/Pods-LiepaLimitedTest/Pods-LiepaLimitedTest.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +119,7 @@
 			children = (
 				0920021826B2CB6900EE54A6 /* Utils + Extensions.swift */,
 				0920025826B3574900EE54A6 /* UserDefaultsHelper.swift */,
+				092002A226B44B2900EE54A6 /* DataBaseManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				0920021526B2C86D00EE54A6 /* FeedCell.swift in Sources */,
 				092001ED26B19E2E00EE54A6 /* AppDelegate.swift in Sources */,
 				0920023F26B2F3B300EE54A6 /* ParserManagerTwo.swift in Sources */,
+				092002A326B44B2900EE54A6 /* DataBaseManager.swift in Sources */,
 				0920020426B19E7600EE54A6 /* FeedViewModel.swift in Sources */,
 				0920025026B3559900EE54A6 /* SettingViewModel.swift in Sources */,
 				0920025926B3574900EE54A6 /* UserDefaultsHelper.swift in Sources */,
