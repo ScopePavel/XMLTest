@@ -13,11 +13,7 @@ final class SettingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        gazetaSwitch.isOn = viewModel?.isGazeta ?? true
-        lentaSwitch.isOn = viewModel?.isLenta ?? true
-        if let timeInterval = viewModel?.timeInterval {
-            timeIntervalTextField.text = "\(timeInterval)"
-        }
+        configView()
     }
 
     @IBOutlet private weak var timeIntervalTextField: UITextField!
@@ -38,5 +34,13 @@ final class SettingViewController: UIViewController {
 
     @IBAction private func lentaAction(_ sender: UISwitch) {
         viewModel?.isLenta = sender.isOn
+    }
+
+    private func configView() {
+        gazetaSwitch.isOn = viewModel?.isGazeta ?? true
+        lentaSwitch.isOn = viewModel?.isLenta ?? true
+        if let timeInterval = viewModel?.timeInterval {
+            timeIntervalTextField.text = "\(timeInterval)"
+        }
     }
 }

@@ -32,12 +32,6 @@ final class ParserManager: NSObject, ParserProtocol, XMLParserDelegate {
 
     private var feeds: [FeedCellViewModel] = []
     private var complition: (([FeedCellViewModel]) -> ())?
-
-
-
-
-
-
     private var parserModel = ParserModel.defaultParserModel
 
     private struct ParserModel {

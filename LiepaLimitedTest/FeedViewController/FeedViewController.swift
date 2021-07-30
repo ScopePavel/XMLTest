@@ -18,15 +18,6 @@ final class FeedViewController: UIViewController {
         getData()
     }
 
-    private func getData() {
-        viewModel?.getData(complition: { [weak self] in
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
-            }
-        })
-    }
-
-
     @IBOutlet private weak var tableView: UITableView!
 
     @IBAction private func settingsAction(_ sender: Any) {
@@ -39,6 +30,14 @@ final class FeedViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(FeedCell.self)
+    }
+
+    private func getData() {
+        viewModel?.getData(complition: { [weak self] in
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        })
     }
 
     private func configViewModel() {

@@ -10,17 +10,13 @@ import Foundation
 final class SettingViewModel {
     var onClose: (()->())?
 
-
     var isGazeta: Bool = UserDefaultsHelper().isGazeta
     var isLenta: Bool = UserDefaultsHelper().isLenta
     var timeInterval: Double? = UserDefaultsHelper().timeIntervalForTimer
 
     func done() {
         let userDefaultsHelper = UserDefaultsHelper()
-        if let timeInterval = timeInterval {
-            userDefaultsHelper.timeIntervalForTimer = timeInterval
-        }
-
+        userDefaultsHelper.timeIntervalForTimer = timeInterval ?? UserDefaultsHelper().timeIntervalForTimer
         UserDefaultsHelper().isGazeta = isGazeta
         UserDefaultsHelper().isLenta = isLenta
 
