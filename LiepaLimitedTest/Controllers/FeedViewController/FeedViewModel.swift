@@ -67,10 +67,10 @@ final class FeedViewModel {
 
     func setFeed(index: Int) {
         guard let model = feeds[safe: index] else { return }
-        dataBaseManager.setFeed(model: model)
-        feeds[index].isView = true
         if let guId = feeds[safe: index]?.guId {
             viewedFeeds.append(guId)
+            dataBaseManager.setFeed(model: model)
+            feeds[index].isView = true
             showFullFeed(model: model)
         }
     }
