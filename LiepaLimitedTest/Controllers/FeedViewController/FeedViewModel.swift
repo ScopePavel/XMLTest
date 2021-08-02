@@ -10,8 +10,9 @@ import Foundation
 final class FeedViewModel {
 
     var feeds: [FeedCellViewModel] = []
-
-    init(router: Router) {
+    var parsersConfigurator: ParsersConfiguratorProtocol?
+    init(parsersConfigurator: ParsersConfiguratorProtocol, router: Router) {
+        self.parsersConfigurator = parsersConfigurator
         self.router = router
         self.updateParsers()
         self.updateViewdFeeds()
@@ -44,9 +45,7 @@ final class FeedViewModel {
                     return newFeed
                 }
                 return feed
-            }
-
-            self.feeds = self.feeds.sorted(by: { $0.date > $1.date })
+            }.sorted(by: { $0.date > $1.date })
             complition?()
             print(self.feeds.count)
             print(Date())
@@ -63,12 +62,7 @@ final class FeedViewModel {
 
     func updateParsers() {
         parsers = []
-        if UserDefaultsHelper().isLenta {
-            parsers.append(ParserManagerTwo(urlString: "http://lenta.ru/rss"))
-        }
-        if UserDefaultsHelper().isGazeta {
-            parsers.append(ParserManagerTwo(urlString: "http://www.gazeta.ru/export/rss/lenta.xml"))
-        }
+        parsers = parsersConfigurator?.getParsers() ?? []
     }
 
     func setFeed(index: Int) {

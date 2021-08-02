@@ -41,9 +41,17 @@ final class FeedViewController: UIViewController {
     }
 
     private func configViewModel() {
+        let parserConfigModels = [
+            ParsersConfiguratorModel(parser: ParserManagerTwo(id: .lenta,
+                                                              urlString: "http://lenta.ru/rss"),
+                                     isOn: UserDefaultsHelper().isLenta),
+            ParsersConfiguratorModel(parser: ParserManagerTwo(id: .gazeta,
+                                                              urlString: "http://www.gazeta.ru/export/rss/lenta.xml"),
+                                     isOn: UserDefaultsHelper().isGazeta)
+        ]
 
         if let navigationController = navigationController {
-            viewModel = FeedViewModel(router: Router(navigationController: navigationController))
+            viewModel = FeedViewModel(parsersConfigurator: ParsersConfigurator(models: parserConfigModels), router: Router(navigationController: navigationController))
         }
         getDataWithTimer()
     }

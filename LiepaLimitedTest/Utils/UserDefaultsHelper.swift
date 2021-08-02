@@ -31,6 +31,9 @@ final class UserDefaultsHelper {
 
         set {
             UserDefaults.standard.setValue(newValue, forKey: Constants.lenta)
+            NotificationCenter.default.post(name: NotificationsConstants.parsers,
+                                            object: nil,
+                                            userInfo: [ParserIds.lenta.rawValue : newValue])
         }
     }
 
@@ -44,6 +47,9 @@ final class UserDefaultsHelper {
 
         set {
             UserDefaults.standard.setValue(newValue, forKey: Constants.gazeta)
+            NotificationCenter.default.post(name: NotificationsConstants.parsers,
+                                            object: nil,
+                                            userInfo: [ParserIds.gazeta.rawValue : newValue])
         }
     }
 

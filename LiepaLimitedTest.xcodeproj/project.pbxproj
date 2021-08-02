@@ -30,6 +30,7 @@
 		092002C126B7E32800EE54A6 /* FullFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092002C026B7E32800EE54A6 /* FullFeedViewModel.swift */; };
 		092002C526B7E33700EE54A6 /* FullFeedBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092002C426B7E33700EE54A6 /* FullFeedBuilder.swift */; };
 		092002C826B7E34100EE54A6 /* FullFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 092002C726B7E34100EE54A6 /* FullFeed.storyboard */; };
+		092002CC26B7F94800EE54A6 /* ParsersConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092002CB26B7F94800EE54A6 /* ParsersConfigurator.swift */; };
 		8083F10A6719F72ED6FB9627 /* Pods_LiepaLimitedTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 061336E223E12AC5A112E4C0 /* Pods_LiepaLimitedTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,7 @@
 		092002C026B7E32800EE54A6 /* FullFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullFeedViewModel.swift; sourceTree = "<group>"; };
 		092002C426B7E33700EE54A6 /* FullFeedBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullFeedBuilder.swift; sourceTree = "<group>"; };
 		092002C726B7E34100EE54A6 /* FullFeed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullFeed.storyboard; sourceTree = "<group>"; };
+		092002CB26B7F94800EE54A6 /* ParsersConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsersConfigurator.swift; sourceTree = "<group>"; };
 		5B54B47372C181BF7095882B /* Pods-LiepaLimitedTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiepaLimitedTest.release.xcconfig"; path = "Target Support Files/Pods-LiepaLimitedTest/Pods-LiepaLimitedTest.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,6 +126,7 @@
 				0920021826B2CB6900EE54A6 /* Utils + Extensions.swift */,
 				0920025826B3574900EE54A6 /* UserDefaultsHelper.swift */,
 				092002A226B44B2900EE54A6 /* DataBaseManager.swift */,
+				092002CB26B7F94800EE54A6 /* ParsersConfigurator.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				0920020426B19E7600EE54A6 /* FeedViewModel.swift in Sources */,
 				0920025026B3559900EE54A6 /* SettingViewModel.swift in Sources */,
 				092002B926B7E2B500EE54A6 /* FullFeedViewController.swift in Sources */,
+				092002CC26B7F94800EE54A6 /* ParsersConfigurator.swift in Sources */,
 				0920025926B3574900EE54A6 /* UserDefaultsHelper.swift in Sources */,
 				0920024C26B3558E00EE54A6 /* SettingViewController.swift in Sources */,
 				0920026826B3606700EE54A6 /* SceneDelegate.swift in Sources */,
