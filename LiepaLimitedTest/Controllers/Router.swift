@@ -12,9 +12,10 @@ final class Router {
         self.navigationController = navigationController
     }
 
-    func showSettings() {
+    func showSettings(onClose: @escaping (()->())) {
         let viewModel = SettingViewModel()
         viewModel.onClose = { [weak self] in
+            onClose()
             self?.navigationController.dismiss(animated: true, completion: nil)
         }
 

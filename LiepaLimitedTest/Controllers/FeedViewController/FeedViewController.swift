@@ -21,11 +21,15 @@ final class FeedViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
 
     @IBAction private func settingsAction(_ sender: Any) {
-        viewModel?.showSettings()
+        viewModel?.showSettings { [weak self] in
+            guard let self = self else { return }
+            self.viewModel?.updateParsers()
+            self.getData()
+            self.getDataWithTimer()
+        }
     }
 
     private func configTableView() {
-        NotificationCenter.default.addObserver(self, selector: #selector(settings), name: LLNotifications.settings, object: nil)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.delegate = self
         tableView.dataSource = self
@@ -54,12 +58,6 @@ final class FeedViewController: UIViewController {
         if let navigationController = navigationController {
             viewModel = FeedViewModel(parsersConfigurator: ParsersConfigurator(models: parserConfigModels), router: Router(navigationController: navigationController))
         }
-        getDataWithTimer()
-    }
-
-    @objc private func settings(_ notification: Notification) {
-        viewModel?.updateParsers()
-        getData()
         getDataWithTimer()
     }
 

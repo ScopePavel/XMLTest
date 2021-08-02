@@ -52,8 +52,8 @@ final class FeedViewModel {
         }
     }
 
-    func showSettings() {
-        router.showSettings()
+    func showSettings(onClose: @escaping (()->())) {
+        router.showSettings(onClose: onClose)
     }
 
     func showFullFeed(model: FeedCellViewModel) {

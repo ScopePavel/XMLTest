@@ -19,15 +19,10 @@ final class SettingViewModel {
         userDefaultsHelper.timeIntervalForTimer = timeInterval ?? UserDefaultsHelper().timeIntervalForTimer
         UserDefaultsHelper().isGazeta = isGazeta
         UserDefaultsHelper().isLenta = isLenta
-
-        NotificationCenter.default.post(name: LLNotifications.settings,
-                                        object: nil,
-                                        userInfo: nil)
         onClose?()
     }
 }
 
 struct LLNotifications {
-    static let settings = NSNotification.Name.init("settings")
     static let parsers = NSNotification.Name.init("parsers")
 }
