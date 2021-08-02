@@ -10,7 +10,7 @@ import Foundation
 final class FeedViewModel {
 
     var feeds: [FeedCellViewModel] = []
-    var parsersConfigurator: ParsersConfiguratorProtocol?
+
     init(parsersConfigurator: ParsersConfiguratorProtocol, router: Router) {
         self.parsersConfigurator = parsersConfigurator
         self.router = router
@@ -78,6 +78,7 @@ final class FeedViewModel {
         viewedFeeds = dataBaseManager.getGuids()
     }
 
+    private var parsersConfigurator: ParsersConfiguratorProtocol?
     private var viewedFeeds: [String] = []
     private let dataBaseManager = DataBaseManager()
     private var timer: Timer?
