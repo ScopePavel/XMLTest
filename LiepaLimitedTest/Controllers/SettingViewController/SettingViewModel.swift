@@ -29,4 +29,5 @@ final class SettingViewModel {
 
 struct LLNotifications {
     static let settings = NSNotification.Name.init("settings")
+    static let parsers = NSNotification.Name.init("parsers")
 }

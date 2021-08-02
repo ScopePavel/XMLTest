@@ -41,6 +41,7 @@ final class FeedViewController: UIViewController {
     }
 
     private func configViewModel() {
+        // модель планируеться создаваться в апп делегате через код, для упрошения создаю тут так как инициализирую через сториборд стек контроллеров
         let parserConfigModels = [
             ParsersConfiguratorModel(parser: ParserManagerTwo(id: .lenta,
                                                               urlString: "http://lenta.ru/rss"),

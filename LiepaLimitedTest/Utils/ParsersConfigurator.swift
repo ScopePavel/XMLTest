@@ -21,10 +21,6 @@ enum ParserIds: String, CaseIterable {
     case lenta = "lenta"
 }
 
-struct NotificationsConstants {
-    static let parsers = NSNotification.Name.init("parsers")
-}
-
 final class ParsersConfigurator: ParsersConfiguratorProtocol {
     func getParsers() -> [ParserProtocol] {
         var parsers: [ParserProtocol] = []
@@ -43,7 +39,7 @@ final class ParsersConfigurator: ParsersConfiguratorProtocol {
             self.models.updateValue(parserModel, forKey: parserModel.parser.id)
         }
 
-        NotificationCenter.default.addObserver(self, selector: #selector(isAddAction), name: NotificationsConstants.parsers, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(isAddAction), name: LLNotifications.parsers, object: nil)
     }
 
     @objc private func isAddAction(_ notification: Notification) {
