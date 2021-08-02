@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 final class FeedViewModel {
 
     var feeds: [FeedCellViewModel] = []
@@ -58,6 +56,10 @@ final class FeedViewModel {
         router.showSettings()
     }
 
+    func showFullFeed(model: FeedCellViewModel) {
+        router.showFullFeed(feedCellViewModel: model)
+    }
+
     func updateParsers() {
         parsers = []
         if UserDefaultsHelper().isLenta {
@@ -74,6 +76,7 @@ final class FeedViewModel {
         feeds[index].isView = true
         if let guId = feeds[safe: index]?.guId {
             viewedFeeds.append(guId)
+            showFullFeed(model: model)
         }
     }
 

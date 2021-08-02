@@ -2,7 +2,7 @@
 //  Router.swift
 //  LiepaLimitedTest
 //
-//  Created by 18529728 on 30.07.2021.
+//  Created by Паронькин Павел on 30.07.2021.
 //
 
 import UIKit
@@ -25,6 +25,12 @@ final class Router {
         }
     }
 
+    func showFullFeed(feedCellViewModel: FeedCellViewModel) {
+        if let vc = FullFeedBuilder().build(feedCellViewModel: feedCellViewModel) {
+            navigationController.pushViewController(vc, animated: true)
+
+        }
+    }
 
     private let navigationController: UINavigationController
 }

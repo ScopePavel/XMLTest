@@ -26,6 +26,10 @@
 		0920026326B35D6300EE54A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0920026226B35D6300EE54A6 /* Main.storyboard */; };
 		0920026826B3606700EE54A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0920026726B3606700EE54A6 /* SceneDelegate.swift */; };
 		092002A326B44B2900EE54A6 /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092002A226B44B2900EE54A6 /* DataBaseManager.swift */; };
+		092002B926B7E2B500EE54A6 /* FullFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092002B826B7E2B500EE54A6 /* FullFeedViewController.swift */; };
+		092002C126B7E32800EE54A6 /* FullFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092002C026B7E32800EE54A6 /* FullFeedViewModel.swift */; };
+		092002C526B7E33700EE54A6 /* FullFeedBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092002C426B7E33700EE54A6 /* FullFeedBuilder.swift */; };
+		092002C826B7E34100EE54A6 /* FullFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 092002C726B7E34100EE54A6 /* FullFeed.storyboard */; };
 		8083F10A6719F72ED6FB9627 /* Pods_LiepaLimitedTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 061336E223E12AC5A112E4C0 /* Pods_LiepaLimitedTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +57,10 @@
 		0920026226B35D6300EE54A6 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0920026726B3606700EE54A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		092002A226B44B2900EE54A6 /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
+		092002B826B7E2B500EE54A6 /* FullFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullFeedViewController.swift; sourceTree = "<group>"; };
+		092002C026B7E32800EE54A6 /* FullFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullFeedViewModel.swift; sourceTree = "<group>"; };
+		092002C426B7E33700EE54A6 /* FullFeedBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullFeedBuilder.swift; sourceTree = "<group>"; };
+		092002C726B7E34100EE54A6 /* FullFeed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullFeed.storyboard; sourceTree = "<group>"; };
 		5B54B47372C181BF7095882B /* Pods-LiepaLimitedTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiepaLimitedTest.release.xcconfig"; path = "Target Support Files/Pods-LiepaLimitedTest/Pods-LiepaLimitedTest.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,15 +97,11 @@
 		092001EB26B19E2E00EE54A6 /* LiepaLimitedTest */ = {
 			isa = PBXGroup;
 			children = (
-				0920024A26B3557600EE54A6 /* SettingViewController */,
-				0920021726B2CB5900EE54A6 /* Utils */,
-				0920020126B19E4300EE54A6 /* FeedViewController */,
-				092001EC26B19E2E00EE54A6 /* AppDelegate.swift */,
-				0920026726B3606700EE54A6 /* SceneDelegate.swift */,
-				092001F526B19E3000EE54A6 /* Assets.xcassets */,
-				092001F726B19E3000EE54A6 /* LaunchScreen.storyboard */,
 				092001FA26B19E3000EE54A6 /* Info.plist */,
-				0920025C26B3596800EE54A6 /* Router.swift */,
+				092002BD26B7E2E300EE54A6 /* Core */,
+				092002BC26B7E2D000EE54A6 /* Controllers */,
+				0920021726B2CB5900EE54A6 /* Utils */,
+				092001F526B19E3000EE54A6 /* Assets.xcassets */,
 			);
 			path = LiepaLimitedTest;
 			sourceTree = "<group>";
@@ -159,6 +163,38 @@
 				0920025526B3563000EE54A6 /* Setting.storyboard */,
 			);
 			path = SettingViewController;
+			sourceTree = "<group>";
+		};
+		092002BB26B7E2C000EE54A6 /* FullFeedViewController */ = {
+			isa = PBXGroup;
+			children = (
+				092002B826B7E2B500EE54A6 /* FullFeedViewController.swift */,
+				092002C026B7E32800EE54A6 /* FullFeedViewModel.swift */,
+				092002C426B7E33700EE54A6 /* FullFeedBuilder.swift */,
+				092002C726B7E34100EE54A6 /* FullFeed.storyboard */,
+			);
+			path = FullFeedViewController;
+			sourceTree = "<group>";
+		};
+		092002BC26B7E2D000EE54A6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0920025C26B3596800EE54A6 /* Router.swift */,
+				0920024A26B3557600EE54A6 /* SettingViewController */,
+				092002BB26B7E2C000EE54A6 /* FullFeedViewController */,
+				0920020126B19E4300EE54A6 /* FeedViewController */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		092002BD26B7E2E300EE54A6 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				092001F726B19E3000EE54A6 /* LaunchScreen.storyboard */,
+				092001EC26B19E2E00EE54A6 /* AppDelegate.swift */,
+				0920026726B3606700EE54A6 /* SceneDelegate.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 		7606386AF65C81636D59259F /* Frameworks */ = {
@@ -242,6 +278,7 @@
 				092001F926B19E3000EE54A6 /* LaunchScreen.storyboard in Resources */,
 				092001F626B19E3000EE54A6 /* Assets.xcassets in Resources */,
 				0920025626B3563000EE54A6 /* Setting.storyboard in Resources */,
+				092002C826B7E34100EE54A6 /* FullFeed.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,14 +336,17 @@
 				092001ED26B19E2E00EE54A6 /* AppDelegate.swift in Sources */,
 				0920023F26B2F3B300EE54A6 /* ParserManagerTwo.swift in Sources */,
 				092002A326B44B2900EE54A6 /* DataBaseManager.swift in Sources */,
+				092002C126B7E32800EE54A6 /* FullFeedViewModel.swift in Sources */,
 				0920020426B19E7600EE54A6 /* FeedViewModel.swift in Sources */,
 				0920025026B3559900EE54A6 /* SettingViewModel.swift in Sources */,
+				092002B926B7E2B500EE54A6 /* FullFeedViewController.swift in Sources */,
 				0920025926B3574900EE54A6 /* UserDefaultsHelper.swift in Sources */,
 				0920024C26B3558E00EE54A6 /* SettingViewController.swift in Sources */,
 				0920026826B3606700EE54A6 /* SceneDelegate.swift in Sources */,
 				0920021F26B2DCC300EE54A6 /* ParserManager.swift in Sources */,
 				0920025326B355FA00EE54A6 /* SettingBuilder.swift in Sources */,
 				0920021926B2CB6900EE54A6 /* Utils + Extensions.swift in Sources */,
+				092002C526B7E33700EE54A6 /* FullFeedBuilder.swift in Sources */,
 				0920025D26B3596800EE54A6 /* Router.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
