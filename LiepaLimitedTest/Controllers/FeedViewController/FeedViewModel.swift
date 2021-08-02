@@ -61,7 +61,6 @@ final class FeedViewModel {
     }
 
     func updateParsers() {
-        parsers = []
         parsers = parsersConfigurator?.getParsers() ?? []
     }
 
