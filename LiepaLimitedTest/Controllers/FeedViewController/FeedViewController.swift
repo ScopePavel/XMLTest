@@ -79,12 +79,8 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard
             let cell = tableView.cellForRow(at: indexPath) as? FeedCell else { return }
-
-        tableView.beginUpdates()
-        cell.descriptionNumberOfLines = (cell.descriptionNumberOfLines == 0) ? 3 : 0
         viewModel?.setFeed(index: indexPath.row)
         cell.backgroundColor = .green
-        tableView.endUpdates()
     }
 }
 

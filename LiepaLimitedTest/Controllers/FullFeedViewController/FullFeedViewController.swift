@@ -25,8 +25,6 @@ final class FullFeedViewController: UIViewController {
         }
     }
 
-
-
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var autorLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!

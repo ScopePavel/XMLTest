@@ -37,14 +37,15 @@ final class FeedViewModel {
 
         self.group.notify(queue: .main) { [weak self] in
             guard let self = self else { return }
-            let indexs = self.feeds.enumerated().compactMap { (index, feed) -> Int? in
+            self.feeds = self.feeds.enumerated().compactMap { (index, feed) -> FeedCellViewModel? in
                 if self.viewedFeeds.contains(feed.guId ?? "") {
-                    return index
+                    var newFeed = feed
+                    newFeed.isView = true
+                    return newFeed
                 }
-                return nil
+                return feed
             }
 
-            indexs.forEach({ self.feeds[$0].isView = true })
             self.feeds = self.feeds.sorted(by: { $0.date > $1.date })
             complition?()
             print(self.feeds.count)
@@ -83,7 +84,6 @@ final class FeedViewModel {
     private func updateViewdFeeds() {
         viewedFeeds = dataBaseManager.getGuids()
     }
-
 
     private var viewedFeeds: [String] = []
     private let dataBaseManager = DataBaseManager()

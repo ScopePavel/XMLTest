@@ -19,7 +19,6 @@ final class Router {
         }
 
         if let settings = SettingBuilder().build(viewModel: viewModel) {
-
             settings.modalPresentationStyle = .overFullScreen
             navigationController.present(settings, animated: true, completion: nil)
         }
@@ -28,7 +27,6 @@ final class Router {
     func showFullFeed(feedCellViewModel: FeedCellViewModel) {
         if let vc = FullFeedBuilder().build(feedCellViewModel: feedCellViewModel) {
             navigationController.pushViewController(vc, animated: true)
-
         }
     }
 
