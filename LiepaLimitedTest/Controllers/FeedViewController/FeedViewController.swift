@@ -18,6 +18,11 @@ final class FeedViewController: UIViewController {
         getData()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+
     @IBOutlet private weak var tableView: UITableView!
 
     @IBAction private func settingsAction(_ sender: Any) {
@@ -87,7 +92,6 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         guard
             let cell = tableView.cellForRow(at: indexPath) as? FeedCell else { return }
         viewModel?.setFeed(index: indexPath.row)
-        cell.backgroundColor = .green
     }
 }
 
