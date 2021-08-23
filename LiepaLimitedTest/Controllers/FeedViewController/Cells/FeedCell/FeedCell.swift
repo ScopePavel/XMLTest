@@ -31,6 +31,12 @@ final class FeedCell: UITableViewCell, ReusableView {
         }
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        descriptionNumberOfLines = 3
+        backgroundColor = .white
+    }
+
     func config(model: FeedCellViewModel) {
         descriptionLabel.text = model.description ?? ""
         titleLabel.text = model.title ?? ""
@@ -41,13 +47,6 @@ final class FeedCell: UITableViewCell, ReusableView {
 
         backgroundColor = model.isView ? .green : .white
     }
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        descriptionNumberOfLines = 3
-        backgroundColor = .white
-    }
-
 
     @IBOutlet private weak var picterImageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!

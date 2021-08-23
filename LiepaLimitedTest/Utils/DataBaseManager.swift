@@ -22,7 +22,7 @@ final class DataBaseManager: DataBaseManagerProtocol {
     func setFeed(model: FeedCellViewModel) {
         guard
             let guId =  model.guId,
-            let realm = try? Realm()
+            let realm = realm
         else { return }
         let feedDataBase = FeedDataBaseModel()
         feedDataBase.guId = guId
@@ -38,13 +38,10 @@ final class DataBaseManager: DataBaseManagerProtocol {
     }
 
     func getGuids() -> [String] {
-        do {
-            let realm = try Realm()
-            let guIds = Array(realm.objects(FeedDataBaseModel.self)).map({ $0.guId })
-            return guIds
-        } catch {
-            print("realm error")
-            return []
-        }
+        guard let realm = realm else { return [] }
+        let guIds = Array(realm.objects(FeedDataBaseModel.self)).map({ $0.guId })
+        return guIds
     }
+
+    private var realm = try? Realm()
 }

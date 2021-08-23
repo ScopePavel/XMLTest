@@ -48,8 +48,6 @@ final class FeedViewModel {
                 return feed
             }.sorted(by: { $0.date > $1.date })
             complition?()
-            print(self.feeds.count)
-            print(Date())
         }
     }
 

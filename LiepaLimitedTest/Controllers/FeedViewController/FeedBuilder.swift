@@ -8,12 +8,9 @@
 import UIKit
 
 final class FeedsBuilder {
-    func build(parsersConfigurator: ParsersConfigurator, router: Router, dataBaseManager: DataBaseManagerProtocol) -> FeedViewController? {
+    func build(viewModel: FeedViewModel) -> FeedViewController? {
         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FeedViewController") as? FeedViewController
-
-        viewController?.viewModel = FeedViewModel(parsersConfigurator: parsersConfigurator,
-                                                  router: router,
-                                                  dataBaseManager: dataBaseManager)
+        viewController?.viewModel = viewModel
         return viewController
     }
 }

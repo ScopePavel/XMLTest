@@ -10,9 +10,10 @@ import UIKit
 final class Router {
 
     func initRootViewController(parsersConfigurator: ParsersConfigurator, dataBaseManager: DataBaseManagerProtocol) -> UINavigationController? {
-        if let controller = FeedsBuilder().build(parsersConfigurator: parsersConfigurator,
-                                                 router: self,
-                                                 dataBaseManager: dataBaseManager) {
+        let viewModel = FeedViewModel(parsersConfigurator: parsersConfigurator,
+                                      router: self,
+                                      dataBaseManager: dataBaseManager)
+        if let controller = FeedsBuilder().build(viewModel: viewModel) {
             navigationController = UINavigationController(rootViewController: controller)
         }
         return navigationController
