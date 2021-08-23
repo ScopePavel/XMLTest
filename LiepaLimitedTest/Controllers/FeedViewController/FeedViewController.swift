@@ -50,21 +50,6 @@ final class FeedViewController: UIViewController {
     }
 
     private func configViewModel() {
-        // модель планируеться создаваться в апп делегате через код, для упрошения создаю тут так как инициализирую через сториборд стек контроллеров
-        let parserConfigModels = [
-            ParsersConfiguratorModel(parser: ParserManagerTwo(id: .lenta,
-                                                              urlString: "http://lenta.ru/rss"),
-                                     isOn: UserDefaultsHelper().isLenta),
-            ParsersConfiguratorModel(parser: ParserManagerTwo(id: .gazeta,
-                                                              urlString: "http://www.gazeta.ru/export/rss/lenta.xml"),
-                                     isOn: UserDefaultsHelper().isGazeta)
-        ]
-
-        if let navigationController = navigationController {
-            viewModel = FeedViewModel(parsersConfigurator: ParsersConfigurator(models: parserConfigModels),
-                                      router: Router(navigationController: navigationController),
-                                      dataBaseManager: DataBaseManager())
-        }
         getDataWithTimer()
     }
 

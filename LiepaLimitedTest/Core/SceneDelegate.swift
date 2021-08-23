@@ -7,15 +7,46 @@
 
 import UIKit
 
+
+class ArticleListViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .red
+        let label = UILabel()
+        label.text = "test"
+        view.addSubview(label)
+    }
+}
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+
+
+        let window = UIWindow(windowScene: windowScene)
+
+
+        let parserConfigModels = [
+            ParsersConfiguratorModel(parser: ParserManagerTwo(id: .lenta,
+                                                              urlString: "http://lenta.ru/rss"),
+                                     isOn: UserDefaultsHelper().isLenta),
+            ParsersConfiguratorModel(parser: ParserManagerTwo(id: .gazeta,
+                                                              urlString: "http://www.gazeta.ru/export/rss/lenta.xml"),
+                                     isOn: UserDefaultsHelper().isGazeta)
+        ]
+
+
+        let rootViewController = Router().initRootViewController(parsersConfigurator: ParsersConfigurator(models: parserConfigModels),
+                                                             dataBaseManager: DataBaseManager())
+        window.rootViewController = rootViewController
+
+        self.window = window
+        window.makeKeyAndVisible()
+
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 

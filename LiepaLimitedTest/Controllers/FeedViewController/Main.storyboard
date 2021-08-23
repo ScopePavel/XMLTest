@@ -27,7 +27,7 @@
         <!--Feed View Controller-->
         <scene sceneID="jcV-I6-F9c">
             <objects>
-                <viewController id="wDa-0i-Jqq" customClass="FeedViewController" customModule="LiepaLimitedTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeedViewController" id="wDa-0i-Jqq" customClass="FeedViewController" customModule="LiepaLimitedTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tWA-nS-oOk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

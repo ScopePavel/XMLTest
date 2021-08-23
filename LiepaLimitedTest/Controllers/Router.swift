@@ -8,8 +8,14 @@
 import UIKit
 
 final class Router {
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
+
+    func initRootViewController(parsersConfigurator: ParsersConfigurator, dataBaseManager: DataBaseManagerProtocol) -> UINavigationController? {
+        if let controller = FeedsBuilder().build(parsersConfigurator: parsersConfigurator,
+                                                 router: self,
+                                                 dataBaseManager: dataBaseManager) {
+            navigationController = UINavigationController(rootViewController: controller)
+        }
+        return navigationController
     }
 
     func showSettings(onClose: @escaping (()->())) {
@@ -31,5 +37,5 @@ final class Router {
         }
     }
 
-    private let navigationController: UINavigationController
+    private var navigationController = UINavigationController()
 }
