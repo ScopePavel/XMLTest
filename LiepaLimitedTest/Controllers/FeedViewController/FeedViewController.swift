@@ -61,7 +61,9 @@ final class FeedViewController: UIViewController {
         ]
 
         if let navigationController = navigationController {
-            viewModel = FeedViewModel(parsersConfigurator: ParsersConfigurator(models: parserConfigModels), router: Router(navigationController: navigationController))
+            viewModel = FeedViewModel(parsersConfigurator: ParsersConfigurator(models: parserConfigModels),
+                                      router: Router(navigationController: navigationController),
+                                      dataBaseManager: DataBaseManager())
         }
         getDataWithTimer()
     }
@@ -89,8 +91,6 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard
-            let cell = tableView.cellForRow(at: indexPath) as? FeedCell else { return }
         viewModel?.setFeed(index: indexPath.row)
     }
 }

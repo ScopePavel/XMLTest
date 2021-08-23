@@ -25,6 +25,12 @@ struct FeedCellViewModel {
 
 final class FeedCell: UITableViewCell, ReusableView {
 
+    var descriptionNumberOfLines: Int = 3 {
+        didSet {
+            descriptionLabel.numberOfLines = descriptionNumberOfLines
+        }
+    }
+
     func config(model: FeedCellViewModel) {
         descriptionLabel.text = model.description ?? ""
         titleLabel.text = model.title ?? ""
@@ -34,13 +40,6 @@ final class FeedCell: UITableViewCell, ReusableView {
         }
 
         backgroundColor = model.isView ? .green : .white
-    }
-
-
-    var descriptionNumberOfLines: Int = 3 {
-        didSet {
-            descriptionLabel.numberOfLines = descriptionNumberOfLines
-        }
     }
 
     override func prepareForReuse() {

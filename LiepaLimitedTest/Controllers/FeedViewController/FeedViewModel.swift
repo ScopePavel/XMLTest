@@ -11,9 +11,10 @@ final class FeedViewModel {
 
     var feeds: [FeedCellViewModel] = []
 
-    init(parsersConfigurator: ParsersConfiguratorProtocol, router: Router) {
+    init(parsersConfigurator: ParsersConfiguratorProtocol, router: Router, dataBaseManager: DataBaseManagerProtocol) {
         self.parsersConfigurator = parsersConfigurator
         self.router = router
+        self.dataBaseManager = dataBaseManager
         self.updateParsers()
         self.updateViewdFeeds()
     }
@@ -74,15 +75,15 @@ final class FeedViewModel {
         }
     }
 
-    private func updateViewdFeeds() {
-        viewedFeeds = dataBaseManager.getGuids()
-    }
-
     private var parsersConfigurator: ParsersConfiguratorProtocol?
     private var viewedFeeds: [String] = []
-    private let dataBaseManager = DataBaseManager()
+    private let dataBaseManager: DataBaseManagerProtocol
     private var timer: Timer?
     private let router: Router
     private let group = DispatchGroup()
     private var parsers: [ParserProtocol] = []
+
+    private func updateViewdFeeds() {
+        viewedFeeds = dataBaseManager.getGuids()
+    }
 }

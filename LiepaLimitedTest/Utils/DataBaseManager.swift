@@ -13,7 +13,12 @@ class FeedDataBaseModel: Object {
     @Persisted var guId: String
 }
 
-final class DataBaseManager {
+protocol DataBaseManagerProtocol {
+    func setFeed(model: FeedCellViewModel)
+    func getGuids() -> [String]
+}
+
+final class DataBaseManager: DataBaseManagerProtocol {
     func setFeed(model: FeedCellViewModel) {
         guard
             let guId =  model.guId,
