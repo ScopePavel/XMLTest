@@ -9,19 +9,25 @@ import Foundation
 
 protocol ParsersConfiguratorProtocol {
     func getParsers() -> [ParserProtocol]
+    func allParsers() -> [ParserProtocol]
 }
 
 struct ParsersConfiguratorModel {
     let parser: ParserProtocol
-    var isOn: Bool
-}
+    var isOn: Bool = false
 
-enum ParserIds: String, CaseIterable {
-    case gazeta = "gazeta"
-    case lenta = "lenta"
+    init(parser: ParserProtocol) {
+        self.parser = parser
+        self.isOn = UserDefaultsHelper().getValueFor(key: parser.id)
+    }
 }
 
 final class ParsersConfigurator: ParsersConfiguratorProtocol {
+
+    func allParsers() -> [ParserProtocol] {
+        models.map({ $0.value.parser })
+    }
+
     func getParsers() -> [ParserProtocol] {
         var parsers: [ParserProtocol] = []
         models.forEach { model in
@@ -43,12 +49,12 @@ final class ParsersConfigurator: ParsersConfiguratorProtocol {
     }
 
     @objc private func isAddAction(_ notification: Notification) {
-        ParserIds.allCases.forEach { id in
-            if let value = notification.userInfo?[id.rawValue] as? Bool {
-                models[id]?.isOn = value
+        models.keys.forEach { key in
+            if let value = notification.userInfo?[key] as? Bool {
+                models[key]?.isOn = value
             }
         }
     }
 
-    private var models: [ParserIds: ParsersConfiguratorModel]
+    private var models: [String: ParsersConfiguratorModel]
 }

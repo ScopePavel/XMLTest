@@ -32,6 +32,7 @@
 		092002C826B7E34100EE54A6 /* FullFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 092002C726B7E34100EE54A6 /* FullFeed.storyboard */; };
 		092002CC26B7F94800EE54A6 /* ParsersConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092002CB26B7F94800EE54A6 /* ParsersConfigurator.swift */; };
 		09B4181D26D4456D00DA0591 /* FeedBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B4181C26D4456D00DA0591 /* FeedBuilder.swift */; };
+		09B418C026D5712600DA0591 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B418BF26D5712600DA0591 /* SettingCell.swift */; };
 		8083F10A6719F72ED6FB9627 /* Pods_LiepaLimitedTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 061336E223E12AC5A112E4C0 /* Pods_LiepaLimitedTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		092002C726B7E34100EE54A6 /* FullFeed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullFeed.storyboard; sourceTree = "<group>"; };
 		092002CB26B7F94800EE54A6 /* ParsersConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsersConfigurator.swift; sourceTree = "<group>"; };
 		09B4181C26D4456D00DA0591 /* FeedBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBuilder.swift; sourceTree = "<group>"; };
+		09B418BF26D5712600DA0591 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		5B54B47372C181BF7095882B /* Pods-LiepaLimitedTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiepaLimitedTest.release.xcconfig"; path = "Target Support Files/Pods-LiepaLimitedTest/Pods-LiepaLimitedTest.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,6 +169,7 @@
 				0920024F26B3559900EE54A6 /* SettingViewModel.swift */,
 				0920025226B355FA00EE54A6 /* SettingBuilder.swift */,
 				0920025526B3563000EE54A6 /* Setting.storyboard */,
+				09B418BF26D5712600DA0591 /* SettingCell.swift */,
 			);
 			path = SettingViewController;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				0920025326B355FA00EE54A6 /* SettingBuilder.swift in Sources */,
 				0920021926B2CB6900EE54A6 /* Utils + Extensions.swift in Sources */,
 				092002C526B7E33700EE54A6 /* FullFeedBuilder.swift in Sources */,
+				09B418C026D5712600DA0591 /* SettingCell.swift in Sources */,
 				0920025D26B3596800EE54A6 /* Router.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -28,12 +28,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
         let parserConfigModels = [
-            ParsersConfiguratorModel(parser: ParserManagerTwo(id: .lenta,
-                                                              urlString: "http://lenta.ru/rss"),
-                                     isOn: UserDefaultsHelper().isLenta),
-            ParsersConfiguratorModel(parser: ParserManagerTwo(id: .gazeta,
-                                                              urlString: "http://www.gazeta.ru/export/rss/lenta.xml"),
-                                     isOn: UserDefaultsHelper().isGazeta)
+            ParsersConfiguratorModel(parser: ParserManagerTwo(urlString: "http://lenta.ru/rss")),
+            ParsersConfiguratorModel(parser: ParserManagerTwo(urlString: "http://www.gazeta.ru/export/rss/lenta.xml"))
         ]
 
 

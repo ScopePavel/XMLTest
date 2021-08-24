@@ -19,8 +19,8 @@ final class Router {
         return navigationController
     }
 
-    func showSettings(onClose: @escaping (()->())) {
-        let viewModel = SettingViewModel()
+    func showSettings(parsersConfigurator: ParsersConfiguratorProtocol, onClose: @escaping (()->())) {
+        let viewModel = SettingViewModel(parsersConfigurator: parsersConfigurator)
         viewModel.onClose = { [weak self] in
             onClose()
             self?.navigationController.dismiss(animated: true, completion: nil)

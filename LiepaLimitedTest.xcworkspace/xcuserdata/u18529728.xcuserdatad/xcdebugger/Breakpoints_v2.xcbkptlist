@@ -3,4 +3,54 @@
    uuid = "83D7CC8C-C6E3-47A9-8A11-01EC72C951F8"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AF71387D-FDAE-48EC-A40C-D73C7D1E0E12"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LiepaLimitedTest/Utils/ParsersConfigurator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "allParsers()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AF71387D-FDAE-48EC-A40C-D73C7D1E0E12 - 5a28075493534cce"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LiepaLimitedTest.ParsersConfigurator.allParsers() -&gt; Swift.Array&lt;LiepaLimitedTest.ParserProtocol&gt;"
+                  moduleName = "LiepaLimitedTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/u18529728/Documents/XMLTest/LiepaLimitedTest/Utils/ParsersConfigurator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "31">
+               </Location>
+               <Location
+                  uuid = "AF71387D-FDAE-48EC-A40C-D73C7D1E0E12 - 173157d4a7243c5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 ((key: Swift.String, value: LiepaLimitedTest.ParsersConfiguratorModel)) -&gt; LiepaLimitedTest.ParserProtocol in LiepaLimitedTest.ParsersConfigurator.allParsers() -&gt; Swift.Array&lt;LiepaLimitedTest.ParserProtocol&gt;"
+                  moduleName = "LiepaLimitedTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/u18529728/Documents/XMLTest/LiepaLimitedTest/Utils/ParsersConfigurator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "125">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

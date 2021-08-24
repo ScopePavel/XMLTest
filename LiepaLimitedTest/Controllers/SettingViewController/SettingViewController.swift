@@ -17,8 +17,7 @@ final class SettingViewController: UIViewController {
     }
 
     @IBOutlet private weak var timeIntervalTextField: UITextField!
-    @IBOutlet private weak var gazetaSwitch: UISwitch!
-    @IBOutlet private weak var lentaSwitch: UISwitch!
+    @IBOutlet private weak var tableView: UITableView!
 
     @IBAction private func doneAction(_ sender: Any) {
         viewModel?.done()
@@ -28,19 +27,26 @@ final class SettingViewController: UIViewController {
         viewModel?.timeInterval = Double(sender.text ?? "")
     }
 
-    @IBAction private func gazetaAction(_ sender: UISwitch) {
-        viewModel?.isGazeta = sender.isOn
-    }
-
-    @IBAction private func lentaAction(_ sender: UISwitch) {
-        viewModel?.isLenta = sender.isOn
-    }
-
     private func configView() {
-        gazetaSwitch.isOn = viewModel?.isGazeta ?? true
-        lentaSwitch.isOn = viewModel?.isLenta ?? true
+        tableView.delegate = self
+        tableView.dataSource = self
         if let timeInterval = viewModel?.timeInterval {
             timeIntervalTextField.text = "\(timeInterval)"
         }
+    }
+}
+
+extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel?.parsersConfigurator.allParsers().count ?? 0
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard
+            let cell = tableView.dequeueReusableCell(withIdentifier: SettingCell.reuseIdentifier, for: indexPath) as? SettingCell,
+            let parser = viewModel?.parsersConfigurator.allParsers()[safe: indexPath.row]
+        else { return UITableViewCell() }
+        cell.config(parser: parser)
+        return cell
     }
 }

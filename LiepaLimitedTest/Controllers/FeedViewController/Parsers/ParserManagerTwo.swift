@@ -24,11 +24,11 @@ enum RSSConstants: String {
 }
 
 final class ParserManagerTwo: ParserProtocol {
-    var id: ParserIds
+    var id: String
 
-    init(id: ParserIds, urlString: String) {
+    init(urlString: String) {
         self.urlString = urlString
-        self.id = id
+        self.id = urlString
     }
 
     func getData(complition: (([FeedCellViewModel]) -> ())?) {

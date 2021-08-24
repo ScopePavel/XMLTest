@@ -9,16 +9,16 @@ import Foundation
 
 final class SettingViewModel {
     var onClose: (()->())?
-
-    var isGazeta: Bool = UserDefaultsHelper().isGazeta
-    var isLenta: Bool = UserDefaultsHelper().isLenta
+    var parsersConfigurator: ParsersConfiguratorProtocol
     var timeInterval: Double? = UserDefaultsHelper().timeIntervalForTimer
+
+    init(parsersConfigurator: ParsersConfiguratorProtocol) {
+        self.parsersConfigurator = parsersConfigurator
+    }
 
     func done() {
         let userDefaultsHelper = UserDefaultsHelper()
         userDefaultsHelper.timeIntervalForTimer = timeInterval ?? UserDefaultsHelper().timeIntervalForTimer
-        UserDefaultsHelper().isGazeta = isGazeta
-        UserDefaultsHelper().isLenta = isLenta
         onClose?()
     }
 }

@@ -21,41 +21,21 @@ final class UserDefaultsHelper {
         }
     }
 
-    var isLenta: Bool {
-        get {
-            if let state = UserDefaults.standard.value(forKey: Constants.lenta) as? Bool {
-                return state
-            }
-            return true
-        }
-
-        set {
-            UserDefaults.standard.setValue(newValue, forKey: Constants.lenta)
-            NotificationCenter.default.post(name: LLNotifications.parsers,
-                                            object: nil,
-                                            userInfo: [ParserIds.lenta.rawValue : newValue])
-        }
+    func setValueFor(key: String, value: Bool) {
+        UserDefaults.standard.setValue(value, forKey: key)
+        NotificationCenter.default.post(name: LLNotifications.parsers,
+                                        object: nil,
+                                        userInfo: [key : value])
     }
 
-    var isGazeta: Bool {
-        get {
-            if let state = UserDefaults.standard.value(forKey: Constants.gazeta) as? Bool {
-                return state
-            }
-            return true
+    func getValueFor(key: String) -> Bool {
+        if let state = UserDefaults.standard.value(forKey: key) as? Bool {
+            return state
         }
-
-        set {
-            UserDefaults.standard.setValue(newValue, forKey: Constants.gazeta)
-            NotificationCenter.default.post(name: LLNotifications.parsers,
-                                            object: nil,
-                                            userInfo: [ParserIds.gazeta.rawValue : newValue])
-        }
+        return true
     }
 
     private struct Constants {
         static let timeIntervalForTimer = "timeIntervalForTimer"
-        static let lenta = "lenta"
-        static let gazeta = "gazeta"
     }
 }

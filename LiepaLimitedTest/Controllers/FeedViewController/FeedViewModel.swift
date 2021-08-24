@@ -52,7 +52,7 @@ final class FeedViewModel {
     }
 
     func showSettings(onClose: @escaping (()->())) {
-        router.showSettings(onClose: onClose)
+        router.showSettings(parsersConfigurator: parsersConfigurator, onClose: onClose)
     }
 
     func showFullFeed(model: FeedCellViewModel) {
@@ -60,7 +60,7 @@ final class FeedViewModel {
     }
 
     func updateParsers() {
-        parsers = parsersConfigurator?.getParsers() ?? []
+        parsers = parsersConfigurator.getParsers()
     }
 
     func setFeed(index: Int) {
@@ -73,7 +73,7 @@ final class FeedViewModel {
         }
     }
 
-    private var parsersConfigurator: ParsersConfiguratorProtocol?
+    private var parsersConfigurator: ParsersConfiguratorProtocol
     private var viewedFeeds: [String] = []
     private let dataBaseManager: DataBaseManagerProtocol
     private var timer: Timer?

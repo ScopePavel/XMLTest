@@ -9,13 +9,13 @@ import Foundation
 
 protocol ParserProtocol {
     func getData(complition: (([FeedCellViewModel]) -> ())?)
-    var id: ParserIds { get }
+    var id: String { get }
 }
 
 final class ParserManager: NSObject, ParserProtocol, XMLParserDelegate {
-    var id: ParserIds
+    var id: String
 
-    init(id: ParserIds) {
+    init(id: String) {
         self.id = id
     }
 
