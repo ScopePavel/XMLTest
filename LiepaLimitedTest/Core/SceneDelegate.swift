@@ -7,17 +7,6 @@
 
 import UIKit
 
-
-class ArticleListViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .red
-        let label = UILabel()
-        label.text = "test"
-        view.addSubview(label)
-    }
-}
-
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
