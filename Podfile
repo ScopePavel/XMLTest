@@ -11,5 +11,6 @@ target 'LiepaLimitedTest' do
   pod 'XMLCoder'
   pod 'SwiftyXMLParser'
   pod 'RealmSwift'
+  pod 'SwiftLint'
 
 end

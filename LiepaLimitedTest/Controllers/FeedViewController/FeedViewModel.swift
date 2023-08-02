@@ -7,9 +7,27 @@
 
 import Foundation
 
-final class FeedViewModel {
+protocol FeedViewModel {
+    var feeds: [FeedCellViewModel] { get set }
+
+    func getDataWithTimer(complition: (() -> Void)?)
+    func getData(complition: (() -> Void)?)
+    func showSettings(onClose: @escaping (() -> Void))
+    func showFullFeed(model: FeedCellViewModel)
+    func updateParsers()
+    func setFeed(index: Int)
+}
+
+final class FeedViewModelImpl: FeedViewModel {
 
     var feeds: [FeedCellViewModel] = []
+    private var parsersConfigurator: ParsersConfiguratorProtocol
+    private var viewedFeeds: [String] = []
+    private let dataBaseManager: DataBaseManagerProtocol
+    private var timer: Timer?
+    private let router: Router
+    private let group = DispatchGroup()
+    private var parsers: [ParserProtocol] = []
 
     init(parsersConfigurator: ParsersConfiguratorProtocol, router: Router, dataBaseManager: DataBaseManagerProtocol) {
         self.parsersConfigurator = parsersConfigurator
@@ -19,14 +37,17 @@ final class FeedViewModel {
         self.updateViewdFeeds()
     }
 
-    func getDataWithTimer(complition: (() -> ())?) {
+    func getDataWithTimer(complition: (() -> Void)?) {
         timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: UserDefaultsHelper().timeIntervalForTimer, repeats: true) {  [weak self] _ in
+        timer = Timer.scheduledTimer(
+            withTimeInterval: UserDefaultsHelper().timeIntervalForTimer,
+            repeats: true
+        ) {  [weak self] _ in
             self?.getData(complition: complition)
         }
     }
 
-    func getData(complition: (() -> ())?) {
+    func getData(complition: (() -> Void)?) {
         self.feeds = []
         self.parsers.forEach { [weak self] parser in
             self?.group.enter()
@@ -36,10 +57,9 @@ final class FeedViewModel {
             }
         }
 
-
         self.group.notify(queue: .main) { [weak self] in
             guard let self = self else { return }
-            self.feeds = self.feeds.enumerated().compactMap { (index, feed) -> FeedCellViewModel? in
+            self.feeds = self.feeds.enumerated().compactMap { _, feed -> FeedCellViewModel? in
                 if self.viewedFeeds.contains(feed.guId ?? "") {
                     var newFeed = feed
                     newFeed.isView = true
@@ -51,7 +71,7 @@ final class FeedViewModel {
         }
     }
 
-    func showSettings(onClose: @escaping (()->())) {
+    func showSettings(onClose: @escaping (() -> Void)) {
         router.showSettings(parsersConfigurator: parsersConfigurator, onClose: onClose)
     }
 
@@ -72,16 +92,10 @@ final class FeedViewModel {
             showFullFeed(model: model)
         }
     }
+}
 
-    private var parsersConfigurator: ParsersConfiguratorProtocol
-    private var viewedFeeds: [String] = []
-    private let dataBaseManager: DataBaseManagerProtocol
-    private var timer: Timer?
-    private let router: Router
-    private let group = DispatchGroup()
-    private var parsers: [ParserProtocol] = []
-
-    private func updateViewdFeeds() {
+private extension FeedViewModelImpl {
+    func updateViewdFeeds() {
         viewedFeeds = dataBaseManager.getGuids()
     }
 }

@@ -8,8 +8,10 @@
 import UIKit
 
 final class FeedsBuilder {
-    func build(viewModel: FeedViewModel) -> FeedViewController? {
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FeedViewController") as? FeedViewController
+    func build(viewModel: FeedViewModel) -> UIViewController? {
+        let viewController = UIStoryboard(
+            name: "Main",
+            bundle: nil).instantiateViewController(withIdentifier: "FeedViewController") as? FeedViewController
         viewController?.viewModel = viewModel
         return viewController
     }

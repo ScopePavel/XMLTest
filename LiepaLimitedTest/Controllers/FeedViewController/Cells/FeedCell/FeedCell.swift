@@ -15,8 +15,7 @@ struct FeedCellViewModel {
     let url: String?
     let source: String?
     let guId: String?
-
-    var isView: Bool = false
+    var isView = false
 
     var date: Date {
         datePub?.toDate(format: .rss) ?? Date()
@@ -24,6 +23,11 @@ struct FeedCellViewModel {
 }
 
 final class FeedCell: UITableViewCell, ReusableView {
+
+    @IBOutlet private weak var picterImageView: UIImageView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var sourceLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
 
     var descriptionNumberOfLines: Int = 3 {
         didSet {
@@ -47,9 +51,4 @@ final class FeedCell: UITableViewCell, ReusableView {
 
         backgroundColor = model.isView ? .green : .white
     }
-
-    @IBOutlet private weak var picterImageView: UIImageView!
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var sourceLabel: UILabel!
-    @IBOutlet private weak var descriptionLabel: UILabel!
 }

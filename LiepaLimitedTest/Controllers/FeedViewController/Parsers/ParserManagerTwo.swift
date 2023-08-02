@@ -8,34 +8,33 @@
 import Foundation
 import SwiftyXMLParser
 
-
 enum RSSConstants: String {
-    case item = "item"
-    case title = "title"
-    case description = "description"
-    case link = "link"
-    case guid = "guid"
-    case enclosure = "enclosure"
-    case pubDate = "pubDate"
-    case channel = "channel"
-    case url = "url"
-
-    case rss = "rss"
+    case item
+    case title
+    case description
+    case link
+    case guid
+    case enclosure
+    case pubDate
+    case channel
+    case url
+    case rss
 }
 
 final class ParserManagerTwo: ParserProtocol {
     var id: String
+    private var feeds: [FeedCellViewModel] = []
+    private var complition: (([FeedCellViewModel]) -> Void)?
 
-    init(urlString: String) {
-        self.urlString = urlString
-        self.id = urlString
+    init(id: String) {
+        self.id = id
     }
 
-    func getData(complition: (([FeedCellViewModel]) -> ())?) {
+    func getData(complition: (([FeedCellViewModel]) -> Void)?) {
         feeds = []
         self.complition = complition
-        guard let url = URL(string: urlString) else { return }
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+        guard let url = URL(string: id) else { return }
+        let task = URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data = data else {
                 print(error ?? "Unknown error")
                 return
@@ -43,7 +42,11 @@ final class ParserManagerTwo: ParserProtocol {
 
             let xml = XML.parse(data)
 
-            xml[RSSConstants.rss.rawValue, RSSConstants.channel.rawValue, RSSConstants.item.rawValue].forEach { [weak self] item in
+            xml[
+                RSSConstants.rss.rawValue,
+                RSSConstants.channel.rawValue,
+                RSSConstants.item.rawValue
+            ].forEach { [weak self] item in
                 let title = item[RSSConstants.title.rawValue].text
                 let description = item[RSSConstants.description.rawValue].text
                 let link = item[RSSConstants.link.rawValue].text
@@ -63,8 +66,4 @@ final class ParserManagerTwo: ParserProtocol {
         }
         task.resume()
     }
-
-    private var feeds: [FeedCellViewModel] = []
-    private var complition: (([FeedCellViewModel]) -> ())?
-    private let urlString: String
 }

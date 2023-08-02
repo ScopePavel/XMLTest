@@ -7,12 +7,14 @@ PODS:
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
+  - SwiftLint (0.52.4)
   - SwiftyXMLParser (5.3.0)
   - XMLCoder (0.12.0)
 
 DEPENDENCIES:
   - RealmSwift
   - SDWebImage
+  - SwiftLint
   - SwiftyXMLParser
   - XMLCoder
 
@@ -21,6 +23,7 @@ SPEC REPOS:
     - Realm
     - RealmSwift
     - SDWebImage
+    - SwiftLint
     - SwiftyXMLParser
     - XMLCoder
 
@@ -28,9 +31,10 @@ SPEC CHECKSUMS:
   Realm: 39ff23f0f709cd4ed93eb47ee6593c2158945b38
   RealmSwift: 42713e09a8631070d6c12c3c5fb22b8edc1daa41
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  SwiftLint: 1cc5cd61ba9bacb2194e340aeb47a2a37fda00b3
   SwiftyXMLParser: 0985085180f1ee01916cd9b5c1a4f0a8f493c084
   XMLCoder: f884dfa894a6f8b7dce465e4f6c02963bf17e028
 
-PODFILE CHECKSUM: a28617686f7112fceff2240f5a5e8082e75d6e93
+PODFILE CHECKSUM: 32898d73c54f9effc400004cd22638b3a175121d
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.12.1

@@ -33,15 +33,18 @@ final class FeedViewController: UIViewController {
             self.getDataWithTimer()
         }
     }
+}
 
-    private func configTableView() {
+private extension FeedViewController {
+
+    func configTableView() {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(FeedCell.self)
     }
 
-    private func getData() {
+    func getData() {
         viewModel?.getData(complition: { [weak self] in
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
@@ -49,11 +52,11 @@ final class FeedViewController: UIViewController {
         })
     }
 
-    private func configViewModel() {
+    func configViewModel() {
         getDataWithTimer()
     }
 
-    private func getDataWithTimer() {
+    func getDataWithTimer() {
         viewModel?.getDataWithTimer(complition: { [weak self] in
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
@@ -79,5 +82,3 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         viewModel?.setFeed(index: indexPath.row)
     }
 }
-
-

@@ -7,7 +7,11 @@
 
 import Foundation
 
-final class FullFeedViewModel {
+protocol FullFeedViewModel {
+    var cellModel: FeedCellViewModel? { get set }
+}
+
+final class FullFeedViewModelImpl: FullFeedViewModel {
 
     var cellModel: FeedCellViewModel?
 

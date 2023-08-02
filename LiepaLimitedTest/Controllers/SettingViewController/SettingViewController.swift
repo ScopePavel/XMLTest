@@ -10,14 +10,13 @@ import UIKit
 final class SettingViewController: UIViewController {
 
     var viewModel: SettingViewModel?
+    @IBOutlet private weak var timeIntervalTextField: UITextField!
+    @IBOutlet private weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configView()
     }
-
-    @IBOutlet private weak var timeIntervalTextField: UITextField!
-    @IBOutlet private weak var tableView: UITableView!
 
     @IBAction private func doneAction(_ sender: Any) {
         viewModel?.done()
@@ -43,7 +42,10 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
-            let cell = tableView.dequeueReusableCell(withIdentifier: SettingCell.reuseIdentifier, for: indexPath) as? SettingCell,
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: SettingCell.reuseIdentifier,
+                for: indexPath
+            ) as? SettingCell,
             let parser = viewModel?.parsersConfigurator.allParsers()[safe: indexPath.row]
         else { return UITableViewCell() }
         cell.config(parser: parser)

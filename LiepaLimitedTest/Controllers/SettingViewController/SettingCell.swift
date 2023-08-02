@@ -8,6 +8,12 @@
 import UIKit
 
 final class SettingCell: UITableViewCell, ReusableView {
+
+    @IBOutlet private weak var isOnSwitch: UISwitch!
+    @IBOutlet private weak var resourceNameLabel: UILabel!
+    private var userDefaultsHelper = UserDefaultsHelper()
+    private var parser: ParserProtocol?
+
     func config(parser: ParserProtocol) {
         self.parser = parser
         isOnSwitch.isOn = userDefaultsHelper.getValueFor(key: parser.id)
@@ -18,9 +24,4 @@ final class SettingCell: UITableViewCell, ReusableView {
         guard let parser = parser else { return }
         userDefaultsHelper.setValueFor(key: parser.id, value: sender.isOn)
     }
-
-    @IBOutlet private weak var isOnSwitch: UISwitch!
-    @IBOutlet private weak var resourceNameLabel: UILabel!
-    private var userDefaultsHelper = UserDefaultsHelper()
-    private var parser: ParserProtocol?
 }

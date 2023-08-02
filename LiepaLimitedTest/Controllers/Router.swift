@@ -9,18 +9,25 @@ import UIKit
 
 final class Router {
 
-    func initRootViewController(parsersConfigurator: ParsersConfigurator, dataBaseManager: DataBaseManagerProtocol) -> UINavigationController? {
-        let viewModel = FeedViewModel(parsersConfigurator: parsersConfigurator,
-                                      router: self,
-                                      dataBaseManager: dataBaseManager)
+    private var navigationController = UINavigationController()
+
+    func initRootViewController(
+        parsersConfigurator: ParsersConfigurator,
+        dataBaseManager: DataBaseManagerProtocol
+    ) -> UINavigationController? {
+        let viewModel = FeedViewModelImpl(
+            parsersConfigurator: parsersConfigurator,
+            router: self,
+            dataBaseManager: dataBaseManager
+        )
         if let controller = FeedsBuilder().build(viewModel: viewModel) {
             navigationController = UINavigationController(rootViewController: controller)
         }
         return navigationController
     }
 
-    func showSettings(parsersConfigurator: ParsersConfiguratorProtocol, onClose: @escaping (()->())) {
-        let viewModel = SettingViewModel(parsersConfigurator: parsersConfigurator)
+    func showSettings(parsersConfigurator: ParsersConfiguratorProtocol, onClose: @escaping (() -> Void)) {
+        let viewModel = SettingViewModelImpl(parsersConfigurator: parsersConfigurator)
         viewModel.onClose = { [weak self] in
             onClose()
             self?.navigationController.dismiss(animated: true, completion: nil)
@@ -37,6 +44,4 @@ final class Router {
             navigationController.pushViewController(vc, animated: true)
         }
     }
-
-    private var navigationController = UINavigationController()
 }

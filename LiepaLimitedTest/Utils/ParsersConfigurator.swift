@@ -14,7 +14,7 @@ protocol ParsersConfiguratorProtocol {
 
 struct ParsersConfiguratorModel {
     let parser: ParserProtocol
-    var isOn: Bool = false
+    var isOn = false
 
     init(parser: ParserProtocol) {
         self.parser = parser
@@ -23,6 +23,8 @@ struct ParsersConfiguratorModel {
 }
 
 final class ParsersConfigurator: ParsersConfiguratorProtocol {
+
+    private var models: [String: ParsersConfiguratorModel]
 
     func allParsers() -> [ParserProtocol] {
         models.map({ $0.value.parser })
@@ -39,13 +41,18 @@ final class ParsersConfigurator: ParsersConfiguratorProtocol {
     }
 
     init(models: [ParsersConfiguratorModel]) {
-        self.models = [ : ]
+        self.models = [:]
         models.forEach { [weak self] parserModel in
             guard let self = self else { return }
             self.models.updateValue(parserModel, forKey: parserModel.parser.id)
         }
 
-        NotificationCenter.default.addObserver(self, selector: #selector(isAddAction), name: LLNotifications.parsers, object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(isAddAction),
+            name: LLNotifications.parsers,
+            object: nil
+        )
     }
 
     @objc private func isAddAction(_ notification: Notification) {
@@ -55,6 +62,4 @@ final class ParsersConfigurator: ParsersConfiguratorProtocol {
             }
         }
     }
-
-    private var models: [String: ParsersConfiguratorModel]
 }

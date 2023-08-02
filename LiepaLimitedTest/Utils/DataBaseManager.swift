@@ -8,7 +8,6 @@
 import Foundation
 import RealmSwift
 
-
 class FeedDataBaseModel: Object {
     @Persisted var guId: String
 }
@@ -19,14 +18,16 @@ protocol DataBaseManagerProtocol {
 }
 
 final class DataBaseManager: DataBaseManagerProtocol {
+
+    private var realm = try? Realm()
+
     func setFeed(model: FeedCellViewModel) {
         guard
-            let guId =  model.guId,
+            let guId = model.guId,
             let realm = realm
         else { return }
         let feedDataBase = FeedDataBaseModel()
         feedDataBase.guId = guId
-
 
         do {
             try realm.write {
@@ -42,6 +43,4 @@ final class DataBaseManager: DataBaseManagerProtocol {
         let guIds = Array(realm.objects(FeedDataBaseModel.self)).map({ $0.guId })
         return guIds
     }
-
-    private var realm = try? Realm()
 }

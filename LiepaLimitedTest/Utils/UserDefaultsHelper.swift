@@ -25,7 +25,7 @@ final class UserDefaultsHelper {
         UserDefaults.standard.setValue(value, forKey: key)
         NotificationCenter.default.post(name: LLNotifications.parsers,
                                         object: nil,
-                                        userInfo: [key : value])
+                                        userInfo: [key: value])
     }
 
     func getValueFor(key: String) -> Bool {
@@ -35,7 +35,7 @@ final class UserDefaultsHelper {
         return true
     }
 
-    private struct Constants {
+    private enum Constants {
         static let timeIntervalForTimer = "timeIntervalForTimer"
     }
 }

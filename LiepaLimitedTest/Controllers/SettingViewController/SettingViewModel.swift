@@ -7,8 +7,16 @@
 
 import Foundation
 
-final class SettingViewModel {
-    var onClose: (()->())?
+protocol SettingViewModel {
+    var onClose: (() -> Void)? { get set }
+    var timeInterval: Double? { get set }
+    var parsersConfigurator: ParsersConfiguratorProtocol { get set }
+
+    func done()
+}
+
+final class SettingViewModelImpl: SettingViewModel {
+    var onClose: (() -> Void )?
     var parsersConfigurator: ParsersConfiguratorProtocol
     var timeInterval: Double? = UserDefaultsHelper().timeIntervalForTimer
 
@@ -23,6 +31,6 @@ final class SettingViewModel {
     }
 }
 
-struct LLNotifications {
-    static let parsers = NSNotification.Name.init("parsers")
+enum LLNotifications {
+    static let parsers = Notification.Name("parsers")
 }
