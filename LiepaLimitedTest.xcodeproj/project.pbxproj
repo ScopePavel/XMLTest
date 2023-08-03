@@ -20,7 +20,6 @@
 		0920024C26B3558E00EE54A6 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0920024B26B3558E00EE54A6 /* SettingViewController.swift */; };
 		0920025026B3559900EE54A6 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0920024F26B3559900EE54A6 /* SettingViewModel.swift */; };
 		0920025326B355FA00EE54A6 /* SettingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0920025226B355FA00EE54A6 /* SettingBuilder.swift */; };
-		0920025626B3563000EE54A6 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0920025526B3563000EE54A6 /* Setting.storyboard */; };
 		0920025926B3574900EE54A6 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0920025826B3574900EE54A6 /* UserDefaultsHelper.swift */; };
 		0920025D26B3596800EE54A6 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0920025C26B3596800EE54A6 /* Router.swift */; };
 		0920026326B35D6300EE54A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0920026226B35D6300EE54A6 /* Main.storyboard */; };
@@ -29,7 +28,6 @@
 		092002B926B7E2B500EE54A6 /* FullFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092002B826B7E2B500EE54A6 /* FullFeedViewController.swift */; };
 		092002C126B7E32800EE54A6 /* FullFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092002C026B7E32800EE54A6 /* FullFeedViewModel.swift */; };
 		092002C526B7E33700EE54A6 /* FullFeedBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092002C426B7E33700EE54A6 /* FullFeedBuilder.swift */; };
-		092002C826B7E34100EE54A6 /* FullFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 092002C726B7E34100EE54A6 /* FullFeed.storyboard */; };
 		092002CC26B7F94800EE54A6 /* ParsersConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092002CB26B7F94800EE54A6 /* ParsersConfigurator.swift */; };
 		09B4181D26D4456D00DA0591 /* FeedBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B4181C26D4456D00DA0591 /* FeedBuilder.swift */; };
 		09B418C026D5712600DA0591 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B418BF26D5712600DA0591 /* SettingCell.swift */; };
@@ -54,7 +52,6 @@
 		0920024B26B3558E00EE54A6 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		0920024F26B3559900EE54A6 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		0920025226B355FA00EE54A6 /* SettingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBuilder.swift; sourceTree = "<group>"; };
-		0920025526B3563000EE54A6 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		0920025826B3574900EE54A6 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		0920025C26B3596800EE54A6 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		0920026226B35D6300EE54A6 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -63,7 +60,6 @@
 		092002B826B7E2B500EE54A6 /* FullFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullFeedViewController.swift; sourceTree = "<group>"; };
 		092002C026B7E32800EE54A6 /* FullFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullFeedViewModel.swift; sourceTree = "<group>"; };
 		092002C426B7E33700EE54A6 /* FullFeedBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullFeedBuilder.swift; sourceTree = "<group>"; };
-		092002C726B7E34100EE54A6 /* FullFeed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullFeed.storyboard; sourceTree = "<group>"; };
 		092002CB26B7F94800EE54A6 /* ParsersConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsersConfigurator.swift; sourceTree = "<group>"; };
 		09B4181C26D4456D00DA0591 /* FeedBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBuilder.swift; sourceTree = "<group>"; };
 		09B418BF26D5712600DA0591 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
@@ -168,7 +164,6 @@
 				0920024B26B3558E00EE54A6 /* SettingViewController.swift */,
 				0920024F26B3559900EE54A6 /* SettingViewModel.swift */,
 				0920025226B355FA00EE54A6 /* SettingBuilder.swift */,
-				0920025526B3563000EE54A6 /* Setting.storyboard */,
 				09B418BF26D5712600DA0591 /* SettingCell.swift */,
 			);
 			path = SettingViewController;
@@ -180,7 +175,6 @@
 				092002B826B7E2B500EE54A6 /* FullFeedViewController.swift */,
 				092002C026B7E32800EE54A6 /* FullFeedViewModel.swift */,
 				092002C426B7E33700EE54A6 /* FullFeedBuilder.swift */,
-				092002C726B7E34100EE54A6 /* FullFeed.storyboard */,
 			);
 			path = FullFeedViewController;
 			sourceTree = "<group>";
@@ -287,8 +281,6 @@
 				0920022A26B2E49600EE54A6 /* FeedCell.xib in Resources */,
 				092001F926B19E3000EE54A6 /* LaunchScreen.storyboard in Resources */,
 				092001F626B19E3000EE54A6 /* Assets.xcassets in Resources */,
-				0920025626B3563000EE54A6 /* Setting.storyboard in Resources */,
-				092002C826B7E34100EE54A6 /* FullFeed.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,7 +23,7 @@ struct FeedCellViewModel {
 }
 
 extension FeedCellViewModel: Equatable {
-    static func ==(lhs: FeedCellViewModel, rhs: FeedCellViewModel) -> Bool {
+    static func == (lhs: FeedCellViewModel, rhs: FeedCellViewModel) -> Bool {
         lhs.guId == rhs.guId
     }
 }

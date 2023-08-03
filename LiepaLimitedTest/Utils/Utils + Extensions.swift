@@ -31,6 +31,14 @@ extension UITableView {
         let nib = UINib(nibName: T.reuseIdentifier, bundle: nil)
         register(nib, forHeaderFooterViewReuseIdentifier: T.reuseIdentifier)
     }
+
+    func registerCell<Cell: UITableViewCell>(_ cellType: Cell.Type) where Cell: ReusableView {
+        register(cellType, forCellReuseIdentifier: Cell.reuseIdentifier)
+    }
+
+    private func makeReusableIdentifier(for any: AnyClass) -> String {
+        NSStringFromClass(any)
+    }
 }
 
 extension Date {
@@ -51,5 +59,18 @@ extension String {
         dateFormatter.calendar = Calendar(identifier: .gregorian)
         dateFormatter.dateFormat = format.rawValue
         return dateFormatter.date(from: self)
+    }
+}
+
+extension UIView {
+    @discardableResult
+    func bui_addSubviews(
+        _ views: UIView...
+    ) -> Self {
+        views.forEach {
+            addSubview($0)
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
+        return self
     }
 }

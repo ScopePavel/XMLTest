@@ -9,11 +9,9 @@ import UIKit
 
 final class FullFeedBuilder {
     func build(feedCellViewModel: FeedCellViewModel) -> UIViewController? {
-        let viewController = UIStoryboard(
-            name: "FullFeed",
-            bundle: Bundle(for: type(of: self))).instantiateInitialViewController() as? FullFeedViewController
+        let viewController = FullFeedViewController()
         let viewModel = FullFeedViewModelImpl(model: feedCellViewModel)
-        viewController?.viewModel = viewModel
+        viewController.viewModel = viewModel
         return viewController
     }
 }

@@ -10,25 +10,76 @@ import UIKit
 final class SettingViewController: UIViewController {
 
     var viewModel: SettingViewModel?
-    @IBOutlet private weak var timeIntervalTextField: UITextField!
-    @IBOutlet private weak var tableView: UITableView!
+//    @IBOutlet private weak var timeIntervalTextField: UITextField!
+//    @IBOutlet private weak var tableView: UITableView!
+
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.registerCell(SettingCell.self)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorStyle = .none
+        tableView.contentInsetAdjustmentBehavior = .never
+        tableView.showsVerticalScrollIndicator = false
+        tableView.alwaysBounceVertical = false
+        return tableView
+    }()
+
+    private lazy var editButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Close", for: .normal)
+        button.backgroundColor = .white
+        button.addTarget(self, action: #selector(doneAction), for: .touchUpInside)
+        return button
+    }()
+
+    private lazy var timeIntervalTextField: UITextField = {
+        let textField = UITextField()
+        textField.autocorrectionType = .no
+        textField.keyboardType = .numberPad
+        textField.placeholder = "Time Interval"
+        textField.addTarget(self, action: #selector(timeIntervalChangedAction), for: .editingChanged)
+        return textField
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
         configView()
+    }
+
+    private func setup() {
+        view.backgroundColor = .white
+        view.bui_addSubviews(
+            editButton,
+            timeIntervalTextField,
+            tableView
+        )
+
+        NSLayoutConstraint.activate([
+            editButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            editButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
+            editButton.heightAnchor.constraint(equalToConstant: 20),
+            editButton.bottomAnchor.constraint(equalTo: timeIntervalTextField.topAnchor, constant: -16),
+            timeIntervalTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
+            timeIntervalTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
+            timeIntervalTextField.heightAnchor.constraint(equalToConstant: 20),
+            timeIntervalTextField.bottomAnchor.constraint(equalTo: tableView.topAnchor, constant: -16),
+            tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
     }
 
     @IBAction private func doneAction(_ sender: Any) {
         viewModel?.done()
     }
 
-    @IBAction private func timeIntervalChangedAction(_ sender: UITextField) {
+    @objc private func timeIntervalChangedAction(_ sender: UITextField) {
         viewModel?.timeInterval = Double(sender.text ?? "")
     }
 
     private func configView() {
-        tableView.delegate = self
-        tableView.dataSource = self
         if let timeInterval = viewModel?.timeInterval {
             timeIntervalTextField.text = "\(timeInterval)"
         }
