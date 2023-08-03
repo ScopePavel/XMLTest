@@ -9,25 +9,42 @@ import Foundation
 import RealmSwift
 
 class FeedDataBaseModel: Object {
-    @Persisted var guId: String
+    @objc dynamic var title: String?
+    @objc dynamic var descriptionNews: String?
+    @objc dynamic var source: String?
+    @objc dynamic var datePub: String?
+    @objc dynamic var guId: String?
+    @objc dynamic var imageURLString: String?
+}
+
+extension FeedDataBaseModel {
+    func mapToFeedView() -> FeedCellViewModel {
+        FeedCellViewModel(
+            title: title,
+            datePub: datePub,
+            description: descriptionNews,
+            url: imageURLString,
+            source: source,
+            guId: guId,
+            isView: true
+        )
+    }
 }
 
 protocol DataBaseManagerProtocol {
     func setFeed(model: FeedCellViewModel)
-    func getGuids() -> [String]
+    func getFeeds() -> [FeedCellViewModel]
 }
 
 final class DataBaseManager: DataBaseManagerProtocol {
 
-    private var realm = try? Realm()
+    private var realm = try? Realm(configuration: .defaultConfiguration)
 
     func setFeed(model: FeedCellViewModel) {
         guard
-            let guId = model.guId,
             let realm = realm
         else { return }
-        let feedDataBase = FeedDataBaseModel()
-        feedDataBase.guId = guId
+        let feedDataBase = model.mapToDataBase()
 
         do {
             try realm.write {
@@ -38,9 +55,12 @@ final class DataBaseManager: DataBaseManagerProtocol {
         }
     }
 
-    func getGuids() -> [String] {
-        guard let realm = realm else { return [] }
-        let guIds = Array(realm.objects(FeedDataBaseModel.self)).map({ $0.guId })
-        return guIds
+    func getFeeds() -> [FeedCellViewModel] {
+        guard let realm = realm else {
+            print("instance realm is nil")
+            return []
+        }
+        let feedsFromDataBase = Array(realm.objects(FeedDataBaseModel.self).map { $0.mapToFeedView() })
+        return feedsFromDataBase
     }
 }

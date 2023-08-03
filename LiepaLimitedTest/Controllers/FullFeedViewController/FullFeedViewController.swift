@@ -9,16 +9,15 @@ import UIKit
 
 final class FullFeedViewController: UIViewController {
     var viewModel: FullFeedViewModel?
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var autorLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var image: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configView()
     }
-
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var autorLabel: UILabel!
-    @IBOutlet private weak var descriptionLabel: UILabel!
-    @IBOutlet private weak var image: UIImageView!
 
     private func configView() {
         guard let cellModel = viewModel?.cellModel else { return }

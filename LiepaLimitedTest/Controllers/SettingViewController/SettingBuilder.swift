@@ -8,7 +8,7 @@
 import UIKit
 
 final class SettingBuilder {
-    func build(viewModel: SettingViewModel) -> SettingViewController? {
+    func build(viewModel: SettingViewModel) -> UIViewController? {
         let viewController = UIStoryboard(
             name: "Setting",
             bundle: Bundle(for: type(of: self))

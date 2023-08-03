@@ -22,6 +22,24 @@ struct FeedCellViewModel {
     }
 }
 
+extension FeedCellViewModel: Equatable {
+    static func ==(lhs: FeedCellViewModel, rhs: FeedCellViewModel) -> Bool {
+        lhs.guId == rhs.guId
+    }
+}
+
+extension FeedCellViewModel {
+    func mapToDataBase() -> FeedDataBaseModel {
+        let dataBaseModel = FeedDataBaseModel()
+        dataBaseModel.title = title ?? ""
+        dataBaseModel.descriptionNews = description
+        dataBaseModel.source = source ?? ""
+        dataBaseModel.datePub = datePub ?? ""
+        dataBaseModel.imageURLString = url
+        return dataBaseModel
+    }
+}
+
 final class FeedCell: UITableViewCell, ReusableView {
 
     @IBOutlet private weak var picterImageView: UIImageView!

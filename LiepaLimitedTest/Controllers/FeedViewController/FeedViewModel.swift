@@ -22,7 +22,7 @@ final class FeedViewModelImpl: FeedViewModel {
 
     var feeds: [FeedCellViewModel] = []
     private var parsersConfigurator: ParsersConfiguratorProtocol
-    private var viewedFeeds: [String] = []
+    private var viewedFeeds: [FeedCellViewModel] = []
     private let dataBaseManager: DataBaseManagerProtocol
     private var timer: Timer?
     private let router: Router
@@ -60,7 +60,7 @@ final class FeedViewModelImpl: FeedViewModel {
         self.group.notify(queue: .main) { [weak self] in
             guard let self = self else { return }
             self.feeds = self.feeds.enumerated().compactMap { _, feed -> FeedCellViewModel? in
-                if self.viewedFeeds.contains(feed.guId ?? "") {
+                if self.viewedFeeds.contains(feed) {
                     var newFeed = feed
                     newFeed.isView = true
                     return newFeed
@@ -85,17 +85,15 @@ final class FeedViewModelImpl: FeedViewModel {
 
     func setFeed(index: Int) {
         guard let model = feeds[safe: index] else { return }
-        if let guId = feeds[safe: index]?.guId {
-            viewedFeeds.append(guId)
-            dataBaseManager.setFeed(model: model)
-            feeds[index].isView = true
-            showFullFeed(model: model)
-        }
+        viewedFeeds.append(model)
+        dataBaseManager.setFeed(model: model)
+        feeds[index].isView = true
+        showFullFeed(model: model)
     }
 }
 
 private extension FeedViewModelImpl {
     func updateViewdFeeds() {
-        viewedFeeds = dataBaseManager.getGuids()
+        viewedFeeds = dataBaseManager.getFeeds()
     }
 }
