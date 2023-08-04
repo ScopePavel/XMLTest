@@ -1,10 +1,3 @@
-//
-//  UserDefaultsHelper.swift
-//  LiepaLimitedTest
-//
-//  Created by Паронькин Павел on 30.07.2021.
-//
-
 import Foundation
 
 final class UserDefaultsHelper {

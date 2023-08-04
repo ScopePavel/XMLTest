@@ -1,10 +1,3 @@
-//
-//  ParserManager.swift
-//  LiepaLimitedTest
-//
-//  Created by Паронькин Павел on 29.07.2021.
-//
-
 import Foundation
 
 protocol ParserProtocol {

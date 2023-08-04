@@ -1,10 +1,3 @@
-//
-//  FullFeedBuilder.swift
-//  LiepaLimitedTest
-//
-//  Created by Паронькин Павел on 02.08.2021.
-//
-
 import UIKit
 
 final class FullFeedBuilder {

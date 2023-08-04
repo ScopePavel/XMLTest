@@ -1,10 +1,3 @@
-//
-//  Router.swift
-//  LiepaLimitedTest
-//
-//  Created by Паронькин Павел on 30.07.2021.
-//
-
 import UIKit
 
 final class Router {

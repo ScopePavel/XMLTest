@@ -1,18 +1,8 @@
-//
-//  SettingViewController.swift
-//  LiepaLimitedTest
-//
-//  Created by Паронькин Павел on 30.07.2021.
-//
-
 import UIKit
 
 final class SettingViewController: UIViewController {
 
     var viewModel: SettingViewModel?
-//    @IBOutlet private weak var timeIntervalTextField: UITextField!
-//    @IBOutlet private weak var tableView: UITableView!
-
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.registerCell(SettingCell.self)
@@ -25,9 +15,9 @@ final class SettingViewController: UIViewController {
         return tableView
     }()
 
-    private lazy var editButton: UIButton = {
+    private lazy var closeButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Close", for: .normal)
+        button.setTitle(Constats.Names.closeButtonTitle, for: .normal)
         button.backgroundColor = .white
         button.addTarget(self, action: #selector(doneAction), for: .touchUpInside)
         return button
@@ -37,7 +27,7 @@ final class SettingViewController: UIViewController {
         let textField = UITextField()
         textField.autocorrectionType = .no
         textField.keyboardType = .numberPad
-        textField.placeholder = "Time Interval"
+        textField.placeholder = Constats.Names.textFieldPlaceholder
         textField.addTarget(self, action: #selector(timeIntervalChangedAction), for: .editingChanged)
         return textField
     }()
@@ -48,38 +38,56 @@ final class SettingViewController: UIViewController {
         configView()
     }
 
-    private func setup() {
+}
+
+private extension SettingViewController {
+    enum Constats {
+        static let editButtonHeight: CGFloat = 20
+        static let editTopInsets: CGFloat = 20
+        static let padding: CGFloat = 20
+        static let timeIntervalTextFieldHeight: CGFloat = 20
+
+        enum Names {
+            static let textFieldPlaceholder = "Time Interval"
+            static let closeButtonTitle = "Close"
+        }
+    }
+
+    func setup() {
         view.backgroundColor = .white
         view.bui_addSubviews(
-            editButton,
+            closeButton,
             timeIntervalTextField,
             tableView
         )
 
         NSLayoutConstraint.activate([
-            editButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            editButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
-            editButton.heightAnchor.constraint(equalToConstant: 20),
-            editButton.bottomAnchor.constraint(equalTo: timeIntervalTextField.topAnchor, constant: -16),
-            timeIntervalTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
-            timeIntervalTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
-            timeIntervalTextField.heightAnchor.constraint(equalToConstant: 20),
-            timeIntervalTextField.bottomAnchor.constraint(equalTo: tableView.topAnchor, constant: -16),
+            closeButton.topAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.topAnchor,
+                constant: Constats.editTopInsets
+            ),
+            closeButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -Constats.padding),
+            closeButton.heightAnchor.constraint(equalToConstant: Constats.editButtonHeight),
+            closeButton.bottomAnchor.constraint(equalTo: timeIntervalTextField.topAnchor, constant: -Constats.padding),
+            timeIntervalTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -Constats.padding),
+            timeIntervalTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: Constats.padding),
+            timeIntervalTextField.heightAnchor.constraint(equalToConstant: Constats.timeIntervalTextFieldHeight),
+            timeIntervalTextField.bottomAnchor.constraint(equalTo: tableView.topAnchor, constant: -Constats.padding),
             tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
             tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 
-    @IBAction private func doneAction(_ sender: Any) {
+    @objc func doneAction(_ sender: Any) {
         viewModel?.done()
     }
 
-    @objc private func timeIntervalChangedAction(_ sender: UITextField) {
+    @objc func timeIntervalChangedAction(_ sender: UITextField) {
         viewModel?.timeInterval = Double(sender.text ?? "")
     }
 
-    private func configView() {
+    func configView() {
         if let timeInterval = viewModel?.timeInterval {
             timeIntervalTextField.text = "\(timeInterval)"
         }

@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  LiepaLimitedTest
-//
-//  Created by Паронькин Павел on 28.07.2021.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

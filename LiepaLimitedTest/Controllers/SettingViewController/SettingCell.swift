@@ -1,10 +1,3 @@
-//
-//  SettingCell.swift
-//  LiepaLimitedTest
-//
-//  Created by 18529728 on 24.08.2021.
-//
-
 import UIKit
 
 final class SettingCell: UITableViewCell, ReusableView {
@@ -46,6 +39,10 @@ final class SettingCell: UITableViewCell, ReusableView {
 }
 
 private extension SettingCell {
+    enum Constants {
+        static let padding: CGFloat = 16
+    }
+
     func setup() {
         backgroundColor = .white
         contentView.bui_addSubviews(
@@ -54,10 +51,10 @@ private extension SettingCell {
         )
 
         NSLayoutConstraint.activate([
-            resourceNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-            resourceNameLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
-            resourceNameLabel.rightAnchor.constraint(equalTo: isOnSwitch.leftAnchor, constant: -16),
-            isOnSwitch.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16),
+            resourceNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.padding),
+            resourceNameLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: Constants.padding),
+            resourceNameLabel.rightAnchor.constraint(equalTo: isOnSwitch.leftAnchor, constant: -Constants.padding),
+            isOnSwitch.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -Constants.padding),
             isOnSwitch.centerYAnchor.constraint(equalTo: resourceNameLabel.centerYAnchor)
         ])
     }

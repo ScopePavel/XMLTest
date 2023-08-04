@@ -1,10 +1,3 @@
-//
-//  Utils + Extensions.swift
-//  LiepaLimitedTest
-//
-//  Created by Паронькин Павел on 29.07.2021.
-//
-
 import UIKit
 
 protocol ReusableView: AnyObject {}
@@ -22,7 +15,7 @@ extension Collection {
 }
 
 extension UITableView {
-    func register<T: UITableViewCell>(_: T.Type) where T: ReusableView {
+    func registerCellNib<T: UITableViewCell>(_: T.Type) where T: ReusableView {
         let nib = UINib(nibName: T.reuseIdentifier, bundle: nil)
         register(nib, forCellReuseIdentifier: T.reuseIdentifier)
     }

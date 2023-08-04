@@ -13,16 +13,14 @@
 		092001F926B19E3000EE54A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 092001F726B19E3000EE54A6 /* LaunchScreen.storyboard */; };
 		0920020426B19E7600EE54A6 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0920020326B19E7600EE54A6 /* FeedViewModel.swift */; };
 		0920021526B2C86D00EE54A6 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0920021426B2C86D00EE54A6 /* FeedCell.swift */; };
-		0920021926B2CB6900EE54A6 /* Utils + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0920021826B2CB6900EE54A6 /* Utils + Extensions.swift */; };
+		0920021926B2CB6900EE54A6 /* Utils+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0920021826B2CB6900EE54A6 /* Utils+Extensions.swift */; };
 		0920021F26B2DCC300EE54A6 /* ParserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0920021E26B2DCC300EE54A6 /* ParserManager.swift */; };
-		0920022A26B2E49600EE54A6 /* FeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0920022926B2E49600EE54A6 /* FeedCell.xib */; };
 		0920023F26B2F3B300EE54A6 /* ParserManagerTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0920023E26B2F3B300EE54A6 /* ParserManagerTwo.swift */; };
 		0920024C26B3558E00EE54A6 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0920024B26B3558E00EE54A6 /* SettingViewController.swift */; };
 		0920025026B3559900EE54A6 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0920024F26B3559900EE54A6 /* SettingViewModel.swift */; };
 		0920025326B355FA00EE54A6 /* SettingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0920025226B355FA00EE54A6 /* SettingBuilder.swift */; };
 		0920025926B3574900EE54A6 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0920025826B3574900EE54A6 /* UserDefaultsHelper.swift */; };
 		0920025D26B3596800EE54A6 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0920025C26B3596800EE54A6 /* Router.swift */; };
-		0920026326B35D6300EE54A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0920026226B35D6300EE54A6 /* Main.storyboard */; };
 		0920026826B3606700EE54A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0920026726B3606700EE54A6 /* SceneDelegate.swift */; };
 		092002A326B44B2900EE54A6 /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092002A226B44B2900EE54A6 /* DataBaseManager.swift */; };
 		092002B926B7E2B500EE54A6 /* FullFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092002B826B7E2B500EE54A6 /* FullFeedViewController.swift */; };
@@ -45,16 +43,14 @@
 		092001FA26B19E3000EE54A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0920020326B19E7600EE54A6 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		0920021426B2C86D00EE54A6 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
-		0920021826B2CB6900EE54A6 /* Utils + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Utils + Extensions.swift"; sourceTree = "<group>"; };
+		0920021826B2CB6900EE54A6 /* Utils+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Utils+Extensions.swift"; sourceTree = "<group>"; };
 		0920021E26B2DCC300EE54A6 /* ParserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserManager.swift; sourceTree = "<group>"; };
-		0920022926B2E49600EE54A6 /* FeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCell.xib; sourceTree = "<group>"; };
 		0920023E26B2F3B300EE54A6 /* ParserManagerTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserManagerTwo.swift; sourceTree = "<group>"; };
 		0920024B26B3558E00EE54A6 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		0920024F26B3559900EE54A6 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		0920025226B355FA00EE54A6 /* SettingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBuilder.swift; sourceTree = "<group>"; };
 		0920025826B3574900EE54A6 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		0920025C26B3596800EE54A6 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		0920026226B35D6300EE54A6 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0920026726B3606700EE54A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		092002A226B44B2900EE54A6 /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
 		092002B826B7E2B500EE54A6 /* FullFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullFeedViewController.swift; sourceTree = "<group>"; };
@@ -113,7 +109,6 @@
 			children = (
 				0920022226B2E45700EE54A6 /* Cells */,
 				0920021C26B2DBCE00EE54A6 /* Parsers */,
-				0920026226B35D6300EE54A6 /* Main.storyboard */,
 				092001F026B19E2E00EE54A6 /* FeedViewController.swift */,
 				0920020326B19E7600EE54A6 /* FeedViewModel.swift */,
 				09B4181C26D4456D00DA0591 /* FeedBuilder.swift */,
@@ -124,7 +119,7 @@
 		0920021726B2CB5900EE54A6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				0920021826B2CB6900EE54A6 /* Utils + Extensions.swift */,
+				0920021826B2CB6900EE54A6 /* Utils+Extensions.swift */,
 				0920025826B3574900EE54A6 /* UserDefaultsHelper.swift */,
 				092002A226B44B2900EE54A6 /* DataBaseManager.swift */,
 				092002CB26B7F94800EE54A6 /* ParsersConfigurator.swift */,
@@ -153,7 +148,6 @@
 			isa = PBXGroup;
 			children = (
 				0920021426B2C86D00EE54A6 /* FeedCell.swift */,
-				0920022926B2E49600EE54A6 /* FeedCell.xib */,
 			);
 			path = FeedCell;
 			sourceTree = "<group>";
@@ -277,8 +271,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0920026326B35D6300EE54A6 /* Main.storyboard in Resources */,
-				0920022A26B2E49600EE54A6 /* FeedCell.xib in Resources */,
 				092001F926B19E3000EE54A6 /* LaunchScreen.storyboard in Resources */,
 				092001F626B19E3000EE54A6 /* Assets.xcassets in Resources */,
 			);
@@ -341,7 +333,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# ${PODS_ROOT}/SwiftLint/swiftlint\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -366,7 +358,7 @@
 				0920021F26B2DCC300EE54A6 /* ParserManager.swift in Sources */,
 				09B4181D26D4456D00DA0591 /* FeedBuilder.swift in Sources */,
 				0920025326B355FA00EE54A6 /* SettingBuilder.swift in Sources */,
-				0920021926B2CB6900EE54A6 /* Utils + Extensions.swift in Sources */,
+				0920021926B2CB6900EE54A6 /* Utils+Extensions.swift in Sources */,
 				092002C526B7E33700EE54A6 /* FullFeedBuilder.swift in Sources */,
 				09B418C026D5712600DA0591 /* SettingCell.swift in Sources */,
 				0920025D26B3596800EE54A6 /* Router.swift in Sources */,
