@@ -22,7 +22,7 @@ final class SettingViewController: UIViewController {
 
     private lazy var closeButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle(Constats.Names.closeButtonTitle, for: .normal)
+        button.setTitle(Constants.Names.closeButtonTitle, for: .normal)
         button.backgroundColor = .white
         button.addTarget(self, action: #selector(doneAction), for: .touchUpInside)
         return button
@@ -32,7 +32,7 @@ final class SettingViewController: UIViewController {
         let textField = UITextField()
         textField.autocorrectionType = .no
         textField.keyboardType = .numberPad
-        textField.placeholder = Constats.Names.textFieldPlaceholder
+        textField.placeholder = Constants.Names.textFieldPlaceholder
         textField.addTarget(self, action: #selector(timeIntervalChangedAction), for: .editingChanged)
         return textField
     }()
@@ -50,18 +50,6 @@ final class SettingViewController: UIViewController {
 // MARK: - Private
 
 private extension SettingViewController {
-    enum Constats {
-        static let editButtonHeight: CGFloat = 20
-        static let editTopInsets: CGFloat = 20
-        static let padding: CGFloat = 20
-        static let timeIntervalTextFieldHeight: CGFloat = 20
-
-        enum Names {
-            static let textFieldPlaceholder = "Time Interval"
-            static let closeButtonTitle = "Close"
-        }
-    }
-
     func setup() {
         view.backgroundColor = .white
         view.bui_addSubviews(
@@ -73,15 +61,15 @@ private extension SettingViewController {
         NSLayoutConstraint.activate([
             closeButton.topAnchor.constraint(
                 equalTo: view.safeAreaLayoutGuide.topAnchor,
-                constant: Constats.editTopInsets
+                constant: Constants.editTopInsets
             ),
-            closeButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -Constats.padding),
-            closeButton.heightAnchor.constraint(equalToConstant: Constats.editButtonHeight),
-            closeButton.bottomAnchor.constraint(equalTo: timeIntervalTextField.topAnchor, constant: -Constats.padding),
-            timeIntervalTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -Constats.padding),
-            timeIntervalTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: Constats.padding),
-            timeIntervalTextField.heightAnchor.constraint(equalToConstant: Constats.timeIntervalTextFieldHeight),
-            timeIntervalTextField.bottomAnchor.constraint(equalTo: tableView.topAnchor, constant: -Constats.padding),
+            closeButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -Constants.padding),
+            closeButton.heightAnchor.constraint(equalToConstant: Constants.editButtonHeight),
+            closeButton.bottomAnchor.constraint(equalTo: timeIntervalTextField.topAnchor, constant: -Constants.padding),
+            timeIntervalTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -Constants.padding),
+            timeIntervalTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: Constants.padding),
+            timeIntervalTextField.heightAnchor.constraint(equalToConstant: Constants.timeIntervalTextFieldHeight),
+            timeIntervalTextField.bottomAnchor.constraint(equalTo: tableView.topAnchor, constant: -Constants.padding),
             tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
             tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
@@ -101,11 +89,23 @@ private extension SettingViewController {
             timeIntervalTextField.text = "\(timeInterval)"
         }
     }
+
+    enum Constants {
+        static let editButtonHeight: CGFloat = 20
+        static let editTopInsets: CGFloat = 20
+        static let padding: CGFloat = 20
+        static let timeIntervalTextFieldHeight: CGFloat = 20
+
+        enum Names {
+            static let textFieldPlaceholder = "Time Interval"
+            static let closeButtonTitle = "Close"
+        }
+    }
 }
 
 // MARK: - UITableViewDataSource
 
-extension SettingViewController:  UITableViewDataSource {
+extension SettingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel?.parsersConfigurator.allParsers().count ?? 0
     }

@@ -27,7 +27,7 @@ final class FeedCoordinator: CoordinatorProtocol {
     var nextCoordinator: CoordinatorProtocol?
     private(set) var resultClosures: FlowResultClosuresHolder = .empty
     var presentationType: CoordinatorPresentationType {
-        return .custom
+        .custom
     }
 
     // MARK: - Flow

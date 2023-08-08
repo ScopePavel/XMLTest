@@ -26,6 +26,7 @@ extension FeedDataBaseModel {
 
 protocol DataBaseManagerProtocol {
     var feeds: [FeedCellViewModel] { get }
+
     func setFeed(model: FeedCellViewModel)
 }
 

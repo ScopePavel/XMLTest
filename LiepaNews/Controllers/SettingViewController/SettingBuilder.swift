@@ -1,6 +1,6 @@
 import UIKit
 
-final class SettingBuilder {
+enum SettingBuilder {
     static func build(
         _ settingsOutput: SettingsOutput,
         parsersConfigurator: ParsersConfiguratorProtocol

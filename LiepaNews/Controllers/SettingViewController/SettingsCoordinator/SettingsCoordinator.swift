@@ -12,7 +12,7 @@ final class SettingsCoordinator: CoordinatorProtocol {
     let resultClosures: FlowResultClosuresHolder
     var nextCoordinator: CoordinatorProtocol?
     var presentationType: CoordinatorPresentationType {
-        return .present(source: self.sourceViewController, initial: self.initialViewController)
+        .present(source: self.sourceViewController, initial: self.initialViewController)
     }
 
     private let sourceViewController: UIViewController

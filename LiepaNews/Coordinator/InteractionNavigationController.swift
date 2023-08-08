@@ -1,17 +1,17 @@
 import UIKit
 
-public enum NavigationInteractionMethod {
+enum NavigationInteractionMethod {
     case backButtonTap
     case popGesture
 }
 
-public protocol NavigationInteractionDependable: AnyObject {
+protocol NavigationInteractionDependable: AnyObject {
     func viewControllerIsRemovingBy(_ navigationInteractionMethod: NavigationInteractionMethod)
 }
 
-public class InteractionNavigationController: UINavigationController {
+class InteractionNavigationController: UINavigationController {
 
-    override public func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
     }
@@ -27,9 +27,11 @@ public class InteractionNavigationController: UINavigationController {
 
 extension InteractionNavigationController: UINavigationControllerDelegate {
 
-    public func navigationController(_ navigationController: UINavigationController,
-                                     willShow viewController: UIViewController,
-                                     animated: Bool) {
+    func navigationController(
+        _ navigationController: UINavigationController,
+        willShow viewController: UIViewController,
+        animated: Bool
+    ) {
         if let coordinator = self.topViewController?.transitionCoordinator {
             if !coordinator.isInteractive {
                 if coordinator.isCancelled {

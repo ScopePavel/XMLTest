@@ -14,7 +14,7 @@ extension CoordinatorProtocol {
 
     func start() {
         switch self.presentationType {
-        case .present(let source, let initial):
+        case let .present(source, initial):
             guard let sourceController = source, sourceController.presentedViewController == nil else {
                 self.resultClosures.onFlowDidFinish(.failure(nil))
                 return
@@ -23,7 +23,7 @@ extension CoordinatorProtocol {
                 initial.modalPresentationStyle = .fullScreen
             }
             sourceController.present(initial, animated: true, completion: nil)
-        case .push(let source, let initial):
+        case let .push(source, initial):
             guard let navigationController = source else {
                 self.resultClosures.onFlowDidFinish(.failure(nil))
                 return
@@ -42,7 +42,7 @@ extension CoordinatorProtocol {
                 initial.dismiss(animated: animated) {
                     resultClosures.onFlowDidFinish(result)
                 }
-            case .push(let source, let initial):
+            case let .push(source, initial):
                 source?.popToPreviousViewController(of: initial, animated: animated)
                 resultClosures.onFlowDidFinish(result)
             case .custom:

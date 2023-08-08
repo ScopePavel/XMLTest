@@ -8,6 +8,7 @@ struct FlowResultClosuresHolder {
         case willFinish
         case didFinish
     }
+
     let onFlowWillFinish: FlowFinishClosure?
     let onFlowDidFinish: FlowFinishClosure
 
@@ -21,7 +22,7 @@ struct FlowResultClosuresHolder {
 extension FlowResultClosuresHolder {
 
     static var empty: FlowResultClosuresHolder {
-        return FlowResultClosuresHolder { _ in }
+        FlowResultClosuresHolder { _ in }
     }
 
     func before(_ closureType: FlowResultClosuresHolder.ClousureType,

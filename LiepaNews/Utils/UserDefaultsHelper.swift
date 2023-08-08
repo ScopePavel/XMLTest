@@ -1,6 +1,9 @@
 import Foundation
 
 final class UserDefaultsHelper {
+
+    // MARK: - Private properties
+
     var timeIntervalForTimer: Double {
         get {
             if let state = UserDefaults.standard.value(forKey: Constants.timeIntervalForTimer) as? Double {
@@ -14,11 +17,15 @@ final class UserDefaultsHelper {
         }
     }
 
+    // MARK: - Public
+
     func setValueFor(key: String, value: Bool) {
         UserDefaults.standard.setValue(value, forKey: key)
-        NotificationCenter.default.post(name: LLNotifications.parsers,
-                                        object: nil,
-                                        userInfo: [key: value])
+        NotificationCenter.default.post(
+            name: LLNotifications.parsers,
+            object: nil,
+            userInfo: [key: value]
+        )
     }
 
     func getValueFor(key: String) -> Bool {
@@ -28,7 +35,12 @@ final class UserDefaultsHelper {
         return true
     }
 
-    private enum Constants {
+}
+
+// MARK: - Private
+
+private extension UserDefaultsHelper {
+    enum Constants {
         static let timeIntervalForTimer = "timeIntervalForTimer"
     }
 }

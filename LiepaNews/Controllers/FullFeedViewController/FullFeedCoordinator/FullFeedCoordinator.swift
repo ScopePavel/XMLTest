@@ -12,7 +12,7 @@ final class FullFeedCoordinator: CoordinatorProtocol {
     let resultClosures: FlowResultClosuresHolder
     var nextCoordinator: CoordinatorProtocol?
     var presentationType: CoordinatorPresentationType {
-        return .push(source: self.sourceViewController, initial: self.initialViewController)
+        .push(source: self.sourceViewController, initial: self.initialViewController)
     }
 
     // MARK: - Private properties
@@ -47,9 +47,11 @@ extension CoordinatorProtocol {
     func startDetailedNewsCoordinator(model: FeedCellViewModel,
                                       sourceViewController: UINavigationController,
                                       resultClosures: FlowResultClosuresHolder = .empty) {
-        self.nextCoordinator = FullFeedCoordinator(model: model,
-                                                       sourceViewController: sourceViewController,
-                                                       resultClosures: self.mixInCoordinatorRelease(resultClosures))
+        self.nextCoordinator = FullFeedCoordinator(
+            model: model,
+            sourceViewController: sourceViewController,
+            resultClosures: self.mixInCoordinatorRelease(resultClosures)
+        )
         self.nextCoordinator?.start()
     }
 }

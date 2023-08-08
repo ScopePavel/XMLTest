@@ -1,6 +1,6 @@
 import UIKit
 
-final class FeedsBuilder {
+enum FeedsBuilder {
     static func build(_ feedOutput: FeedOutput, parserConfigModels: ParsersConfigurator) -> UINavigationController {
         let viewController = FeedViewController()
         let dataBaseManager = DataBaseManager()

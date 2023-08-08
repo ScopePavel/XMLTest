@@ -2,6 +2,7 @@ import Foundation
 
 protocol FullFeedViewModel {
     var cellModel: FeedCellViewModel? { get set }
+
     func viewControllerIsRemoving()
 }
 
