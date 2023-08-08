@@ -2,6 +2,8 @@ import UIKit
 
 final class SettingCell: UITableViewCell, ReusableView {
 
+    // MARK: - Private properties
+
     private var userDefaultsHelper = UserDefaultsHelper()
     private var parser: ParserProtocol?
 
@@ -9,6 +11,7 @@ final class SettingCell: UITableViewCell, ReusableView {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = .systemFont(ofSize: 17)
+        label.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         return label
     }()
 
@@ -22,6 +25,8 @@ final class SettingCell: UITableViewCell, ReusableView {
         return switchView
     }()
 
+    // MARK: - Init
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setup()
@@ -32,6 +37,8 @@ final class SettingCell: UITableViewCell, ReusableView {
         preconditionFailure("init?(coder:) has not been implemented")
     }
 
+    // MARK: - Public
+
     func config(parser: ParserProtocol) {
         self.parser = parser
         isOnSwitch.isOn = userDefaultsHelper.getValueFor(key: parser.id)
@@ -39,10 +46,9 @@ final class SettingCell: UITableViewCell, ReusableView {
     }
 }
 
+// MARK: - Private
+
 private extension SettingCell {
-    enum Constants {
-        static let padding: CGFloat = 16
-    }
 
     func setup() {
         backgroundColor = .white
@@ -63,5 +69,9 @@ private extension SettingCell {
     @objc func switchAction(_ sender: UISwitch) {
         guard let parser = parser else { return }
         userDefaultsHelper.setValueFor(key: parser.id, value: sender.isOn)
+    }
+
+    enum Constants {
+        static let padding: CGFloat = 16
     }
 }

@@ -106,4 +106,9 @@ extension ParserManager {
     func parserDidEndDocument(_ parser: XMLParser) {
         complition?(feeds)
     }
+
+    func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
+        print(parseError.localizedDescription)
+        complition?(feeds)
+    }
 }

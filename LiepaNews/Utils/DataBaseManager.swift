@@ -25,8 +25,8 @@ extension FeedDataBaseModel {
 }
 
 protocol DataBaseManagerProtocol {
+    var feeds: [FeedCellViewModel] { get }
     func setFeed(model: FeedCellViewModel)
-    func getFeeds() -> [FeedCellViewModel]
 }
 
 final class DataBaseManager: DataBaseManagerProtocol {
@@ -35,10 +35,10 @@ final class DataBaseManager: DataBaseManagerProtocol {
 
     func setFeed(model: FeedCellViewModel) {
         guard
-            let realm = realm
+            let realm = realm,
+            !feeds.contains(model)
         else { return }
         let feedDataBase = model.mapToDataBase()
-
         do {
             try realm.write {
                 realm.add(feedDataBase)
@@ -48,7 +48,7 @@ final class DataBaseManager: DataBaseManagerProtocol {
         }
     }
 
-    func getFeeds() -> [FeedCellViewModel] {
+    var feeds: [FeedCellViewModel] {
         guard let realm = realm else {
             print("instance realm is nil")
             return []

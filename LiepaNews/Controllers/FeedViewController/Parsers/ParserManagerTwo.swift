@@ -15,7 +15,7 @@ enum RSSConstants: String {
 }
 
 final class ParserManagerTwo: ParserProtocol {
-    var id: String
+    let id: String
     private var feeds: [FeedCellViewModel] = []
     private var complition: (([FeedCellViewModel]) -> Void)?
 

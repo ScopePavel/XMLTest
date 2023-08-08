@@ -2,62 +2,91 @@ import Foundation
 
 protocol FeedViewModel {
     var feeds: [FeedCellViewModel] { get set }
+    var onUpdate: (() -> Void)? { get set }
 
-    func getDataWithTimer(complition: (() -> Void)?)
-    func getData(complition: (() -> Void)?)
-    func getPreloadData(complition: (() -> Void)?)
-    func showSettings(onClose: @escaping (() -> Void))
-    func showFullFeed(model: FeedCellViewModel)
-    func updateParsers()
+    func start()
+    func showSettings()
     func setFeed(index: Int)
 }
 
 final class FeedViewModelImpl: FeedViewModel {
+
+    // MARK: - Internal properties
+
     var feeds: [FeedCellViewModel] = []
-    private var parsersConfigurator: ParsersConfiguratorProtocol
-    private var viewedFeeds: [FeedCellViewModel] = []
+    var onUpdate: (() -> Void)?
+
+    // MARK: - Private properties
+
+    private var networkManager: NetworkManager
     private let dataBaseManager: DataBaseManagerProtocol
     private var timer: Timer?
-    private let router: Router
-    private let group = DispatchGroup()
-    private var parsers: [ParserProtocol] = []
-
-    init(parsersConfigurator: ParsersConfiguratorProtocol, router: Router, dataBaseManager: DataBaseManagerProtocol) {
-        self.parsersConfigurator = parsersConfigurator
-        self.router = router
-        self.dataBaseManager = dataBaseManager
-        self.updateParsers()
-        self.updateViewdFeeds()
+    private var feedOutput: FeedOutput?
+    private var viewedFeeds: [FeedCellViewModel] {
+        dataBaseManager.feeds.sorted(by: { $0.date > $1.date })
     }
 
-    func getDataWithTimer(complition: (() -> Void)?) {
+    // MARK: - Init
+
+    init(
+        parsersConfigurator: ParsersConfiguratorProtocol,
+        dataBaseManager: DataBaseManagerProtocol,
+        feedOutput: FeedOutput
+    ) {
+        self.networkManager = NetworkManagerImpl(parsersConfigurator: parsersConfigurator)
+        self.dataBaseManager = dataBaseManager
+        self.feedOutput = feedOutput
+    }
+
+    // MARK: - Public
+
+    func start() {
+        getPreloadData()
+        startUpdatesData()
+    }
+
+    func showSettings() {
+        getPreloadData()
+        startUpdatesData()
+        feedOutput?.showSettings()
+    }
+
+    func showFullFeed(model: FeedCellViewModel) {
+        feedOutput?.showFullFeed(model: model)
+    }
+
+    func setFeed(index: Int) {
+        guard let model = feeds[safe: index] else { return }
+        dataBaseManager.setFeed(model: model)
+        feeds[index].isView = true
+        showFullFeed(model: model)
+    }
+}
+
+// MARK: - Private
+
+private extension FeedViewModelImpl {
+    func startUpdatesData() {
         timer?.invalidate()
         timer = Timer.scheduledTimer(
             withTimeInterval: UserDefaultsHelper().timeIntervalForTimer,
             repeats: true
         ) {  [weak self] _ in
-            self?.getData(complition: complition)
+            self?.getData()
         }
+
+        timer?.fire()
     }
 
-    func getPreloadData(complition: (() -> Void)?) {
+    func getPreloadData() {
         self.feeds = self.viewedFeeds
-        complition?()
+        onUpdate?()
     }
 
-    func getData(complition: (() -> Void)?) {
-        self.feeds = []
-        self.parsers.forEach { [weak self] parser in
-            self?.group.enter()
-            parser.getData { [weak self] feedsFromParser in
-                self?.feeds.append(contentsOf: feedsFromParser)
-                self?.group.leave()
-            }
-        }
-
-        self.group.notify(queue: .main) { [weak self] in
+    func getData() {
+        networkManager.getFeeds { [weak self] networkFeeds in
             guard let self = self else { return }
-            self.feeds = self.feeds.enumerated().compactMap { _, feed -> FeedCellViewModel? in
+            self.feeds = networkFeeds.compactMap { feed -> FeedCellViewModel? in
                 if self.viewedFeeds.contains(feed) {
                     var newFeed = feed
                     newFeed.isView = true
@@ -65,33 +94,7 @@ final class FeedViewModelImpl: FeedViewModel {
                 }
                 return feed
             }.sorted(by: { $0.date > $1.date })
-            complition?()
+            self.onUpdate?()
         }
-    }
-
-    func showSettings(onClose: @escaping (() -> Void)) {
-        router.showSettings(parsersConfigurator: parsersConfigurator, onClose: onClose)
-    }
-
-    func showFullFeed(model: FeedCellViewModel) {
-        router.showFullFeed(feedCellViewModel: model)
-    }
-
-    func updateParsers() {
-        parsers = parsersConfigurator.getParsers()
-    }
-
-    func setFeed(index: Int) {
-        guard let model = feeds[safe: index] else { return }
-        viewedFeeds.append(model)
-        dataBaseManager.setFeed(model: model)
-        feeds[index].isView = true
-        showFullFeed(model: model)
-    }
-}
-
-private extension FeedViewModelImpl {
-    func updateViewdFeeds() {
-        viewedFeeds = dataBaseManager.getFeeds().sorted(by: { $0.date > $1.date })
     }
 }

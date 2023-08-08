@@ -20,7 +20,6 @@
 		CDA504C72A7D2C7800900BD3 /* SettingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA504B02A7D2C7800900BD3 /* SettingBuilder.swift */; };
 		CDA504C82A7D2C7800900BD3 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA504B12A7D2C7800900BD3 /* SettingViewModel.swift */; };
 		CDA504C92A7D2C7800900BD3 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA504B22A7D2C7800900BD3 /* SettingCell.swift */; };
-		CDA504CA2A7D2C7800900BD3 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA504B32A7D2C7800900BD3 /* Router.swift */; };
 		CDA504CB2A7D2C7800900BD3 /* FullFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA504B52A7D2C7800900BD3 /* FullFeedViewModel.swift */; };
 		CDA504CC2A7D2C7800900BD3 /* FullFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA504B62A7D2C7800900BD3 /* FullFeedViewController.swift */; };
 		CDA504CD2A7D2C7800900BD3 /* FullFeedBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA504B72A7D2C7800900BD3 /* FullFeedBuilder.swift */; };
@@ -30,6 +29,17 @@
 		CDA504D12A7D2C7800900BD3 /* ParserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA504BF2A7D2C7800900BD3 /* ParserManager.swift */; };
 		CDA504D22A7D2C7800900BD3 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA504C02A7D2C7800900BD3 /* FeedViewModel.swift */; };
 		CDA504D32A7D2C7800900BD3 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA504C12A7D2C7800900BD3 /* FeedViewController.swift */; };
+		CDA504D92A7D45E900900BD3 /* CoordinatorHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA504D52A7D45E900900BD3 /* CoordinatorHelpers.swift */; };
+		CDA504DA2A7D45E900900BD3 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA504D62A7D45E900900BD3 /* CoordinatorProtocol.swift */; };
+		CDA504DB2A7D45E900900BD3 /* FlowResultClosuresHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA504D72A7D45E900900BD3 /* FlowResultClosuresHolder.swift */; };
+		CDA504DC2A7D45E900900BD3 /* CoordinatorProtocol+Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA504D82A7D45E900900BD3 /* CoordinatorProtocol+Flow.swift */; };
+		CDA504E32A7D4B1800900BD3 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA504E22A7D4B1800900BD3 /* DateHelper.swift */; };
+		CDB98EBB2A7ECB90008C6256 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB98EBA2A7ECB90008C6256 /* ApplicationCoordinator.swift */; };
+		CDB98EBE2A7ECBE8008C6256 /* FeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB98EBD2A7ECBE8008C6256 /* FeedCoordinator.swift */; };
+		CDB98EC12A7ECFC9008C6256 /* FullFeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB98EC02A7ECFC9008C6256 /* FullFeedCoordinator.swift */; };
+		CDB98EC32A7ED556008C6256 /* InteractionNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB98EC22A7ED556008C6256 /* InteractionNavigationController.swift */; };
+		CDB98EC62A7ED632008C6256 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB98EC52A7ED632008C6256 /* SettingsCoordinator.swift */; };
+		CDB98EC82A7F1141008C6256 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB98EC72A7F1141008C6256 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,7 +60,6 @@
 		CDA504B02A7D2C7800900BD3 /* SettingBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingBuilder.swift; sourceTree = "<group>"; };
 		CDA504B12A7D2C7800900BD3 /* SettingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		CDA504B22A7D2C7800900BD3 /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
-		CDA504B32A7D2C7800900BD3 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		CDA504B52A7D2C7800900BD3 /* FullFeedViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullFeedViewModel.swift; sourceTree = "<group>"; };
 		CDA504B62A7D2C7800900BD3 /* FullFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullFeedViewController.swift; sourceTree = "<group>"; };
 		CDA504B72A7D2C7800900BD3 /* FullFeedBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullFeedBuilder.swift; sourceTree = "<group>"; };
@@ -60,6 +69,17 @@
 		CDA504BF2A7D2C7800900BD3 /* ParserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParserManager.swift; sourceTree = "<group>"; };
 		CDA504C02A7D2C7800900BD3 /* FeedViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		CDA504C12A7D2C7800900BD3 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		CDA504D52A7D45E900900BD3 /* CoordinatorHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorHelpers.swift; sourceTree = "<group>"; };
+		CDA504D62A7D45E900900BD3 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
+		CDA504D72A7D45E900900BD3 /* FlowResultClosuresHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowResultClosuresHolder.swift; sourceTree = "<group>"; };
+		CDA504D82A7D45E900900BD3 /* CoordinatorProtocol+Flow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CoordinatorProtocol+Flow.swift"; sourceTree = "<group>"; };
+		CDA504E22A7D4B1800900BD3 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		CDB98EBA2A7ECB90008C6256 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		CDB98EBD2A7ECBE8008C6256 /* FeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCoordinator.swift; sourceTree = "<group>"; };
+		CDB98EC02A7ECFC9008C6256 /* FullFeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullFeedCoordinator.swift; sourceTree = "<group>"; };
+		CDB98EC22A7ED556008C6256 /* InteractionNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionNavigationController.swift; sourceTree = "<group>"; };
+		CDB98EC52A7ED632008C6256 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		CDB98EC72A7F1141008C6256 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +123,7 @@
 		CDA504822A7D2B0300900BD3 /* LiepaNews */ = {
 			isa = PBXGroup;
 			children = (
+				CDA504D42A7D45E900900BD3 /* Coordinator */,
 				CDA504AD2A7D2C7800900BD3 /* Controllers */,
 				CDA504A82A7D2C7700900BD3 /* Utils */,
 				CDA504A72A7D2C4F00900BD3 /* Core */,
@@ -129,6 +150,8 @@
 				CDA504AA2A7D2C7700900BD3 /* Utils+Extensions.swift */,
 				CDA504AB2A7D2C7700900BD3 /* ParsersConfigurator.swift */,
 				CDA504AC2A7D2C7700900BD3 /* DataBaseManager.swift */,
+				CDA504E22A7D4B1800900BD3 /* DateHelper.swift */,
+				CDB98EC72A7F1141008C6256 /* NetworkManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -136,8 +159,8 @@
 		CDA504AD2A7D2C7800900BD3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CDB98EB92A7ECB85008C6256 /* Application */,
 				CDA504AE2A7D2C7800900BD3 /* SettingViewController */,
-				CDA504B32A7D2C7800900BD3 /* Router.swift */,
 				CDA504B42A7D2C7800900BD3 /* FullFeedViewController */,
 				CDA504B82A7D2C7800900BD3 /* FeedViewController */,
 			);
@@ -147,6 +170,7 @@
 		CDA504AE2A7D2C7800900BD3 /* SettingViewController */ = {
 			isa = PBXGroup;
 			children = (
+				CDB98EC42A7ED625008C6256 /* SettingsCoordinator */,
 				CDA504AF2A7D2C7800900BD3 /* SettingViewController.swift */,
 				CDA504B02A7D2C7800900BD3 /* SettingBuilder.swift */,
 				CDA504B12A7D2C7800900BD3 /* SettingViewModel.swift */,
@@ -158,6 +182,7 @@
 		CDA504B42A7D2C7800900BD3 /* FullFeedViewController */ = {
 			isa = PBXGroup;
 			children = (
+				CDB98EBF2A7ECFB0008C6256 /* FullFeedCoordinator */,
 				CDA504B52A7D2C7800900BD3 /* FullFeedViewModel.swift */,
 				CDA504B62A7D2C7800900BD3 /* FullFeedViewController.swift */,
 				CDA504B72A7D2C7800900BD3 /* FullFeedBuilder.swift */,
@@ -168,6 +193,7 @@
 		CDA504B82A7D2C7800900BD3 /* FeedViewController */ = {
 			isa = PBXGroup;
 			children = (
+				CDB98EBC2A7ECBCD008C6256 /* FeedCoordinator */,
 				CDA504B92A7D2C7800900BD3 /* Cells */,
 				CDA504BC2A7D2C7800900BD3 /* FeedBuilder.swift */,
 				CDA504BD2A7D2C7800900BD3 /* Parsers */,
@@ -202,6 +228,50 @@
 			path = Parsers;
 			sourceTree = "<group>";
 		};
+		CDA504D42A7D45E900900BD3 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				CDA504D52A7D45E900900BD3 /* CoordinatorHelpers.swift */,
+				CDA504D62A7D45E900900BD3 /* CoordinatorProtocol.swift */,
+				CDA504D72A7D45E900900BD3 /* FlowResultClosuresHolder.swift */,
+				CDA504D82A7D45E900900BD3 /* CoordinatorProtocol+Flow.swift */,
+				CDB98EC22A7ED556008C6256 /* InteractionNavigationController.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		CDB98EB92A7ECB85008C6256 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				CDB98EBA2A7ECB90008C6256 /* ApplicationCoordinator.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		CDB98EBC2A7ECBCD008C6256 /* FeedCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				CDB98EBD2A7ECBE8008C6256 /* FeedCoordinator.swift */,
+			);
+			path = FeedCoordinator;
+			sourceTree = "<group>";
+		};
+		CDB98EBF2A7ECFB0008C6256 /* FullFeedCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				CDB98EC02A7ECFC9008C6256 /* FullFeedCoordinator.swift */,
+			);
+			path = FullFeedCoordinator;
+			sourceTree = "<group>";
+		};
+		CDB98EC42A7ED625008C6256 /* SettingsCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				CDB98EC52A7ED632008C6256 /* SettingsCoordinator.swift */,
+			);
+			path = SettingsCoordinator;
+			sourceTree = "<group>";
+		};
 		EB905E5F97DA89EC076BF152 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +293,7 @@
 				CDA5047D2A7D2B0300900BD3 /* Frameworks */,
 				CDA5047E2A7D2B0300900BD3 /* Resources */,
 				3F1E828386AD58CEA482E281 /* [CP] Embed Pods Frameworks */,
+				CDB98EC92A82D723008C6256 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -318,6 +389,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CDB98EC92A82D723008C6256 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -326,22 +414,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDA504D22A7D2C7800900BD3 /* FeedViewModel.swift in Sources */,
-				CDA504CA2A7D2C7800900BD3 /* Router.swift in Sources */,
 				CDA504D32A7D2C7800900BD3 /* FeedViewController.swift in Sources */,
 				CDA504C42A7D2C7800900BD3 /* ParsersConfigurator.swift in Sources */,
 				CDA504C22A7D2C7800900BD3 /* UserDefaultsHelper.swift in Sources */,
+				CDB98EC32A7ED556008C6256 /* InteractionNavigationController.swift in Sources */,
+				CDB98EC12A7ECFC9008C6256 /* FullFeedCoordinator.swift in Sources */,
+				CDA504DB2A7D45E900900BD3 /* FlowResultClosuresHolder.swift in Sources */,
 				CDA504C32A7D2C7800900BD3 /* Utils+Extensions.swift in Sources */,
+				CDA504DA2A7D45E900900BD3 /* CoordinatorProtocol.swift in Sources */,
 				CDA504842A7D2B0300900BD3 /* AppDelegate.swift in Sources */,
 				CDA504CB2A7D2C7800900BD3 /* FullFeedViewModel.swift in Sources */,
 				CDA504D02A7D2C7800900BD3 /* ParserManagerTwo.swift in Sources */,
+				CDB98EC82A7F1141008C6256 /* NetworkManager.swift in Sources */,
 				CDA504CD2A7D2C7800900BD3 /* FullFeedBuilder.swift in Sources */,
 				CDA504CF2A7D2C7800900BD3 /* FeedBuilder.swift in Sources */,
+				CDB98EBB2A7ECB90008C6256 /* ApplicationCoordinator.swift in Sources */,
 				CDA504C72A7D2C7800900BD3 /* SettingBuilder.swift in Sources */,
+				CDA504D92A7D45E900900BD3 /* CoordinatorHelpers.swift in Sources */,
 				CDA504C52A7D2C7800900BD3 /* DataBaseManager.swift in Sources */,
 				CDA504C62A7D2C7800900BD3 /* SettingViewController.swift in Sources */,
 				CDA504C82A7D2C7800900BD3 /* SettingViewModel.swift in Sources */,
+				CDA504DC2A7D45E900900BD3 /* CoordinatorProtocol+Flow.swift in Sources */,
+				CDB98EC62A7ED632008C6256 /* SettingsCoordinator.swift in Sources */,
 				CDA504CE2A7D2C7800900BD3 /* FeedCell.swift in Sources */,
+				CDA504E32A7D4B1800900BD3 /* DateHelper.swift in Sources */,
 				CDA504CC2A7D2C7800900BD3 /* FullFeedViewController.swift in Sources */,
+				CDB98EBE2A7ECBE8008C6256 /* FeedCoordinator.swift in Sources */,
 				CDA504C92A7D2C7800900BD3 /* SettingCell.swift in Sources */,
 				CDA504D12A7D2C7800900BD3 /* ParserManager.swift in Sources */,
 				CDA504862A7D2B0300900BD3 /* SceneDelegate.swift in Sources */,

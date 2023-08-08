@@ -2,7 +2,12 @@ import UIKit
 
 final class SettingViewController: UIViewController {
 
+    // MARK: - Internal properties
+
     var viewModel: SettingViewModel?
+
+    // MARK: - Private properties
+
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.registerCell(SettingCell.self)
@@ -32,6 +37,8 @@ final class SettingViewController: UIViewController {
         return textField
     }()
 
+    // MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -39,6 +46,8 @@ final class SettingViewController: UIViewController {
     }
 
 }
+
+// MARK: - Private
 
 private extension SettingViewController {
     enum Constats {
@@ -94,7 +103,9 @@ private extension SettingViewController {
     }
 }
 
-extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
+// MARK: - UITableViewDataSource
+
+extension SettingViewController:  UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel?.parsersConfigurator.allParsers().count ?? 0
     }
@@ -111,3 +122,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 }
+
+// MARK: - UITableViewDelegate
+
+extension SettingViewController: UITableViewDelegate { }

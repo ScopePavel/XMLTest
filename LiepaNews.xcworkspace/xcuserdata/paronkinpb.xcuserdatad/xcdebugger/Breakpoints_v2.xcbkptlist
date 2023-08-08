@@ -7,15 +7,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FBA7DBB5-5EEB-4E17-9563-68E822F4EC40"
+            uuid = "C6B01B01-547A-412E-80A8-0BB8D26647AD"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LiepaNews/Controllers/FeedViewController/Parsers/ParserManager.swift"
+            filePath = "LiepaNews/Controllers/FeedViewController/Parsers/ParserManagerTwo.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "getData(complition:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -23,32 +23,96 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8CD39E1A-46CC-4E74-8EB8-0CD9F664D0E1"
-            shouldBeEnabled = "Yes"
+            uuid = "3AD7A4BF-9582-4EB1-9CF2-6D4D2E039CFA"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LiepaNews/Utils/DataBaseManager.swift"
+            filePath = "LiepaNews/Controllers/FeedViewController/Parsers/ParserManagerTwo.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "setFeed(model:)"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "getData(complition:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "63B0A184-DC5E-49B6-9F1D-DE92C7338D25"
+            uuid = "D9D47FE8-F1E2-4C56-BF18-6B17B2A5DA2E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LiepaNews/Controllers/FeedViewController/Parsers/ParserManagerTwo.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "getData(complition:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8F8580FB-D236-4759-89E2-815922927B78"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LiepaNews/Controllers/FeedViewController/FeedViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "getData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B30FA5CE-833F-4F59-AEDA-CA51039DA4E0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LiepaNews/Controllers/FeedViewController/FeedViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "getData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "91199C2F-2AF6-4EE5-9BF1-33D0C7C614AD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LiepaNews/Controllers/FeedViewController/Parsers/ParserManagerTwo.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "getData(complition:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CC9A5E15-C4CB-4080-A333-43C0DF7F4972"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LiepaNews/Utils/DataBaseManager.swift"
+            filePath = "LiepaNews/Controllers/FeedViewController/Parsers/ParserManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "getFeeds()"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "parser(_:foundCharacters:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -1,7 +1,6 @@
 import Foundation
 
 protocol SettingViewModel {
-    var onClose: (() -> Void)? { get set }
     var timeInterval: Double? { get set }
     var parsersConfigurator: ParsersConfiguratorProtocol { get set }
 
@@ -9,18 +8,29 @@ protocol SettingViewModel {
 }
 
 final class SettingViewModelImpl: SettingViewModel {
-    var onClose: (() -> Void )?
+
+    // MARK: - Internal properties
+
     var parsersConfigurator: ParsersConfiguratorProtocol
     var timeInterval: Double? = UserDefaultsHelper().timeIntervalForTimer
 
-    init(parsersConfigurator: ParsersConfiguratorProtocol) {
+    // MARK: - Private properties
+
+    private weak var settingsOutput: SettingsOutput?
+
+    // MARK: - Init
+
+    init(settingsOutput: SettingsOutput, parsersConfigurator: ParsersConfiguratorProtocol) {
         self.parsersConfigurator = parsersConfigurator
+        self.settingsOutput = settingsOutput
     }
+
+    // MARK: - Public
 
     func done() {
         let userDefaultsHelper = UserDefaultsHelper()
         userDefaultsHelper.timeIntervalForTimer = timeInterval ?? UserDefaultsHelper().timeIntervalForTimer
-        onClose?()
+        settingsOutput?.userDidFinishFlow()
     }
 }
 

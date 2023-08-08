@@ -17,7 +17,7 @@ struct FeedCellViewModel {
 
 extension FeedCellViewModel: Equatable {
     static func == (lhs: FeedCellViewModel, rhs: FeedCellViewModel) -> Bool {
-        lhs.source == rhs.source
+        lhs.title == rhs.title
     }
 }
 
@@ -34,6 +34,8 @@ extension FeedCellViewModel {
 }
 
 final class FeedCell: UITableViewCell, ReusableView {
+
+    // MARK: - Private properties
 
     private let picterImageView: UIImageView = {
        let newsImageView = UIImageView()
@@ -73,11 +75,7 @@ final class FeedCell: UITableViewCell, ReusableView {
 
     private lazy var containerView = UIView()
 
-    var descriptionNumberOfLines: Int = 3 {
-        didSet {
-            descriptionLabel.numberOfLines = descriptionNumberOfLines
-        }
-    }
+    // MARK: - Init
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -91,9 +89,14 @@ final class FeedCell: UITableViewCell, ReusableView {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        descriptionNumberOfLines = 3
+        titleLabel.text = ""
+        sourceLabel.text = ""
+        descriptionLabel.text = ""
         backgroundColor = .white
+        picterImageView.image = nil
     }
+
+    // MARK: - Public
 
     func config(model: FeedCellViewModel) {
         descriptionLabel.text = model.description ?? ""
@@ -107,13 +110,9 @@ final class FeedCell: UITableViewCell, ReusableView {
     }
 }
 
+// MARK: - Private
+
 private extension FeedCell {
-    enum Constants {
-        static let padding: CGFloat = 16
-        static let imageWidth: CGFloat = 100
-        static let imageHeight: CGFloat = 100
-        static let indentImageFromHeader: CGFloat = 16
-    }
 
     func setup() {
         backgroundColor = .white
@@ -154,5 +153,12 @@ private extension FeedCell {
             stackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             stackView.bottomAnchor.constraint(lessThanOrEqualTo: containerView.bottomAnchor)
         ])
+    }
+
+    enum Constants {
+        static let padding: CGFloat = 16
+        static let imageWidth: CGFloat = 100
+        static let imageHeight: CGFloat = 100
+        static let indentImageFromHeader: CGFloat = 16
     }
 }

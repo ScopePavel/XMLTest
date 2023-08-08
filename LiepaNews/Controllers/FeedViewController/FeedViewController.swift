@@ -2,7 +2,11 @@ import UIKit
 
 final class FeedViewController: UIViewController {
 
+    // MARK: - Internal properties
+
     var viewModel: FeedViewModel?
+
+    // MARK: - Private properties
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -17,12 +21,12 @@ final class FeedViewController: UIViewController {
         return tableView
     }()
 
+    // MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         configViewModel()
-        getData()
-        getPreloadData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -31,6 +35,40 @@ final class FeedViewController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDelegate
+
+extension FeedViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel?.setFeed(index: indexPath.row)
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        UITableView.automaticDimension
+    }
+
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        UITableView.automaticDimension
+    }
+}
+
+// MARK: - UITableViewDataSource
+
+extension FeedViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { viewModel?.feeds.count ?? 0 }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard
+            let cell = tableView.dequeueReusableCell(withIdentifier: FeedCell.reuseIdentifier) as? FeedCell,
+            let model = viewModel?.feeds[safe: indexPath.row]
+        else { return UITableViewCell() }
+
+        cell.config(model: model)
+        return cell
+    }
+}
+
+// MARK: - Private
+
 private extension FeedViewController {
 
     func setup() {
@@ -38,7 +76,7 @@ private extension FeedViewController {
         view.bui_addSubviews(tableView)
 
         let settingsItem = UIBarButtonItem(
-            title: "Settings",
+            title: Constants.buttonSettingName,
             style: .plain,
             target: self,
             action: #selector(settingsAction)
@@ -54,66 +92,20 @@ private extension FeedViewController {
         ])
     }
 
-    func getPreloadData() {
-        viewModel?.getPreloadData(complition: { [weak self] in
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
-            }
-        })
-    }
-
-    func getData() {
-        viewModel?.getData(complition: { [weak self] in
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
-            }
-        })
-    }
-
     func configViewModel() {
-        getDataWithTimer()
-    }
-
-    func getDataWithTimer() {
-        viewModel?.getDataWithTimer(complition: { [weak self] in
+        viewModel?.onUpdate = { [weak self] in
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
             }
-        })
+        }
+        viewModel?.start()
     }
 
     @objc func settingsAction(_ sender: Any) {
-        viewModel?.showSettings { [weak self] in
-            guard let self = self else { return }
-            self.viewModel?.updateParsers()
-            self.getData()
-            self.getDataWithTimer()
-        }
-    }
-}
-
-extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { viewModel?.feeds.count ?? 0 }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard
-            let cell = tableView.dequeueReusableCell(withIdentifier: FeedCell.reuseIdentifier) as? FeedCell,
-            let model = viewModel?.feeds[safe: indexPath.row]
-        else { return UITableViewCell() }
-
-        cell.config(model: model)
-        return cell
+        viewModel?.showSettings()
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel?.setFeed(index: indexPath.row)
-    }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        UITableView.automaticDimension
-    }
-
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        UITableView.automaticDimension
+    enum Constants {
+        static let buttonSettingName = "Settings"
     }
 }

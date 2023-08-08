@@ -1,9 +1,15 @@
 import UIKit
 
 final class SettingBuilder {
-    func build(viewModel: SettingViewModel) -> UIViewController? {
+    static func build(
+        _ settingsOutput: SettingsOutput,
+        parsersConfigurator: ParsersConfiguratorProtocol
+    ) -> UIViewController {
         let viewController = SettingViewController()
-        viewController.viewModel = viewModel
+        viewController.viewModel = SettingViewModelImpl(
+            settingsOutput: settingsOutput,
+            parsersConfigurator: parsersConfigurator
+        )
         return viewController
     }
 }

@@ -1,9 +1,9 @@
 import UIKit
 
 final class FullFeedBuilder {
-    func build(feedCellViewModel: FeedCellViewModel) -> UIViewController? {
+    static func build(fullFeedOutput: FullFeedOutput, feedCellViewModel: FeedCellViewModel) -> UIViewController {
         let viewController = FullFeedViewController()
-        let viewModel = FullFeedViewModelImpl(model: feedCellViewModel)
+        let viewModel = FullFeedViewModelImpl(fullFeedOutput: fullFeedOutput, model: feedCellViewModel)
         viewController.viewModel = viewModel
         return viewController
     }

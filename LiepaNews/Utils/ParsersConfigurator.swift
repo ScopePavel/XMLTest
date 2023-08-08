@@ -20,7 +20,7 @@ final class ParsersConfigurator: ParsersConfiguratorProtocol {
     private var models: [String: ParsersConfiguratorModel]
 
     func allParsers() -> [ParserProtocol] {
-        models.map({ $0.value.parser })
+        models.map({ $0.value.parser }).sorted(by: { $0.id > $1.id })
     }
 
     func getParsers() -> [ParserProtocol] {

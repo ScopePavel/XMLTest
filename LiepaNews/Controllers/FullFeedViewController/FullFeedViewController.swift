@@ -1,7 +1,12 @@
 import UIKit
 
 final class FullFeedViewController: UIViewController {
+
+    // MARK: - Internal properties
+
     var viewModel: FullFeedViewModel?
+
+    // MARK: - Private properties
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -32,6 +37,8 @@ final class FullFeedViewController: UIViewController {
         return label
     }()
 
+    // MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -39,12 +46,9 @@ final class FullFeedViewController: UIViewController {
     }
 }
 
+// MARK: - Private
+
 private extension FullFeedViewController {
-    enum Constants {
-        enum Insents {
-            static let padding: CGFloat = 16
-        }
-    }
 
     func setup() {
         view.backgroundColor = .white
@@ -92,5 +96,19 @@ private extension FullFeedViewController {
         if let url = cellModel.url {
             image.sd_setImage(with: URL(string: url), completed: nil)
         }
+    }
+
+    enum Constants {
+        enum Insents {
+            static let padding: CGFloat = 16
+        }
+    }
+}
+
+// MARK: - NavigationInteractionDependable
+
+extension FullFeedViewController: NavigationInteractionDependable {
+    func viewControllerIsRemovingBy(_ navigationInteractionMethod: NavigationInteractionMethod) {
+        self.viewModel?.viewControllerIsRemoving()
     }
 }

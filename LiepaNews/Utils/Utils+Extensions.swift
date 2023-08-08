@@ -67,3 +67,14 @@ extension UIView {
         return self
     }
 }
+
+extension UINavigationController {
+    func popToPreviousViewController(of viewController: UIViewController, animated: Bool) {
+        guard self.viewControllers.count > 1, let index = self.viewControllers.firstIndex(of: viewController) else {
+            return
+        }
+        let popIndex = max(0, index - 1)
+        let toViewController = self.viewControllers[popIndex]
+        self.popToViewController(toViewController, animated: animated)
+    }
+}
