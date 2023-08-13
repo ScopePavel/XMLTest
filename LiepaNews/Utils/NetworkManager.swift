@@ -16,7 +16,7 @@ final class NetworkManagerImpl: NetworkManager {
     func getFeeds(complition: @escaping (([FeedModel]) -> Void)) {
         feeds = []
         let group = DispatchGroup()
-        self.parsersConfigurator.getParsers().forEach { [weak self] parser in
+        self.parsersConfigurator.activeParsers.forEach { [weak self] parser in
             group.enter()
             parser.getData { [weak self] feedsFromParser in
                 self?.feeds.append(contentsOf: feedsFromParser)

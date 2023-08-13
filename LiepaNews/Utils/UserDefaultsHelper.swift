@@ -6,6 +6,8 @@ final class UserDefaultsHelper {
 
     private init() {}
 
+    // MARK: - Internal properties
+
     var timeIntervalForTimer: Double {
         get {
             if let state = UserDefaults.standard.value(forKey: Constants.timeIntervalForTimer) as? Double {

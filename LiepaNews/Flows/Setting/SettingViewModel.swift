@@ -11,10 +11,10 @@ final class SettingViewModelImpl: SettingViewModel {
 
     // MARK: - Internal properties
 
-    var urls: [String] {
-        parsersConfigurator.allParsers().map { $0.url }
-    }
     var timeInterval: Double? = UserDefaultsHelper.shared.timeIntervalForTimer
+    var urls: [String] {
+        parsersConfigurator.allParsers.map { $0.url }
+    }
 
     // MARK: - Private properties
 

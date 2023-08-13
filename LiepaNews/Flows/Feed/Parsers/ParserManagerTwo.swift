@@ -15,13 +15,23 @@ enum RSSConstants: String {
 }
 
 final class ParserManagerTwo: ParserProtocol {
+
+    // MARK: - Internal properties
+
     let url: String
+
+    // MARK: - Private properties
+
     private var feeds: [FeedModel] = []
     private var complition: (([FeedModel]) -> Void)?
+
+    // MARK: - Init
 
     init(url: String) {
         self.url = url
     }
+
+    // MARK: - Public
 
     func getData(complition: (([FeedModel]) -> Void)?) {
         feeds = []

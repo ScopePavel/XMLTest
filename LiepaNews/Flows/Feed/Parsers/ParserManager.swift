@@ -6,15 +6,25 @@ protocol ParserProtocol {
     func getData(complition: (([FeedModel]) -> Void)?)
 }
 
-final class ParserManager: NSObject, ParserProtocol, XMLParserDelegate {
+final class ParserManager: NSObject, ParserProtocol {
+
+    // MARK: - Internal properties
+
     var url: String
+
+    // MARK: - Private properties
+
     private var feeds: [FeedModel] = []
     private var complition: (([FeedModel]) -> Void)?
     private var parserModel = ParserModel.defaultParserModel
 
+    // MARK: - Init
+
     init(url: String) {
         self.url = url
     }
+
+    // MARK: - Public
 
     func getData(complition: (([FeedModel]) -> Void)?) {
         feeds = []
@@ -36,27 +46,11 @@ final class ParserManager: NSObject, ParserProtocol, XMLParserDelegate {
         }
         task.resume()
     }
-
-    private struct ParserModel {
-        var currentElement: String
-        var title: String
-        var description: String
-        var url: String
-        var link: String
-        var guId: String
-        var pubDate: String
-
-        static let defaultParserModel = ParserModel(currentElement: "",
-                                                    title: "",
-                                                    description: "",
-                                                    url: "",
-                                                    link: "",
-                                                    guId: "",
-                                                    pubDate: "")
-    }
 }
 
-extension ParserManager {
+// MARK: - XMLParserDelegate
+
+extension ParserManager: XMLParserDelegate {
     func parser(
         _ parser: XMLParser,
         didStartElement elementName: String,
@@ -95,15 +89,15 @@ extension ParserManager {
 
     func parser(_ parser: XMLParser, foundCharacters string: String) {
         switch parserModel.currentElement {
-        case "title":
+        case Constants.title:
             parserModel.title += string
-        case "pubDate":
+        case Constants.pubDate:
             parserModel.pubDate += string
-        case "link":
+        case Constants.link:
             parserModel.link += string
-        case "description":
+        case Constants.description:
             parserModel.description += string
-        case "guid":
+        case Constants.guid:
             parserModel.guId += string
         default:
             break
@@ -117,5 +111,36 @@ extension ParserManager {
     func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
         print(parseError.localizedDescription)
         complition?(feeds)
+    }
+}
+
+// MARK: - Private
+
+private extension ParserManager {
+
+    enum Constants {
+        static let title = "title"
+        static let pubDate = "pubDate"
+        static let link = "link"
+        static let description = "description"
+        static let guid = "guid"
+    }
+
+    struct ParserModel {
+        var currentElement: String
+        var title: String
+        var description: String
+        var url: String
+        var link: String
+        var guId: String
+        var pubDate: String
+
+        static let defaultParserModel = ParserModel(currentElement: "",
+                                                    title: "",
+                                                    description: "",
+                                                    url: "",
+                                                    link: "",
+                                                    guId: "",
+                                                    pubDate: "")
     }
 }

@@ -1,8 +1,8 @@
 import Foundation
 
 protocol ParsersConfiguratorProtocol {
-    func getParsers() -> [ParserProtocol]
-    func allParsers() -> [ParserProtocol]
+    var activeParsers: [ParserProtocol] { get }
+    var allParsers: [ParserProtocol] { get }
 }
 
 struct ParsersConfiguratorModel {
@@ -17,13 +17,13 @@ struct ParsersConfiguratorModel {
 
 final class ParsersConfigurator: ParsersConfiguratorProtocol {
 
-    private var models: [String: ParsersConfiguratorModel]
+    // MARK: - Internal properties
 
-    func allParsers() -> [ParserProtocol] {
+    var allParsers: [ParserProtocol] {
         models.map({ $0.value.parser }).sorted(by: { $0.url > $1.url })
     }
 
-    func getParsers() -> [ParserProtocol] {
+    var activeParsers: [ParserProtocol] {
         var parsers: [ParserProtocol] = []
         models.forEach { model in
             if model.value.isOn {
@@ -32,6 +32,12 @@ final class ParsersConfigurator: ParsersConfiguratorProtocol {
         }
         return parsers
     }
+
+    // MARK: - Private properties
+
+    private var models: [String: ParsersConfiguratorModel]
+
+    // MARK: - Init
 
     init(models: [ParsersConfiguratorModel]) {
         self.models = [:]
@@ -48,7 +54,12 @@ final class ParsersConfigurator: ParsersConfiguratorProtocol {
         )
     }
 
-    @objc private func isAddAction(_ notification: Notification) {
+}
+
+// MARK: - Private
+
+private extension ParsersConfigurator {
+    @objc func isAddAction(_ notification: Notification) {
         models.keys.forEach { key in
             if let value = notification.userInfo?[key] as? Bool {
                 models[key]?.isOn = value
