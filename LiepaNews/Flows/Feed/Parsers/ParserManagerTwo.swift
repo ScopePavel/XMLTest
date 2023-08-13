@@ -15,21 +15,28 @@ enum RSSConstants: String {
 }
 
 final class ParserManagerTwo: ParserProtocol {
-    let id: String
-    private var feeds: [NewsWithSourceModel] = []
-    private var complition: (([NewsWithSourceModel]) -> Void)?
+    let url: String
+    private var feeds: [FeedModel] = []
+    private var complition: (([FeedModel]) -> Void)?
 
-    init(id: String) {
-        self.id = id
+    init(url: String) {
+        self.url = url
     }
 
-    func getData(complition: (([NewsWithSourceModel]) -> Void)?) {
+    func getData(complition: (([FeedModel]) -> Void)?) {
         feeds = []
         self.complition = complition
-        guard let url = URL(string: id) else { return }
-        let task = URLSession.shared.dataTask(with: url) { data, _, error in
+        guard let url = URL(string: url) else { return }
+        let task = URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
+            guard let self = self else { return }
+
+            if error != nil {
+                self.complition?(self.feeds)
+            }
+
             guard let data = data else {
                 print(error ?? "Unknown error")
+                self.complition?(self.feeds)
                 return
             }
 
@@ -43,11 +50,10 @@ final class ParserManagerTwo: ParserProtocol {
                 let title = item[RSSConstants.title.rawValue].text ?? ""
                 let description = item[RSSConstants.description.rawValue].text
                 let link = item[RSSConstants.link.rawValue].text ?? ""
-                let guId = item[RSSConstants.guid.rawValue].text
                 let url = item[RSSConstants.enclosure.rawValue].element?.attributes["url"]
                 let pubDate = item[RSSConstants.pubDate.rawValue].text ?? ""
 
-                self?.feeds.append(RSSWithSourceModel(
+                self?.feeds.append(RSSFeedModel(
                     title: title,
                     descriptionNews: description,
                     source: link,

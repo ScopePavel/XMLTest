@@ -1,38 +1,6 @@
 import UIKit
 import SDWebImage
 
-struct FeedCellViewModel {
-    let title: String?
-    let datePub: String?
-    let description: String?
-    let url: String?
-    let source: String?
-    let guId: String?
-    var isView = false
-
-    var date: Date {
-        datePub?.toDate(format: .rss) ?? Date()
-    }
-}
-
-extension FeedCellViewModel: Equatable {
-    static func == (lhs: FeedCellViewModel, rhs: FeedCellViewModel) -> Bool {
-        lhs.source == rhs.source
-    }
-}
-
-extension FeedCellViewModel {
-    func mapToDataBase() -> FeedDataBaseModel {
-        let dataBaseModel = FeedDataBaseModel()
-        dataBaseModel.title = title ?? ""
-        dataBaseModel.descriptionNews = description
-        dataBaseModel.source = source ?? ""
-        dataBaseModel.date = datePub ?? ""
-        dataBaseModel.imageURLString = url
-        return dataBaseModel
-    }
-}
-
 final class FeedCell: UITableViewCell, ReusableView {
 
     // MARK: - Private properties
@@ -98,7 +66,7 @@ final class FeedCell: UITableViewCell, ReusableView {
 
     // MARK: - Public
 
-    func config(model: NewsShortDisplayViewModel) {
+    func config(model: FeedCellModel) {
         descriptionLabel.text = model.description ?? ""
         titleLabel.text = model.title
         sourceLabel.text = model.source ?? ""

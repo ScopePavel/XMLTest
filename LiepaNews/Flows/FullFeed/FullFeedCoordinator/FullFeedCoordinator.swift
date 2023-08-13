@@ -19,12 +19,12 @@ final class FullFeedCoordinator: CoordinatorProtocol {
 
     private let sourceViewController: UINavigationController
     private lazy var initialViewController = FullFeedBuilder.build(fullFeedOutput: self, feedCellViewModel: self.model)
-    private let model: NewsShortDisplayViewModel
+    private let model: FullFeedModel
 
     // MARK: - Init
 
     init(
-        model: NewsShortDisplayViewModel,
+        model: FullFeedModel,
         sourceViewController: UINavigationController,
         resultClosures: FlowResultClosuresHolder
     ) {
@@ -44,9 +44,11 @@ extension FullFeedCoordinator: FullFeedOutput {
 
 extension CoordinatorProtocol {
 
-    func startDetailedNewsCoordinator(model: NewsShortDisplayViewModel,
-                                      sourceViewController: UINavigationController,
-                                      resultClosures: FlowResultClosuresHolder = .empty) {
+    func startDetailedNewsCoordinator(
+        model: FullFeedModel,
+        sourceViewController: UINavigationController,
+        resultClosures: FlowResultClosuresHolder = .empty
+    ) {
         self.nextCoordinator = FullFeedCoordinator(
             model: model,
             sourceViewController: sourceViewController,

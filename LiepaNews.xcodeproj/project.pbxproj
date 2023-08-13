@@ -33,14 +33,15 @@
 		CDA504DA2A7D45E900900BD3 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA504D62A7D45E900900BD3 /* CoordinatorProtocol.swift */; };
 		CDA504DB2A7D45E900900BD3 /* FlowResultClosuresHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA504D72A7D45E900900BD3 /* FlowResultClosuresHolder.swift */; };
 		CDA504DC2A7D45E900900BD3 /* CoordinatorProtocol+Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA504D82A7D45E900900BD3 /* CoordinatorProtocol+Flow.swift */; };
-		CDA504E32A7D4B1800900BD3 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA504E22A7D4B1800900BD3 /* DateHelper.swift */; };
 		CDB98EBB2A7ECB90008C6256 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB98EBA2A7ECB90008C6256 /* ApplicationCoordinator.swift */; };
 		CDB98EBE2A7ECBE8008C6256 /* FeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB98EBD2A7ECBE8008C6256 /* FeedCoordinator.swift */; };
 		CDB98EC12A7ECFC9008C6256 /* FullFeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB98EC02A7ECFC9008C6256 /* FullFeedCoordinator.swift */; };
 		CDB98EC32A7ED556008C6256 /* InteractionNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB98EC22A7ED556008C6256 /* InteractionNavigationController.swift */; };
 		CDB98EC62A7ED632008C6256 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB98EC52A7ED632008C6256 /* SettingsCoordinator.swift */; };
 		CDB98EC82A7F1141008C6256 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB98EC72A7F1141008C6256 /* NetworkManager.swift */; };
-		CDB98ECC2A890574008C6256 /* DTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB98ECB2A890574008C6256 /* DTO.swift */; };
+		CDB98ECC2A890574008C6256 /* FullFeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB98ECB2A890574008C6256 /* FullFeedModel.swift */; };
+		CDB98ECE2A8973B2008C6256 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB98ECD2A8973B2008C6256 /* FeedModel.swift */; };
+		CDB98ED02A8973F7008C6256 /* FeedCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB98ECF2A8973F7008C6256 /* FeedCellModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,14 +75,15 @@
 		CDA504D62A7D45E900900BD3 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		CDA504D72A7D45E900900BD3 /* FlowResultClosuresHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowResultClosuresHolder.swift; sourceTree = "<group>"; };
 		CDA504D82A7D45E900900BD3 /* CoordinatorProtocol+Flow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CoordinatorProtocol+Flow.swift"; sourceTree = "<group>"; };
-		CDA504E22A7D4B1800900BD3 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		CDB98EBA2A7ECB90008C6256 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		CDB98EBD2A7ECBE8008C6256 /* FeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCoordinator.swift; sourceTree = "<group>"; };
 		CDB98EC02A7ECFC9008C6256 /* FullFeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullFeedCoordinator.swift; sourceTree = "<group>"; };
 		CDB98EC22A7ED556008C6256 /* InteractionNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionNavigationController.swift; sourceTree = "<group>"; };
 		CDB98EC52A7ED632008C6256 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		CDB98EC72A7F1141008C6256 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		CDB98ECB2A890574008C6256 /* DTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTO.swift; sourceTree = "<group>"; };
+		CDB98ECB2A890574008C6256 /* FullFeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullFeedModel.swift; sourceTree = "<group>"; };
+		CDB98ECD2A8973B2008C6256 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
+		CDB98ECF2A8973F7008C6256 /* FeedCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +155,6 @@
 				CDA504AA2A7D2C7700900BD3 /* Utils+Extensions.swift */,
 				CDA504AB2A7D2C7700900BD3 /* ParsersConfigurator.swift */,
 				CDA504AC2A7D2C7700900BD3 /* DataBaseManager.swift */,
-				CDA504E22A7D4B1800900BD3 /* DateHelper.swift */,
 				CDB98EC72A7F1141008C6256 /* NetworkManager.swift */,
 			);
 			path = Utils;
@@ -278,7 +279,9 @@
 		CDB98ECA2A89056A008C6256 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
-				CDB98ECB2A890574008C6256 /* DTO.swift */,
+				CDB98ECB2A890574008C6256 /* FullFeedModel.swift */,
+				CDB98ECD2A8973B2008C6256 /* FeedModel.swift */,
+				CDB98ECF2A8973F7008C6256 /* FeedCellModel.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -427,9 +430,10 @@
 				CDA504D22A7D2C7800900BD3 /* FeedViewModel.swift in Sources */,
 				CDA504D32A7D2C7800900BD3 /* FeedViewController.swift in Sources */,
 				CDA504C42A7D2C7800900BD3 /* ParsersConfigurator.swift in Sources */,
-				CDB98ECC2A890574008C6256 /* DTO.swift in Sources */,
+				CDB98ECC2A890574008C6256 /* FullFeedModel.swift in Sources */,
 				CDA504C22A7D2C7800900BD3 /* UserDefaultsHelper.swift in Sources */,
 				CDB98EC32A7ED556008C6256 /* InteractionNavigationController.swift in Sources */,
+				CDB98ECE2A8973B2008C6256 /* FeedModel.swift in Sources */,
 				CDB98EC12A7ECFC9008C6256 /* FullFeedCoordinator.swift in Sources */,
 				CDA504DB2A7D45E900900BD3 /* FlowResultClosuresHolder.swift in Sources */,
 				CDA504C32A7D2C7800900BD3 /* Utils+Extensions.swift in Sources */,
@@ -442,6 +446,7 @@
 				CDA504CF2A7D2C7800900BD3 /* FeedBuilder.swift in Sources */,
 				CDB98EBB2A7ECB90008C6256 /* ApplicationCoordinator.swift in Sources */,
 				CDA504C72A7D2C7800900BD3 /* SettingBuilder.swift in Sources */,
+				CDB98ED02A8973F7008C6256 /* FeedCellModel.swift in Sources */,
 				CDA504D92A7D45E900900BD3 /* CoordinatorHelpers.swift in Sources */,
 				CDA504C52A7D2C7800900BD3 /* DataBaseManager.swift in Sources */,
 				CDA504C62A7D2C7800900BD3 /* SettingViewController.swift in Sources */,
@@ -449,7 +454,6 @@
 				CDA504DC2A7D45E900900BD3 /* CoordinatorProtocol+Flow.swift in Sources */,
 				CDB98EC62A7ED632008C6256 /* SettingsCoordinator.swift in Sources */,
 				CDA504CE2A7D2C7800900BD3 /* FeedCell.swift in Sources */,
-				CDA504E32A7D4B1800900BD3 /* DateHelper.swift in Sources */,
 				CDA504CC2A7D2C7800900BD3 /* FullFeedViewController.swift in Sources */,
 				CDB98EBE2A7ECBE8008C6256 /* FeedCoordinator.swift in Sources */,
 				CDA504C92A7D2C7800900BD3 /* SettingCell.swift in Sources */,

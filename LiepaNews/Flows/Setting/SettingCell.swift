@@ -4,8 +4,8 @@ final class SettingCell: UITableViewCell, ReusableView {
 
     // MARK: - Private properties
 
-    private var userDefaultsHelper = UserDefaultsHelper()
-    private var parser: ParserProtocol?
+    private var userDefaultsHelper = UserDefaultsHelper.shared
+    private var url: String?
 
     private lazy var resourceNameLabel: UILabel = {
         let label = UILabel()
@@ -39,10 +39,10 @@ final class SettingCell: UITableViewCell, ReusableView {
 
     // MARK: - Public
 
-    func config(parser: ParserProtocol) {
-        self.parser = parser
-        isOnSwitch.isOn = userDefaultsHelper.getValueFor(key: parser.id)
-        resourceNameLabel.text = parser.id
+    func config(url: String) {
+        self.url = url
+        isOnSwitch.isOn = userDefaultsHelper.getValueFor(key: url)
+        resourceNameLabel.text = url
     }
 }
 
@@ -68,8 +68,8 @@ private extension SettingCell {
     }
 
     @objc func switchAction(_ sender: UISwitch) {
-        guard let parser = parser else { return }
-        userDefaultsHelper.setValueFor(key: parser.id, value: sender.isOn)
+        guard let url = url else { return }
+        userDefaultsHelper.setValueFor(key: url, value: sender.isOn)
     }
 
     enum Constants {

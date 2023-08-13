@@ -7,11 +7,11 @@ protocol ParsersConfiguratorProtocol {
 
 struct ParsersConfiguratorModel {
     let parser: ParserProtocol
-    var isOn = false
+    var isOn: Bool
 
     init(parser: ParserProtocol) {
         self.parser = parser
-        self.isOn = UserDefaultsHelper().getValueFor(key: parser.id)
+        self.isOn = UserDefaultsHelper.shared.getValueFor(key: parser.url)
     }
 }
 
@@ -20,7 +20,7 @@ final class ParsersConfigurator: ParsersConfiguratorProtocol {
     private var models: [String: ParsersConfiguratorModel]
 
     func allParsers() -> [ParserProtocol] {
-        models.map({ $0.value.parser }).sorted(by: { $0.id > $1.id })
+        models.map({ $0.value.parser }).sorted(by: { $0.url > $1.url })
     }
 
     func getParsers() -> [ParserProtocol] {
@@ -37,7 +37,7 @@ final class ParsersConfigurator: ParsersConfiguratorProtocol {
         self.models = [:]
         models.forEach { [weak self] parserModel in
             guard let self = self else { return }
-            self.models.updateValue(parserModel, forKey: parserModel.parser.id)
+            self.models.updateValue(parserModel, forKey: parserModel.parser.url)
         }
 
         NotificationCenter.default.addObserver(

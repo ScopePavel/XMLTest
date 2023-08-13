@@ -1,7 +1,7 @@
 import Foundation
 
 protocol FullFeedViewModel {
-    var cellModel: NewsShortDisplayViewModel? { get set }
+    var cellModel: FullFeedModel { get }
 
     func viewControllerIsRemoving()
 }
@@ -10,7 +10,7 @@ final class FullFeedViewModelImpl: FullFeedViewModel {
 
     // MARK: - Internal properties
 
-    var cellModel: NewsShortDisplayViewModel?
+    let cellModel: FullFeedModel
 
     // MARK: - Private properties
 
@@ -18,7 +18,7 @@ final class FullFeedViewModelImpl: FullFeedViewModel {
 
     // MARK: - Init
 
-    init(fullFeedOutput: FullFeedOutput, model: NewsShortDisplayViewModel) {
+    init(fullFeedOutput: FullFeedOutput, model: FullFeedModel) {
         self.cellModel = model
         self.fullFeedOutput = fullFeedOutput
     }

@@ -3,7 +3,7 @@ import UIKit
 
 protocol FeedOutput {
     func showSettings()
-    func showFullFeed(model: NewsShortDisplayViewModel)
+    func showFullFeed(model: FullFeedModel)
 }
 
 final class FeedCoordinator: CoordinatorProtocol {
@@ -15,9 +15,9 @@ final class FeedCoordinator: CoordinatorProtocol {
     private var moduleInput: UIViewController { self.newslineModule }
     private lazy var parsersConfigurator: ParsersConfigurator = {
         let parserConfigModels = [
-            ParsersConfiguratorModel(parser: ParserManager(id: "http://lenta.ru/rss")),
-            ParsersConfiguratorModel(parser: ParserManager(id: "http://www.gazeta.ru/export/rss/lenta.xml")),
-            ParsersConfiguratorModel(parser: ParserManager(id: "https://meduza.io/rss/all"))
+            ParsersConfiguratorModel(parser: ParserManager(url: "http://lenta.ru/rss")),
+            ParsersConfiguratorModel(parser: ParserManager(url: "http://www.gazeta.ru/export/rss/lenta.xml")),
+            ParsersConfiguratorModel(parser: ParserManager(url: "https://meduza.io/rss/all"))
         ]
         return ParsersConfigurator(models: parserConfigModels)
     }()
@@ -45,7 +45,7 @@ final class FeedCoordinator: CoordinatorProtocol {
 
 extension FeedCoordinator: FeedOutput {
 
-    func showFullFeed(model: NewsShortDisplayViewModel) {
+    func showFullFeed(model: FullFeedModel) {
         self.startDetailedNewsCoordinator(
             model: model,
             sourceViewController: self.newslineModule,

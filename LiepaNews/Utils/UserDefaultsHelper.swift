@@ -2,7 +2,9 @@ import Foundation
 
 final class UserDefaultsHelper {
 
-    // MARK: - Private properties
+    static let shared = UserDefaultsHelper()
+
+    private init() {}
 
     var timeIntervalForTimer: Double {
         get {

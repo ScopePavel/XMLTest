@@ -108,7 +108,7 @@ private extension SettingViewController {
 
 extension SettingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel?.parsersConfigurator.allParsers().count ?? 0
+        viewModel?.urls.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -117,9 +117,9 @@ extension SettingViewController: UITableViewDataSource {
                 withIdentifier: SettingCell.reuseIdentifier,
                 for: indexPath
             ) as? SettingCell,
-            let parser = viewModel?.parsersConfigurator.allParsers()[safe: indexPath.row]
+            let url = viewModel?.urls[safe: indexPath.row]
         else { return UITableViewCell() }
-        cell.config(parser: parser)
+        cell.config(url: url)
         return cell
     }
 }

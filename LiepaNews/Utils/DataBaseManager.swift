@@ -5,7 +5,7 @@ struct RealmError: Error {
     let description: String
 }
 
-class FeedDataBaseModel: Object, NewsWithSourceModel {
+class FeedDataBaseModel: Object, FeedModel {
     @objc dynamic var title: String = ""
     @objc dynamic var descriptionNews: String?
     @objc dynamic var source: String = ""
@@ -14,44 +14,31 @@ class FeedDataBaseModel: Object, NewsWithSourceModel {
     @objc dynamic var imageURLString: String?
 }
 
-extension FeedDataBaseModel {
-    func mapToFeedView() -> FeedCellViewModel {
-        FeedCellViewModel(
-            title: title,
-            datePub: date,
-            description: descriptionNews,
-            url: imageURLString,
-            source: source,
-            guId: guId,
-            isView: true
-        )
-    }
-}
-
 protocol DataBaseManagerProtocol {
-    var feeds: [NewsWithSourceModel] { get }
+    var feeds: [FeedModel] { get }
 
-    func saveReadNews(model: NewsWithSourceModel)
+    func saveReadNews(model: FeedModel)
 }
 
 final class DataBaseManager: DataBaseManagerProtocol {
 
     private var realm = try? Realm(configuration: .defaultConfiguration)
 
-    var feeds: [NewsWithSourceModel] {
+    var feeds: [FeedModel] {
         guard let realm = realm else { return [] }
         return realm
             .objects(FeedDataBaseModel.self)
-            .compactMap { model -> NewsWithSourceModel in model }
+            .compactMap { model -> FeedModel in model }
     }
 
-    func saveReadNews(model: NewsWithSourceModel) {
+    func saveReadNews(model: FeedModel) {
         do {
-            try self.realm?.write {
-                let model = model.managedObject()
-                self.realm?.add(model)
+            if !feeds.contains(where: { $0.isEqual(to: model.managedObject()) }) {
+                try self.realm?.write {
+                    let model = model.managedObject()
+                    self.realm?.add(model)
+                }
             }
-
         } catch {
             print("write realm error")
         }

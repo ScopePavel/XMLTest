@@ -1,28 +1,32 @@
 import Foundation
 
 protocol ParserProtocol {
-    var id: String { get }
+    var url: String { get }
 
-    func getData(complition: (([NewsWithSourceModel]) -> Void)?)
+    func getData(complition: (([FeedModel]) -> Void)?)
 }
 
 final class ParserManager: NSObject, ParserProtocol, XMLParserDelegate {
-    var id: String
-    private var feeds: [NewsWithSourceModel] = []
-    private var complition: (([NewsWithSourceModel]) -> Void)?
+    var url: String
+    private var feeds: [FeedModel] = []
+    private var complition: (([FeedModel]) -> Void)?
     private var parserModel = ParserModel.defaultParserModel
 
-    init(id: String) {
-        self.id = id
+    init(url: String) {
+        self.url = url
     }
 
-    func getData(complition: (([NewsWithSourceModel]) -> Void)?) {
+    func getData(complition: (([FeedModel]) -> Void)?) {
         feeds = []
         self.complition = complition
-        guard let url = URL(string: id) else { return }
+        guard let url = URL(string: url) else { return }
         let task = URLSession.shared.dataTask(with: url) { data, _, error in
+            if error != nil {
+                complition?(self.feeds)
+            }
             guard let data = data else {
                 print(error ?? "Unknown error")
+                complition?(self.feeds)
                 return
             }
 
@@ -79,7 +83,7 @@ extension ParserManager {
         qualifiedName qName: String?
     ) {
         if elementName == RSSConstants.item.rawValue {
-            feeds.append(RSSWithSourceModel(
+            feeds.append(RSSFeedModel(
                 title: parserModel.title,
                 descriptionNews: parserModel.description,
                 source: parserModel.link,
