@@ -17,6 +17,7 @@ final class SettingViewController: UIViewController {
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.showsVerticalScrollIndicator = false
         tableView.alwaysBounceVertical = false
+        tableView.rowHeight = UITableView.automaticDimension
         return tableView
     }()
 
@@ -125,4 +126,12 @@ extension SettingViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 
-extension SettingViewController: UITableViewDelegate { }
+extension SettingViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        UITableView.automaticDimension
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        UITableView.automaticDimension
+    }
+}

@@ -39,7 +39,7 @@ final class FeedViewController: UIViewController {
 
 extension FeedViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel?.setFeed(index: indexPath.row)
+        viewModel?.safeFeed(index: indexPath.row)
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

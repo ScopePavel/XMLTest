@@ -40,6 +40,7 @@
 		CDB98EC32A7ED556008C6256 /* InteractionNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB98EC22A7ED556008C6256 /* InteractionNavigationController.swift */; };
 		CDB98EC62A7ED632008C6256 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB98EC52A7ED632008C6256 /* SettingsCoordinator.swift */; };
 		CDB98EC82A7F1141008C6256 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB98EC72A7F1141008C6256 /* NetworkManager.swift */; };
+		CDB98ECC2A890574008C6256 /* DTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB98ECB2A890574008C6256 /* DTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		CDB98EC22A7ED556008C6256 /* InteractionNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionNavigationController.swift; sourceTree = "<group>"; };
 		CDB98EC52A7ED632008C6256 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		CDB98EC72A7F1141008C6256 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		CDB98ECB2A890574008C6256 /* DTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,8 +125,9 @@
 		CDA504822A7D2B0300900BD3 /* LiepaNews */ = {
 			isa = PBXGroup;
 			children = (
+				CDB98ECA2A89056A008C6256 /* DTO */,
 				CDA504D42A7D45E900900BD3 /* Coordinator */,
-				CDA504AD2A7D2C7800900BD3 /* Controllers */,
+				CDA504AD2A7D2C7800900BD3 /* Flows */,
 				CDA504A82A7D2C7700900BD3 /* Utils */,
 				CDA504A72A7D2C4F00900BD3 /* Core */,
 				CDA5048C2A7D2B0400900BD3 /* Assets.xcassets */,
@@ -156,18 +159,18 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		CDA504AD2A7D2C7800900BD3 /* Controllers */ = {
+		CDA504AD2A7D2C7800900BD3 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
 				CDB98EB92A7ECB85008C6256 /* Application */,
-				CDA504AE2A7D2C7800900BD3 /* SettingViewController */,
-				CDA504B42A7D2C7800900BD3 /* FullFeedViewController */,
-				CDA504B82A7D2C7800900BD3 /* FeedViewController */,
+				CDA504AE2A7D2C7800900BD3 /* Setting */,
+				CDA504B42A7D2C7800900BD3 /* FullFeed */,
+				CDA504B82A7D2C7800900BD3 /* Feed */,
 			);
-			path = Controllers;
+			path = Flows;
 			sourceTree = "<group>";
 		};
-		CDA504AE2A7D2C7800900BD3 /* SettingViewController */ = {
+		CDA504AE2A7D2C7800900BD3 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
 				CDB98EC42A7ED625008C6256 /* SettingsCoordinator */,
@@ -176,10 +179,10 @@
 				CDA504B12A7D2C7800900BD3 /* SettingViewModel.swift */,
 				CDA504B22A7D2C7800900BD3 /* SettingCell.swift */,
 			);
-			path = SettingViewController;
+			path = Setting;
 			sourceTree = "<group>";
 		};
-		CDA504B42A7D2C7800900BD3 /* FullFeedViewController */ = {
+		CDA504B42A7D2C7800900BD3 /* FullFeed */ = {
 			isa = PBXGroup;
 			children = (
 				CDB98EBF2A7ECFB0008C6256 /* FullFeedCoordinator */,
@@ -187,10 +190,10 @@
 				CDA504B62A7D2C7800900BD3 /* FullFeedViewController.swift */,
 				CDA504B72A7D2C7800900BD3 /* FullFeedBuilder.swift */,
 			);
-			path = FullFeedViewController;
+			path = FullFeed;
 			sourceTree = "<group>";
 		};
-		CDA504B82A7D2C7800900BD3 /* FeedViewController */ = {
+		CDA504B82A7D2C7800900BD3 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
 				CDB98EBC2A7ECBCD008C6256 /* FeedCoordinator */,
@@ -200,7 +203,7 @@
 				CDA504C02A7D2C7800900BD3 /* FeedViewModel.swift */,
 				CDA504C12A7D2C7800900BD3 /* FeedViewController.swift */,
 			);
-			path = FeedViewController;
+			path = Feed;
 			sourceTree = "<group>";
 		};
 		CDA504B92A7D2C7800900BD3 /* Cells */ = {
@@ -270,6 +273,14 @@
 				CDB98EC52A7ED632008C6256 /* SettingsCoordinator.swift */,
 			);
 			path = SettingsCoordinator;
+			sourceTree = "<group>";
+		};
+		CDB98ECA2A89056A008C6256 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				CDB98ECB2A890574008C6256 /* DTO.swift */,
+			);
+			path = DTO;
 			sourceTree = "<group>";
 		};
 		EB905E5F97DA89EC076BF152 /* Pods */ = {
@@ -416,6 +427,7 @@
 				CDA504D22A7D2C7800900BD3 /* FeedViewModel.swift in Sources */,
 				CDA504D32A7D2C7800900BD3 /* FeedViewController.swift in Sources */,
 				CDA504C42A7D2C7800900BD3 /* ParsersConfigurator.swift in Sources */,
+				CDB98ECC2A890574008C6256 /* DTO.swift in Sources */,
 				CDA504C22A7D2C7800900BD3 /* UserDefaultsHelper.swift in Sources */,
 				CDB98EC32A7ED556008C6256 /* InteractionNavigationController.swift in Sources */,
 				CDB98EC12A7ECFC9008C6256 /* FullFeedCoordinator.swift in Sources */,

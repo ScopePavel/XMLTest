@@ -1,28 +1,37 @@
 import Foundation
 
 protocol FeedViewModel {
-    var feeds: [FeedCellViewModel] { get set }
+    var feeds: [NewsShortDisplayViewModel] { get }
     var onUpdate: (() -> Void)? { get set }
 
     func start()
     func showSettings()
-    func setFeed(index: Int)
+    func safeFeed(index: Int)
 }
 
 final class FeedViewModelImpl: FeedViewModel {
 
     // MARK: - Internal properties
 
-    var feeds: [FeedCellViewModel] = []
+    var feeds: [NewsShortDisplayViewModel] {
+        if newsWithSourceModels.isEmpty { return viewedFeeds.map { $0.convertToReadNewsShortDisplayViewModel() } }
+        let newsShortDisplayViewModel = self.newsWithSourceModels.compactMap { model -> NewsShortDisplayViewModel in
+            viewedFeeds.contains(where: { $0.isEqual(to: model) })
+            ? model.convertToReadNewsShortDisplayViewModel()
+            : model.convertToNoReadNewsShortDisplayViewModel()
+        }
+        return newsShortDisplayViewModel
+    }
     var onUpdate: (() -> Void)?
 
     // MARK: - Private properties
 
+    private var newsWithSourceModels: [NewsWithSourceModel] = []
     private var networkManager: NetworkManager
     private let dataBaseManager: DataBaseManagerProtocol
     private var timer: Timer?
     private var feedOutput: FeedOutput?
-    private var viewedFeeds: [FeedCellViewModel] {
+    private var viewedFeeds: [NewsWithSourceModel] {
         dataBaseManager.feeds.sorted(by: { $0.date > $1.date })
     }
 
@@ -41,25 +50,24 @@ final class FeedViewModelImpl: FeedViewModel {
     // MARK: - Public
 
     func start() {
-        getPreloadData()
+        onUpdate?()
         startUpdatesData()
     }
 
     func showSettings() {
-        getPreloadData()
+        onUpdate?()
         startUpdatesData()
         feedOutput?.showSettings()
     }
 
-    func showFullFeed(model: FeedCellViewModel) {
+    func showFullFeed(model: NewsShortDisplayViewModel) {
         feedOutput?.showFullFeed(model: model)
     }
 
-    func setFeed(index: Int) {
-        guard let model = feeds[safe: index] else { return }
-        dataBaseManager.setFeed(model: model)
-        feeds[index].isView = true
-        showFullFeed(model: model)
+    func safeFeed(index: Int) {
+        guard let model = newsWithSourceModels[safe: index] else { return }
+        dataBaseManager.saveReadNews(model: model.managedObject())
+        showFullFeed(model: model.convertToReadNewsShortDisplayViewModel())
     }
 }
 
@@ -78,22 +86,10 @@ private extension FeedViewModelImpl {
         timer?.fire()
     }
 
-    func getPreloadData() {
-        self.feeds = self.viewedFeeds
-        onUpdate?()
-    }
-
     func getData() {
         networkManager.getFeeds { [weak self] networkFeeds in
             guard let self = self else { return }
-            self.feeds = networkFeeds.compactMap { feed -> FeedCellViewModel? in
-                if self.viewedFeeds.contains(feed) {
-                    var newFeed = feed
-                    newFeed.isView = true
-                    return newFeed
-                }
-                return feed
-            }.sorted(by: { $0.date > $1.date })
+            self.newsWithSourceModels = networkFeeds
             self.onUpdate?()
         }
     }

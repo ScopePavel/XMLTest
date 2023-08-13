@@ -17,7 +17,7 @@ struct FeedCellViewModel {
 
 extension FeedCellViewModel: Equatable {
     static func == (lhs: FeedCellViewModel, rhs: FeedCellViewModel) -> Bool {
-        lhs.title == rhs.title
+        lhs.source == rhs.source
     }
 }
 
@@ -27,7 +27,7 @@ extension FeedCellViewModel {
         dataBaseModel.title = title ?? ""
         dataBaseModel.descriptionNews = description
         dataBaseModel.source = source ?? ""
-        dataBaseModel.datePub = datePub ?? ""
+        dataBaseModel.date = datePub ?? ""
         dataBaseModel.imageURLString = url
         return dataBaseModel
     }
@@ -98,15 +98,15 @@ final class FeedCell: UITableViewCell, ReusableView {
 
     // MARK: - Public
 
-    func config(model: FeedCellViewModel) {
+    func config(model: NewsShortDisplayViewModel) {
         descriptionLabel.text = model.description ?? ""
-        titleLabel.text = model.title ?? ""
+        titleLabel.text = model.title
         sourceLabel.text = model.source ?? ""
-        if let url = model.url {
+        if let url = model.imageURLString {
             picterImageView.sd_setImage(with: URL(string: url), completed: nil)
         }
 
-        backgroundColor = model.isView ? .green : .white
+        backgroundColor = model.isRead ? .green : .white
     }
 }
 

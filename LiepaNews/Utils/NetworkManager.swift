@@ -1,20 +1,20 @@
 import Foundation
 
 protocol NetworkManager {
-    func getFeeds(complition: @escaping (([FeedCellViewModel]) -> Void))
+    func getFeeds(complition: @escaping (([NewsWithSourceModel]) -> Void))
 }
 
 final class NetworkManagerImpl: NetworkManager {
 
     private let parsersConfigurator: ParsersConfiguratorProtocol
-    private var feeds: [FeedCellViewModel] = []
+    private var feeds: [NewsWithSourceModel] = []
     private var group = DispatchGroup()
 
     init(parsersConfigurator: ParsersConfiguratorProtocol) {
         self.parsersConfigurator = parsersConfigurator
     }
 
-    func getFeeds(complition: @escaping (([FeedCellViewModel]) -> Void)) {
+    func getFeeds(complition: @escaping (([NewsWithSourceModel]) -> Void)) {
         feeds = []
         self.parsersConfigurator.getParsers().forEach { [weak self] parser in
             self?.group.enter()

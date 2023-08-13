@@ -3,20 +3,20 @@ import Foundation
 protocol ParserProtocol {
     var id: String { get }
 
-    func getData(complition: (([FeedCellViewModel]) -> Void)?)
+    func getData(complition: (([NewsWithSourceModel]) -> Void)?)
 }
 
 final class ParserManager: NSObject, ParserProtocol, XMLParserDelegate {
     var id: String
-    private var feeds: [FeedCellViewModel] = []
-    private var complition: (([FeedCellViewModel]) -> Void)?
+    private var feeds: [NewsWithSourceModel] = []
+    private var complition: (([NewsWithSourceModel]) -> Void)?
     private var parserModel = ParserModel.defaultParserModel
 
     init(id: String) {
         self.id = id
     }
 
-    func getData(complition: (([FeedCellViewModel]) -> Void)?) {
+    func getData(complition: (([NewsWithSourceModel]) -> Void)?) {
         feeds = []
         self.complition = complition
         guard let url = URL(string: id) else { return }
@@ -40,13 +40,15 @@ final class ParserManager: NSObject, ParserProtocol, XMLParserDelegate {
         var url: String
         var link: String
         var guId: String
+        var pubDate: String
 
         static let defaultParserModel = ParserModel(currentElement: "",
                                                     title: "",
                                                     description: "",
                                                     url: "",
                                                     link: "",
-                                                    guId: "")
+                                                    guId: "",
+                                                    pubDate: "")
     }
 }
 
@@ -77,13 +79,12 @@ extension ParserManager {
         qualifiedName qName: String?
     ) {
         if elementName == RSSConstants.item.rawValue {
-            feeds.append(FeedCellViewModel(
+            feeds.append(RSSWithSourceModel(
                 title: parserModel.title,
-                datePub: parserModel.link,
-                description: parserModel.description,
-                url: parserModel.url,
+                descriptionNews: parserModel.description,
                 source: parserModel.link,
-                guId: parserModel.guId
+                date: parserModel.pubDate,
+                imageURLString: parserModel.url
             ))
         }
     }
@@ -92,6 +93,8 @@ extension ParserManager {
         switch parserModel.currentElement {
         case "title":
             parserModel.title += string
+        case "pubDate":
+            parserModel.pubDate += string
         case "link":
             parserModel.link += string
         case "description":

@@ -61,6 +61,7 @@ private extension SettingCell {
             resourceNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.padding),
             resourceNameLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: Constants.padding),
             resourceNameLabel.rightAnchor.constraint(equalTo: isOnSwitch.leftAnchor, constant: -Constants.padding),
+            resourceNameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constants.padding),
             isOnSwitch.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -Constants.padding),
             isOnSwitch.centerYAnchor.constraint(equalTo: resourceNameLabel.centerYAnchor)
         ])

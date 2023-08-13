@@ -90,10 +90,10 @@ private extension FullFeedViewController {
 
     func configView() {
         guard let cellModel = viewModel?.cellModel else { return }
-        titleLabel.text = cellModel.title ?? ""
-        autorLabel.text = cellModel.source ?? ""
-        descriptionLabel.text = cellModel.description ?? ""
-        if let url = cellModel.url {
+        titleLabel.text = cellModel.title
+        autorLabel.text = cellModel.source
+        descriptionLabel.text = cellModel.description
+        if let url = cellModel.imageURLString {
             image.sd_setImage(with: URL(string: url), completed: nil)
         }
     }

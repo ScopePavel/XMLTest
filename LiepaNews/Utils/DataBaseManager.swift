@@ -1,11 +1,15 @@
 import Foundation
 import RealmSwift
 
-class FeedDataBaseModel: Object {
-    @objc dynamic var title: String?
+struct RealmError: Error {
+    let description: String
+}
+
+class FeedDataBaseModel: Object, NewsWithSourceModel {
+    @objc dynamic var title: String = ""
     @objc dynamic var descriptionNews: String?
-    @objc dynamic var source: String?
-    @objc dynamic var datePub: String?
+    @objc dynamic var source: String = ""
+    @objc dynamic var date: String = ""
     @objc dynamic var guId: String?
     @objc dynamic var imageURLString: String?
 }
@@ -14,7 +18,7 @@ extension FeedDataBaseModel {
     func mapToFeedView() -> FeedCellViewModel {
         FeedCellViewModel(
             title: title,
-            datePub: datePub,
+            datePub: date,
             description: descriptionNews,
             url: imageURLString,
             source: source,
@@ -25,36 +29,31 @@ extension FeedDataBaseModel {
 }
 
 protocol DataBaseManagerProtocol {
-    var feeds: [FeedCellViewModel] { get }
+    var feeds: [NewsWithSourceModel] { get }
 
-    func setFeed(model: FeedCellViewModel)
+    func saveReadNews(model: NewsWithSourceModel)
 }
 
 final class DataBaseManager: DataBaseManagerProtocol {
 
     private var realm = try? Realm(configuration: .defaultConfiguration)
 
-    func setFeed(model: FeedCellViewModel) {
-        guard
-            let realm = realm,
-            !feeds.contains(model)
-        else { return }
-        let feedDataBase = model.mapToDataBase()
-        do {
-            try realm.write {
-                realm.add(feedDataBase)
-            }
-        } catch {
-            print("realm error")
-        }
+    var feeds: [NewsWithSourceModel] {
+        guard let realm = realm else { return [] }
+        return realm
+            .objects(FeedDataBaseModel.self)
+            .compactMap { model -> NewsWithSourceModel in model }
     }
 
-    var feeds: [FeedCellViewModel] {
-        guard let realm = realm else {
-            print("instance realm is nil")
-            return []
+    func saveReadNews(model: NewsWithSourceModel) {
+        do {
+            try self.realm?.write {
+                let model = model.managedObject()
+                self.realm?.add(model)
+            }
+
+        } catch {
+            print("write realm error")
         }
-        let feedsFromDataBase = Array(realm.objects(FeedDataBaseModel.self).map { $0.mapToFeedView() })
-        return feedsFromDataBase
     }
 }

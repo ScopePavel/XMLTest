@@ -3,7 +3,7 @@ import UIKit
 
 protocol FeedOutput {
     func showSettings()
-    func showFullFeed(model: FeedCellViewModel)
+    func showFullFeed(model: NewsShortDisplayViewModel)
 }
 
 final class FeedCoordinator: CoordinatorProtocol {
@@ -45,7 +45,7 @@ final class FeedCoordinator: CoordinatorProtocol {
 
 extension FeedCoordinator: FeedOutput {
 
-    func showFullFeed(model: FeedCellViewModel) {
+    func showFullFeed(model: NewsShortDisplayViewModel) {
         self.startDetailedNewsCoordinator(
             model: model,
             sourceViewController: self.newslineModule,
